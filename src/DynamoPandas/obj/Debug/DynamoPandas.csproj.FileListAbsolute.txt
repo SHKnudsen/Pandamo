@@ -4,3 +4,12 @@ C:\Users\SylvesterKnudsen\source\repos\DynamoPandas\DynamoPandas\obj\Debug\Dynam
 C:\Users\SylvesterKnudsen\source\repos\DynamoPandas\DynamoPandas\obj\Debug\DynamoPandas.csproj.CoreCompileInputs.cache
 C:\Users\SylvesterKnudsen\source\repos\DynamoPandas\DynamoPandas\obj\Debug\DynamoPandas.dll
 C:\Users\SylvesterKnudsen\source\repos\DynamoPandas\DynamoPandas\obj\Debug\DynamoPandas.pdb
+C:\Users\SylvesterKnudsen\Documents\GitHub\Pandamo\src\DynamoPandas\bin\Debug\DynamoPandas.dll
+C:\Users\SylvesterKnudsen\Documents\GitHub\Pandamo\src\DynamoPandas\bin\Debug\DynamoPandas.pdb
+C:\Users\SylvesterKnudsen\Documents\GitHub\Pandamo\src\DynamoPandas\obj\Debug\DynamoPandas.csprojAssemblyReference.cache
+C:\Users\SylvesterKnudsen\Documents\GitHub\Pandamo\src\DynamoPandas\obj\Debug\DynamoPandas.csproj.CoreCompileInputs.cache
+C:\Users\SylvesterKnudsen\Documents\GitHub\Pandamo\src\DynamoPandas\obj\Debug\DynamoPandas.dll
+C:\Users\SylvesterKnudsen\Documents\GitHub\Pandamo\src\DynamoPandas\obj\Debug\DynamoPandas.pdb
+C:\Users\SylvesterKnudsen\Documents\GitHub\Pandamo\src\DynamoPandas\bin\Debug\RestSharp.dll
+C:\Users\SylvesterKnudsen\Documents\GitHub\Pandamo\src\DynamoPandas\bin\Debug\RestSharp.xml
+C:\Users\SylvesterKnudsen\Documents\GitHub\Pandamo\src\DynamoPandas\obj\Debug\DynamoPandas.csproj.CopyComplete

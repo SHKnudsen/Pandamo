@@ -12,6 +12,7 @@ namespace DynamoPandas.FilterDataframe
 {
     public static class FilterByItems
     {
+        /*
         public static DataFrame ByItems(DataFrame dataframe, List<string> items, int axis)
         {
             string pythonScriptPath = @"filters\filter_dataframe.py";
@@ -21,5 +22,6 @@ namespace DynamoPandas.FilterDataframe
             string processOutput = NewProcess.CreateNewProcess(argumentString);
             return new DataFrame(processOutput);
         }
+        */
     }
 }
