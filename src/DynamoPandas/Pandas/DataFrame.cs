@@ -21,7 +21,7 @@ namespace DynamoPandas.Pandas
     {
         private string dataframeJson;
 
-        public string DataFrameJson { get { return this.dataframeJson.ToFormattedString(); } }
+        public string DataFrameJson => this.dataframeJson.ToFormattedString();
 
         internal string InternalDfJson => this.dataframeJson;
 

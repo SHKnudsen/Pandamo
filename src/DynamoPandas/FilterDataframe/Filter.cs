@@ -10,7 +10,7 @@ using DesignScript.Builtin;
 
 namespace DynamoPandas.FilterDataframe
 {
-    public static class FilterByItems
+    public static class Filter
     {
         /*
         public static DataFrame ByItems(DataFrame dataframe, List<string> items, int axis)

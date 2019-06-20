@@ -127,7 +127,7 @@
   <ItemGroup>
     <Compile Include="Class2.cs" />
     <Compile Include="Constants\PythonConstants.cs" />
-    <Compile Include="FilterDataframe\FilterByItems.cs" />
+    <Compile Include="FilterDataframe\Filter.cs" />
     <Compile Include="Format\DataFrameFormatters.cs" />
     <Compile Include="Pandas\DataFrame.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
