@@ -132,6 +132,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PythonProcess\NewProcess.cs" />
     <Compile Include="PythonRestTest.cs" />
+    <Compile Include="Utilities\DictionaryHelpers.cs" />
+    <Compile Include="Utilities\JsonHelper.cs" />
     <Compile Include="Utilities\StringExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
