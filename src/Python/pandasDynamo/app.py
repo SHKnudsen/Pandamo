@@ -7,6 +7,7 @@ import sys
 sys.path.append('C:/Users/SylvesterKnudsen/Documents/GitHub/Pandamo/src/Python/pandasDynamo')
 from pandas_funcs.create_dataframe.from_converted_dyn_dict import *
 from pandas_funcs.format.tabulate_dataframe import *
+from pandas_funcs.filters.filter_dataframe import *
  
 # initialize the flask application
 app = Flask(__name__)
@@ -29,7 +30,7 @@ def create_dataframe():
         response.status_code = 400
     return response
 
-# endpoint api_1() with post method for create dataframe from dict
+# endpoint api_1() with post method for tabulateing dataframe
 @app.route("/api/v1.0/tabulate_dataframe", methods=["POST"])
 def format_tabulate_dataframe():
     try:
@@ -38,6 +39,25 @@ def format_tabulate_dataframe():
         df_string = tabulate_dataframe(df)
         response = app.response_class(
             response=df_string,
+            status=200,
+            mimetype='application/json'
+        )
+    except:
+        exception_message = sys.exc_info()[1]
+        response = json.dumps({"content":exception_message})
+        response.status_code = 400
+    return response
+
+# endpoint api_1() with post method for filtering dataframe
+@app.route("/api/v1.0/filter_dataframe", methods=["POST"])
+def filters_filter_dataframe():
+    try:
+        request_json = request.get_json()
+        df = pd.read_json(json.dumps(request_json), orient='index')
+        filtered_df = filter_dataframe(df)
+        df_json = filtered_df.to_json(orient='index')
+        response = app.response_class(
+            response=df_json,
             status=200,
             mimetype='application/json'
         )
