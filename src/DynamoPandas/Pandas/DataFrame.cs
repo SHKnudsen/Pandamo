@@ -23,6 +23,8 @@ namespace DynamoPandas.Pandas
 
         public string DataFrameJson { get { return this.dataframeJson.ToFormattedString(); } }
 
+        internal string InternalDfJson => this.dataframeJson;
+
 
         internal DataFrame(string dfJson)
         {
@@ -34,9 +36,9 @@ namespace DynamoPandas.Pandas
         {
             var dict = DictionaryHelpers.ToCDictionary(dataDictionary);
             string jsonStr = JsonConvert.SerializeObject(dict, Formatting.None);
-            string dataframeString = DynamoPandas.PythonRestTest
+            string dataframeJson = DynamoPandas.PythonRestTest
                 .CSharpPythonRestfulApiSimpleTest("http://127.0.0.1:5000/api/v1.0/create_dataframe_from_dict", jsonStr);
-            DataFrame df = new DataFrame(dataframeString);
+            DataFrame df = new DataFrame(dataframeJson);
             return df;
         }
 
