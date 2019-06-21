@@ -11,7 +11,17 @@ namespace DynamoPandas.Utilities
     {
         public static object Deserialize(string json)
         {
-            return ToObject(JToken.Parse(json));
+            List<string> keys = new List<string>();
+            List<object> values = new List<object>();
+            JObject jObject = JObject.Parse(json);
+            foreach (JProperty prop in jObject.Properties())
+            {
+                keys.Add(prop.Name);
+                object value = (prop.Value.ToObject<object>() == null) ? "null" : ToObject(prop.Value);
+                values.Add(value);
+            }
+            Dictionary<string, object> dic = keys.Zip(values, (k, v) => new { k, v }).ToDictionary(x => x.k, x => x.v);
+            return dic;
         }
 
         private static object ToObject(JToken token)
@@ -25,6 +35,10 @@ namespace DynamoPandas.Utilities
 
                 case JTokenType.Array:
                     return token.Select(ToObject).ToList();
+                case JTokenType.Integer:
+                case JTokenType.Float:
+                case JTokenType.String:
+                case JTokenType.Boolean:
 
                 default:
                     return ((JValue)token).Value;

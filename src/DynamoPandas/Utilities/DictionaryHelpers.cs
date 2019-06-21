@@ -16,7 +16,11 @@ namespace DynamoPandas.Utilities
             {
                 if (value.GetType() == typeof(DesignScript.Builtin.Dictionary))
                 {
-                    DesignScript.Builtin.Dictionary subDict = value as DesignScript.Builtin.Dictionary;
+                    /*DesignScript.Builtin.Dictionary subDict = value as DesignScript.Builtin.Dictionary;
+                    if (subDict.GetType() == typeof(DesignScript.Builtin.Dictionary))
+                    {
+
+                    }*/
                     List<string> subKeys = subDict.Keys.ToList();
                     List<object> subVals = subDict.Values.ToList();
                     var newDict = subKeys.Zip(subVals, (k, v) => new { k, v }).ToDictionary(x => x.k, x => x.v);
