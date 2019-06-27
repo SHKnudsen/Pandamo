@@ -4,16 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DynamoPandas.Pandas;
+using DynamoPandas.Constants;
 
 namespace DynamoPandas.Format
 {
     public static class DataFrameFormatters
     {
-        public static string Tabulate(DataFrame dataFrame)
+        public static string Tabulate(DataFrame dataframe)
         {
-            string formattedDataframe = DynamoPandas.PythonRestTest
-                .CSharpPythonRestfulApiSimpleTest("http://127.0.0.1:5000/api/v1.0/tabulate_dataframe", dataFrame.InternalDfJson);
-            return formattedDataframe;
+            string jsonStr = dataframe.InternalDfJson;
+            string dataframeJson = DynamoPandas.PythonRestTest
+                .CSharpPythonRestfulApiSimpleTest(PythonConstants.webUri + "tabulate_dataframe/" + jsonStr);
+            return dataframeJson;
         }
     }
 }

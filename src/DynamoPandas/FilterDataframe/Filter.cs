@@ -12,16 +12,14 @@ namespace DynamoPandas.FilterDataframe
 {
     public static class Filter
     {
-        /*
         public static DataFrame ByItems(DataFrame dataframe, List<string> items, int axis)
         {
-            string pythonScriptPath = @"filters\filter_dataframe.py";
-            string jsonstr = dataframe.ToJsonStr();
-            string itemsString = String.Join(",", items);
-            string argumentString = string.Format("{0} {1} {2} {3}", pythonScriptPath, jsonstr, itemsString, axis);
-            string processOutput = NewProcess.CreateNewProcess(argumentString);
-            return new DataFrame(processOutput);
+            string jsonStr = dataframe.InternalDfJson;
+            string itemsStr = string.Join(",", items.ToList());
+            string dataframeJson = DynamoPandas.PythonRestTest
+                .CSharpPythonRestfulApiSimpleTest(PythonConstants.webUri + "filter_dataframe/" + jsonStr + "/" + itemsStr + "/" + axis);
+            DataFrame df = new DataFrame(dataframeJson);
+            return df;
         }
-        */
     }
 }
