@@ -14,13 +14,10 @@ namespace DynamoPandas.Utilities
             List<object> values = new List<object>();
             foreach (var value in dictionary.Values)
             {
+                //TODO: add support for deeply nested dictionarys
                 if (value.GetType() == typeof(DesignScript.Builtin.Dictionary))
                 {
-                    /*DesignScript.Builtin.Dictionary subDict = value as DesignScript.Builtin.Dictionary;
-                    if (subDict.GetType() == typeof(DesignScript.Builtin.Dictionary))
-                    {
-
-                    }*/
+                    DesignScript.Builtin.Dictionary subDict = value as DesignScript.Builtin.Dictionary;
                     List<string> subKeys = subDict.Keys.ToList();
                     List<object> subVals = subDict.Values.ToList();
                     var newDict = subKeys.Zip(subVals, (k, v) => new { k, v }).ToDictionary(x => x.k, x => x.v);

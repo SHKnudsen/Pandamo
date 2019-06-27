@@ -19,7 +19,7 @@ namespace DynamoPandas
         /// <param name="uirWebAPI">UIR web api link</param>
         /// <param name="exceptionMessage">Returned exception message</param>
         /// <returns>Web response string</returns>
-        public static string CSharpPythonRestfulApiSimpleTest(string uirWebAPI, string arguments)
+        public static string CSharpPythonRestfulApiSimpleTest(string uirWebAPI)
         {
             string exceptionMessage = string.Empty;
             string webResponse = string.Empty;
@@ -28,11 +28,11 @@ namespace DynamoPandas
                 Uri uri = new Uri(uirWebAPI);
                 WebRequest httpWebRequest = WebRequest.Create(uri);
                 httpWebRequest.ContentType = "application/json";
-                httpWebRequest.Method = "POST";
+                /*httpWebRequest.Method = "POST";
                 using (StreamWriter streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
                 {                 
                     streamWriter.Write(arguments);
-                }
+                }*/
                 WebResponse httpWebResponse = httpWebRequest.GetResponse();
                 using (StreamReader streamReader = new StreamReader(httpWebResponse.GetResponseStream()))
                 {
