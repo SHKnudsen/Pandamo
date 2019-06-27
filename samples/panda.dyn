@@ -63,13 +63,175 @@
       ],
       "Replication": "Auto",
       "Description": "DataFrame.ByDictionary (dataDictionary: Dictionary): DataFrame"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynamoPandas.Pandas.DataFrame.DataFrameJson",
+      "Id": "f7ca5a336ef64d358fc9da36f84894b4",
+      "Inputs": [
+        {
+          "Id": "34bd264e80644248b2d108abcc6ca44b",
+          "Name": "dataFrame",
+          "Description": "DynamoPandas.Pandas.DataFrame",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "1e4ca0df8b86436aa9c0e7c14be54ac3",
+          "Name": "string",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "DataFrame.DataFrameJson: string"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynamoPandas.FilterDataframe.Filter.ByItems@var,string[],int",
+      "Id": "f022bf0b78c5477ca6493a5c13194775",
+      "Inputs": [
+        {
+          "Id": "a638574151a64f5780fda48768e31bb6",
+          "Name": "dataframe",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "5b3e86b799fd456493d8602aa1df8ebe",
+          "Name": "items",
+          "Description": "string[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "2aaade7ceac04457bcd7d544ab992b73",
+          "Name": "axis",
+          "Description": "int",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "2dd776c80d1a4930879099662fa0ca61",
+          "Name": "var",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Filter.ByItems (dataframe: var, items: string[], axis: int): var"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "[\"0\",\"1\"];\n0;",
+      "Id": "57e062126a3749bb89df48e10a48fa20",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "2434a93f74f3442e8f67d98d1422a1ad",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "8193c3f82a4d440fbe1b7360ebfa7b03",
+          "Name": "",
+          "Description": "Value of expression at line 2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynamoPandas.Pandas.DataFrame.ToDictionary@var",
+      "Id": "cf4237eda9a14e10a66477ef8bf592fc",
+      "Inputs": [
+        {
+          "Id": "5f8cedd70f9c4fc5a72c4a6bae3f0ed5",
+          "Name": "dataFrame",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "6cea3d8c3a174cb286e65a34e7eebfe7",
+          "Name": "var[]..[]",
+          "Description": "var[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "DataFrame.ToDictionary (dataFrame: var): var[]..[]"
     }
   ],
   "Connectors": [
     {
       "Start": "4a2acd13ac514f2d8a73ef63200626fb",
       "End": "84b848798ff7492d9b94a05424892e55",
-      "Id": "f8470731d16040218f9f0a550758ba96"
+      "Id": "c33b1a10b4c64df29d29a0cce88fc8f6"
+    },
+    {
+      "Start": "d1fa953b29a74cbc9d9a469d4be8e2ca",
+      "End": "a638574151a64f5780fda48768e31bb6",
+      "Id": "b8c1f70b66c5479292ab31099d3fc7c1"
+    },
+    {
+      "Start": "2dd776c80d1a4930879099662fa0ca61",
+      "End": "5f8cedd70f9c4fc5a72c4a6bae3f0ed5",
+      "Id": "258a562135ab4241828e933505516079"
+    },
+    {
+      "Start": "2dd776c80d1a4930879099662fa0ca61",
+      "End": "34bd264e80644248b2d108abcc6ca44b",
+      "Id": "68fa5fd7fc1146818735839a9654e1e2"
+    },
+    {
+      "Start": "2434a93f74f3442e8f67d98d1422a1ad",
+      "End": "5b3e86b799fd456493d8602aa1df8ebe",
+      "Id": "d7f3c40adc0b4151bc14e2efeae847ae"
+    },
+    {
+      "Start": "8193c3f82a4d440fbe1b7360ebfa7b03",
+      "End": "2aaade7ceac04457bcd7d544ab992b73",
+      "Id": "b379d1ad3bec47d6bb59efa3dd7187e3"
     }
   ],
   "Dependencies": [],
@@ -113,13 +275,53 @@
         "IsSetAsInput": false,
         "IsSetAsOutput": false,
         "Excluded": false,
-        "X": 324.32343987808582,
-        "Y": 905.96685552096915
+        "X": 342.52825361571757,
+        "Y": 760.9560978177642
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "DataFrame.DataFrameJson",
+        "Id": "f7ca5a336ef64d358fc9da36f84894b4",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 475.36994609376393,
+        "Y": 977.61538881733532
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Filter.ByItems",
+        "Id": "f022bf0b78c5477ca6493a5c13194775",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1074.695636394857,
+        "Y": 826.10310045399638
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "57e062126a3749bb89df48e10a48fa20",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 643.0,
+        "Y": 882.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "DataFrame.ToDictionary",
+        "Id": "cf4237eda9a14e10a66477ef8bf592fc",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 893.15401240404628,
+        "Y": 980.24499952069482
       }
     ],
     "Annotations": [],
-    "X": 148.81144732831586,
-    "Y": -38.147881656740765,
-    "Zoom": 0.32700076931948774
+    "X": -754.45818413714062,
+    "Y": -1179.297986963787,
+    "Zoom": 1.4040598493419423
   }
 }
