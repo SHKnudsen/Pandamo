@@ -8,16 +8,16 @@ sys.path.append('C:/Users/SylvesterKnudsen/Documents/GitHub/Pandamo/src/Python/p
 from pandas_funcs.create_dataframe.from_converted_dyn_dict import *
 from pandas_funcs.format.tabulate_dataframe import *
 from pandas_funcs.filters.filter_dataframe import *
+from utillities.string_helpers import *
  
 # initialize the flask application
 app = Flask(__name__)
  
 # endpoint api_1() with post method for create dataframe from dict
-@app.route("/api/v1.0/create_dataframe_from_dict", methods=["POST"])
-def create_dataframe():
+@app.route("/pandamo/create_dataframe_from_dict/<string:jsonstring>")
+def create_dataframe(jsonstring):
     try:
-        request_json = request.get_json()
-        df = from_converted_dyn_dict(request_json)
+        df = from_converted_dyn_dict(jsonstring)
         df_json = df.to_json(orient='index')
         response = app.response_class(
             response=df_json,
@@ -31,11 +31,10 @@ def create_dataframe():
     return response
 
 # endpoint api_1() with post method for tabulateing dataframe
-@app.route("/api/v1.0/tabulate_dataframe", methods=["POST"])
-def format_tabulate_dataframe():
+@app.route("/pandamo/tabulate_dataframe/<string:jsonstr>")
+def format_tabulate_dataframe(jsonstr):
     try:
-        request_json = request.get_json()
-        df = pd.read_json(json.dumps(request_json), orient='index')
+        df = pd.read_json(json.dumps(eval(jsonstr)), orient='index')
         df_string = tabulate_dataframe(df)
         response = app.response_class(
             response=df_string,
@@ -49,12 +48,13 @@ def format_tabulate_dataframe():
     return response
 
 # endpoint api_1() with post method for filtering dataframe
-@app.route("/api/v1.0/filter_dataframe", methods=["POST"])
-def filters_filter_dataframe():
+@app.route("/pandamo/filter_dataframe/<string:jsonstr>/<string:items>/<int:axis>")
+def filters_filter_dataframe(jsonstr,items,axis):
     try:
-        request_json = request.get_json()
-        df = pd.read_json(json.dumps(request_json), orient='index')
-        filtered_df = filter_dataframe(df)
+        items = string_to_list(items)
+        axis = int(axis)
+        df = pd.read_json(json.dumps(eval(jsonstr)), orient='index')
+        filtered_df = filter_dataframe(df,items,axis)
         df_json = filtered_df.to_json(orient='index')
         response = app.response_class(
             response=df_json,
