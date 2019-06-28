@@ -1,6 +1,4 @@
-import sys
 from tabulate import tabulate
-sys.path.append('C:/Users/SylvesterKnudsen/Desktop/pandasDynamo')
 
 def tabulate_dataframe(df):
     headers = 'keys'
