@@ -3,6 +3,10 @@ import json
 from ast import literal_eval
 import pandas as pd
 import re
+import sys
+sys.path.append('C:/Users/SylvesterKnudsen/Documents/GitHub/Pandamo/src/Python/pandasDynamo')
+from pandas_funcs.filters import filter_dataframes
+from .pandas_funcs.dataframes import create_dataframe
 
 # Create Dataframes
 def create_dataframe(data_string):
@@ -106,7 +110,7 @@ def filter_dataframe_by_contains(df,items, axis):
     except Exception as e:
         return e
 
-df = create_dataframe(sys.argv[1][1:-1])
+#df = create_dataframe(sys.argv[1][1:-1])
 #jsonstr = dataframe_to_json(df)
 #dataframe = dataframe_from_json(jsonstr)
 #dataframe = pivot_dataframe(dataframe, "two's", "one's", "three's")
@@ -116,15 +120,15 @@ df = create_dataframe(sys.argv[1][1:-1])
 #dataframe = drop_columns(dataframe, "newValue")
 #dataframe = drop_rows(dataframe, 1)
 
-#datastr = """{Keys:[one's,three's,two's],Values:[[1,11,111],[3,33,333],[2,22,222]],Count:3}"""
-#df = create_dataframe(datastr)
+datastr = """{Keys:[one's,three's,two's],Values:[[1,11,111],[3,33,333],[2,22,222]],Count:3}"""
+df = create_dataframe. (datastr)
 #jsonstr = dataframe_to_json(df)
 #df = dataframe_from_json(jsonstr)
 #dataframe = dataframe.reset_index()
 #dataframe = dataframe.pivot(index=3,columns=2, values=1)
 #dataframe = rename(dataframe, [1,2], ["one","two"])
 #dataframe = drop_rows(dataframe,1)
-#df = filter_dataframe(df, [1,2], 0)
+df = filter_dataframes.by_items(df, [1,2], 0)
 #df = filter_dataframe_by_regex(df,"e's$",1)
 #df = filter_dataframe_by_contains(df,"ee",1)
 
