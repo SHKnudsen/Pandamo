@@ -13,8 +13,8 @@ namespace DynamoPandas.Format
         public static string Tabulate(DataFrame dataframe)
         {
             string jsonStr = dataframe.InternalDfJson;
-            string dataframeJson = DynamoPandas.PythonRestCall
-                .webUriCaller(PythonConstants.webUri + "tabulate_dataframe/" + jsonStr);
+            string dataframeJson = DynamoPandas.PythonRestTest
+                .CSharpPythonRestfulApiSimpleTest(PythonConstants.webUri + "tabulate_dataframe/" + jsonStr);
             return dataframeJson;
         }
     }
