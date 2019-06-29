@@ -17,7 +17,7 @@ namespace DynamoPandas.FilterDataframe
             string jsonStr = dataframe.InternalDfJson;
             string itemsStr = string.Join(",", items.ToList());
             string dataframeJson = DynamoPandas.PythonRestCall
-                .webUriCaller(PythonConstants.webUri + "filter_dataframe/" + jsonStr + "/" + itemsStr + "/" + axis);
+                .webUriCaller(PythonConstants.webUri + "api/filter_dataframe/by_items/" + jsonStr + "/" + itemsStr + "/" + axis);
             DataFrame df = new DataFrame(dataframeJson);
             return df;
         }

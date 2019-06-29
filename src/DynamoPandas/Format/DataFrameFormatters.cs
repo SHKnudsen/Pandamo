@@ -14,7 +14,7 @@ namespace DynamoPandas.Format
         {
             string jsonStr = dataframe.InternalDfJson;
             string dataframeJson = DynamoPandas.PythonRestCall
-                .webUriCaller(PythonConstants.webUri + "tabulate_dataframe/" + jsonStr);
+                .webUriCaller(PythonConstants.webUri + "api/format_dataframe/tabulate/" + jsonStr);
             return dataframeJson;
         }
     }

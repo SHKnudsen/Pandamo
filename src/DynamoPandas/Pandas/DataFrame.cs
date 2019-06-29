@@ -36,7 +36,7 @@ namespace DynamoPandas.Pandas
             var dict = DictionaryHelpers.ToCDictionary(dataDictionary);
             string jsonStr = JsonConvert.SerializeObject(dict, Formatting.None);
             string dataframeJson = DynamoPandas.PythonRestCall
-                .webUriCaller(PythonConstants.webUri + "create_dataframe_from_dict/" + jsonStr);
+                .webUriCaller(PythonConstants.webUri + "api/create_dataframe/by_dict/" + jsonStr);
             DataFrame df = new DataFrame(dataframeJson);
             return df;
         }
