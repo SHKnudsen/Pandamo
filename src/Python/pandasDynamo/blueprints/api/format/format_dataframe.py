@@ -1,7 +1,9 @@
 from tabulate import tabulate as tb
+import json
 import sys
 import pandas as pd
 from flask import Blueprint
+from flask import current_app as app
 
 mod = Blueprint('format_dataframe', __name__)
 

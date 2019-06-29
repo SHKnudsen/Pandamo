@@ -2,6 +2,7 @@ import json
 import pandas as pd
 import sys
 from flask import Blueprint
+from flask import current_app as app
 
 mod = Blueprint('create_dataframe', __name__)
 

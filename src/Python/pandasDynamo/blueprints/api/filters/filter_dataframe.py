@@ -5,6 +5,8 @@ import re
 import sys
 import os
 from flask import Blueprint
+from flask import current_app as app
+from utillities.string_helpers import string_to_list
 
 mod = Blueprint('filter_dataframe', __name__)
 
@@ -16,7 +18,7 @@ def by_items(jsonstr,items,axis):
         axis = int(axis)
         df = pd.read_json(json.dumps(eval(jsonstr)), orient='index')
         df = df.filter(items=items, axis=axis)
-        df_json = filtered_df.to_json(orient='index')
+        df_json = df.to_json(orient='index')
         response = app.response_class(
             response=df_json,
             status=200,
