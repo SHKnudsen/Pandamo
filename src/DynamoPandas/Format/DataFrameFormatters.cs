@@ -15,7 +15,12 @@ namespace DynamoPandas.Format
             string jsonStr = dataframe.InternalDfJson;
             string dataframeJson = DynamoPandas.PythonRestCall
                 .webUriCaller(PythonConstants.webUri + "api/format_dataframe/tabulate/" + jsonStr);
+            if (dataframeJson.StartsWith("An error occurred."))
+            {
+                throw new Exception(dataframeJson);            
+            }
             return dataframeJson;
+
         }
     }
 }

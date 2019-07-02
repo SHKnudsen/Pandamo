@@ -27,6 +27,10 @@ namespace DynamoPandas.Pandas
 
         internal DataFrame(string dfJson)
         {
+            if (dfJson.StartsWith("An error occurred:"))
+            {
+                throw new Exception(dfJson);
+            }
             dataframeJson = dfJson;
         }
 

@@ -21,10 +21,9 @@ namespace DynamoPandas
         /// <returns>Web response string</returns>
         public static string webUriCaller(string uirWebAPI)
         {
-            string exceptionMessage = string.Empty;
-            string webResponse = string.Empty;
             try
             {
+                string webResponse = string.Empty;
                 Uri uri = new Uri(uirWebAPI);
                 WebRequest httpWebRequest = WebRequest.Create(uri);
                 httpWebRequest.ContentType = "application/json";
@@ -33,12 +32,18 @@ namespace DynamoPandas
                 {
                     webResponse = streamReader.ReadToEnd();
                 }
+                return webResponse;
             }
-            catch (Exception ex)
+            catch (WebException ex)
             {
-                exceptionMessage = $"An error occurred. {ex.Message}";
+                string exceptionMessage = $"An error occurred:\n";
+                if (ex.Status == WebExceptionStatus.ConnectFailure)
+                {
+                    return exceptionMessage + ex.Message;
+                }  
+                var resp = new StreamReader(ex.Response.GetResponseStream()).ReadToEnd();
+                return exceptionMessage + resp;
             }
-            return webResponse;
         }
     }
 }
