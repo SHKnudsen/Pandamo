@@ -23,7 +23,7 @@ namespace DynamoPandas.PythonProcess
                     UseShellExecute = false,
                     RedirectStandardError = true,
                     RedirectStandardOutput = true,
-                    WorkingDirectory = "",
+                    WorkingDirectory = PythonConstants.ScriptPath,
                     CreateNoWindow = true
                 }
             };
