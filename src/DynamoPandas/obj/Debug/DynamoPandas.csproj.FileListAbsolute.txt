@@ -1,6 +1,0 @@
-C:\Users\SylvesterKnudsen\source\repos\DynamoPandas\DynamoPandas\bin\Debug\DynamoPandas.dll
-C:\Users\SylvesterKnudsen\source\repos\DynamoPandas\DynamoPandas\bin\Debug\DynamoPandas.pdb
-C:\Users\SylvesterKnudsen\source\repos\DynamoPandas\DynamoPandas\obj\Debug\DynamoPandas.csprojAssemblyReference.cache
-C:\Users\SylvesterKnudsen\source\repos\DynamoPandas\DynamoPandas\obj\Debug\DynamoPandas.csproj.CoreCompileInputs.cache
-C:\Users\SylvesterKnudsen\source\repos\DynamoPandas\DynamoPandas\obj\Debug\DynamoPandas.dll
-C:\Users\SylvesterKnudsen\source\repos\DynamoPandas\DynamoPandas\obj\Debug\DynamoPandas.pdb
