@@ -19,7 +19,7 @@ namespace DynamoPandas
         /// <param name="uirWebAPI">UIR web api link</param>
         /// <param name="exceptionMessage">Returned exception message</param>
         /// <returns>Web response string</returns>
-        public static string webUriCaller(string uirWebAPI)
+        public static string webUriCaller(string uirWebAPI, JObject argumentDict)
         {
             try
             {
@@ -27,6 +27,12 @@ namespace DynamoPandas
                 Uri uri = new Uri(uirWebAPI);
                 WebRequest httpWebRequest = WebRequest.Create(uri);
                 httpWebRequest.ContentType = "application/json";
+                httpWebRequest.Method = "POST";
+                using (StreamWriter streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+                {
+                    streamWriter.Write(argumentDict.ToString());
+                }
+
                 WebResponse httpWebResponse = httpWebRequest.GetResponse();
                 using (StreamReader streamReader = new StreamReader(httpWebResponse.GetResponseStream()))
                 {
