@@ -6,6 +6,7 @@ import sys
 import os
 from flask import Blueprint
 from flask import jsonify
+from flask import request
 from flask import current_app as app
 from utillities.string_helpers import string_to_list
 from utillities.exception_class import EmptyDataframe
@@ -13,8 +14,12 @@ from utillities.exception_class import EmptyDataframe
 mod = Blueprint('filter_dataframe', __name__)
 
 # Create Dataframes
-@mod.route('by_items/<string:jsonstr>/<string:items>/<int:axis>')
-def by_items(jsonstr,items,axis):
+@mod.route('by_items/', methods=["POST"])
+def by_items():
+    request_dict = request.get_json()
+    jsonstr = request_dict['jsonStr']
+    items = request_dict['items']
+    axis = request_dict['axis']
 
     items = string_to_list(items)
     axis = int(axis)
@@ -31,8 +36,13 @@ def by_items(jsonstr,items,axis):
     return response
 
 # ___________Needs testing___________
-@mod.route('by_regex/<string:jsonstr>/<string:items>/<int:axis>')
-def by_regex(jsonstr,items,axis):
+@mod.route('by_regex/', methods=["POST"])
+def by_regex():
+    request_dict = request.get_json()
+    jsonstr = request_dict['jsonStr']
+    items = request_dict['item']
+    axis = request_dict['axis']
+
     axis = int(axis)
     df = pd.read_json(json.dumps(eval(jsonstr)), orient='index')
     df = df.filter(regex=items, axis=axis)
@@ -47,8 +57,13 @@ def by_regex(jsonstr,items,axis):
     return response
 
 # ___________Needs testing___________
-@mod.route('by_contains/<string:jsonstr>/<string:items>/<int:axis>')
-def by_contains(jsonstr,items,axis):
+@mod.route('by_contains/', methods=["POST"])
+def by_contains():
+    request_dict = request.get_json()
+    jsonstr = request_dict['jsonStr']
+    items = request_dict['item']
+    axis = request_dict['axis']
+
     axis = int(axis)
     df = pd.read_json(json.dumps(eval(jsonstr)), orient='index')
     df = df.filter(like=items, axis=axis)

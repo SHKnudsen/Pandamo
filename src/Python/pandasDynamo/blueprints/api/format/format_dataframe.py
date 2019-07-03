@@ -4,13 +4,18 @@ import sys
 import pandas as pd
 from flask import Blueprint
 from flask import current_app as app
+from flask import request
 
 mod = Blueprint('format_dataframe', __name__)
 
-@mod.route('tabulate/<string:jsonstr>')
-def tabulate(jsonstr):
+@mod.route('tabulate/', methods=["POST"])
+def tabulate():
     try:
-        df = pd.read_json(json.dumps(eval(jsonstr)), orient='index')
+        request_dict = request.get_json()
+        jsonstr = request_dict['jsonStr']
+        jsonstr = json.dumps(jsonstr)
+
+        df = pd.read_json(eval(jsonstr), orient='index')
         headers = 'keys'
         tableformat = 'orgtbl'
         tabulated_df = tb(df, headers=headers, tablefmt=tableformat)
