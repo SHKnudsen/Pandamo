@@ -125,14 +125,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class2.cs" />
     <Compile Include="Constants\PythonConstants.cs" />
     <Compile Include="FilterDataframe\Filter.cs" />
     <Compile Include="Format\DataFrameFormatters.cs" />
     <Compile Include="Pandas\DataFrame.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PythonProcess\NewProcess.cs" />
-    <Compile Include="PythonRestCall.cs" />
+    <Compile Include="PythonProcess\PythonRestCall.cs" />
     <Compile Include="Select\SelectRows.cs" />
     <Compile Include="Utilities\DictionaryHelpers.cs" />
     <Compile Include="Utilities\JsonHelper.cs" />
