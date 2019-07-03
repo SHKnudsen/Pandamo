@@ -17,7 +17,17 @@ namespace PandamoNodeModels.Nodes
     [NodeName("Tabulate")]
     [NodeCategory("DataFrameFormatters.Tabulate")]
     [NodeDescription("")]
+    // The InPortNames attribute determines the
+    // amount of input ports of your node and their names.
+    [InPortNames("Dataframe")]
     [InPortTypes("DataFrame")]
+    // The InPortDescriptions attribute sets the description
+    // of your input ports in the tooltip shown when you hover them.
+    [InPortDescriptions("df")]
+
+    // The OutPortNames attribute determines the
+    // amount of output ports of your node and their names.
+    [OutPortNames("string")]
     [OutPortTypes("string")]
     [IsDesignScriptCompatible]
     public class DataframeFormatNodeModel : NodeModel
@@ -30,15 +40,6 @@ namespace PandamoNodeModels.Nodes
         public DataframeFormatNodeModel(IEnumerable<PortModel> inPorts, IEnumerable<PortModel> outPorts) : base(inPorts, outPorts)
         {
 
-        }
-
-        /// <summary>
-        /// Register the data bridge callback.
-        /// </summary>
-        protected override void OnBuilt()
-        {
-            base.OnBuilt();
-            VMDataBridge.DataBridge.Instance.RegisterCallback(GUID.ToString(), DataBridgeCallback);
         }
 
         /// <summary>
@@ -63,8 +64,12 @@ namespace PandamoNodeModels.Nodes
                 };
             }
 
+            // Build a function call to a C# function which lives in a different DLL assembly
+            // and use input nodes 0 and 1 as input values in the fuction
+            // Note that we specify input and output value types in new Func<double, double, double>
+            // which means we have two double inputs and one double output
             AssociativeNode inputNode = AstFactory.BuildFunctionCall(
-                new Func<DataFrame>(DataFrameFormatters.Tabulate),
+                new Func<DataFrame, string>(DataFrameFormatters.Tabulate),
                 new List<AssociativeNode> { inputAstNodes[0]}
             );
 
@@ -78,6 +83,5 @@ namespace PandamoNodeModels.Nodes
                 ),
             };
         }
-#endregion
     }
 }
