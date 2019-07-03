@@ -7,6 +7,7 @@ using DynamoPandas.PythonProcess;
 using DynamoPandas.Constants;
 using DynamoPandas.Pandas;
 using DesignScript.Builtin;
+using Newtonsoft.Json.Linq;
 
 namespace DynamoPandas.FilterDataframe
 {
@@ -25,8 +26,15 @@ namespace DynamoPandas.FilterDataframe
         {
             string jsonStr = dataframe.InternalDfJson;
             string itemsStr = string.Join(",", items.ToList());
+
+            // Build argument JSON objec
+            dynamic arguments = new JObject();
+            arguments.jsonStr = jsonStr;
+            arguments.items = itemsStr;
+            arguments.axis = axis;
+
             string dataframeJson = DynamoPandas.PythonRestCall
-                .webUriCaller(PythonConstants.webUri + "api/filter_dataframe/by_items/" + jsonStr + "/" + itemsStr + "/" + axis);
+                .webUriCaller(PythonConstants.webUri + "api/filter_dataframe/by_items/", arguments);
             DataFrame df = new DataFrame(dataframeJson);
             return df;
         }
@@ -42,8 +50,15 @@ namespace DynamoPandas.FilterDataframe
         public static DataFrame ByRegex(DataFrame dataframe, string item, int axis)
         {
             string jsonStr = dataframe.InternalDfJson;
+
+            // Build argument JSON objec
+            dynamic arguments = new JObject();
+            arguments.jsonStr = jsonStr;
+            arguments.item = item;
+            arguments.axis = axis;
+
             string dataframeJson = DynamoPandas.PythonRestCall
-                .webUriCaller(PythonConstants.webUri + "api/filter_dataframe/by_regex/" + jsonStr + "/" + item + "/" + axis);
+                .webUriCaller(PythonConstants.webUri + "api/filter_dataframe/by_regex/", arguments);
             DataFrame df = new DataFrame(dataframeJson);
             return df;
         }
@@ -59,8 +74,15 @@ namespace DynamoPandas.FilterDataframe
         public static DataFrame ByContains(DataFrame dataframe, string item, int axis)
         {
             string jsonStr = dataframe.InternalDfJson;
+
+            // Build argument JSON objec
+            dynamic arguments = new JObject();
+            arguments.jsonStr = jsonStr;
+            arguments.item = item;
+            arguments.axis = axis;
+
             string dataframeJson = DynamoPandas.PythonRestCall
-                .webUriCaller(PythonConstants.webUri + "api/filter_dataframe/by_contains/" + jsonStr + "/" + item + "/" + axis);
+                .webUriCaller(PythonConstants.webUri + "api/filter_dataframe/by_contains/", arguments);
             DataFrame df = new DataFrame(dataframeJson);
             return df;
         }
