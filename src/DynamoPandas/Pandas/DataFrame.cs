@@ -39,8 +39,26 @@ namespace DynamoPandas.Pandas
         {
             var dict = DictionaryHelpers.ToCDictionary(dataDictionary);
             string jsonStr = JsonConvert.SerializeObject(dict, Formatting.None);
+
+            // Build argument JSON objec
+            dynamic arguments = new JObject();
+            arguments.jsonStr = jsonStr;
+
             string dataframeJson = DynamoPandas.PythonRestCall
-                .webUriCaller(PythonConstants.webUri + "api/create_dataframe/by_dict/" + jsonStr);
+                .webUriCaller(PythonConstants.webUri + "api/create_dataframe/by_dict/", arguments);
+            DataFrame df = new DataFrame(dataframeJson);
+            return df;
+        }
+
+        public static DataFrame ByExcel(string filePath, string sheetName)
+        {
+            // Build argument JSON objec
+            dynamic arguments = new JObject();
+            arguments.filePath = filePath;
+            arguments.sheetName = sheetName;
+
+            string dataframeJson = DynamoPandas.PythonRestCall
+                .webUriCaller(PythonConstants.webUri + "api/create_dataframe/by_excel/", arguments);
             DataFrame df = new DataFrame(dataframeJson);
             return df;
         }
