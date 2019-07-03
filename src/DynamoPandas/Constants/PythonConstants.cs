@@ -8,7 +8,7 @@ namespace DynamoPandas.Constants
 {
     class PythonConstants
     {
-        public const string ScriptPath = @"C:\Users\SylvesterKnudsen\Documents\GitHub\Pandamo\src\Python\pandasDynamo";
+        public const string webUri = "http://127.0.0.1:5000/";
         public const string EnviormentActivateBat = @"C:\Users\SylvesterKnudsen\Miniconda3\Scripts\activatePandamo.bat";
     }
 }
