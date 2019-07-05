@@ -12,8 +12,6 @@
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
-    <StartAction>Program</StartAction>
-    <StartProgram>C:\Program Files\Dynamo\Dynamo Core\2\DynamoSandbox.exe</StartProgram>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -23,8 +21,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <StartAction>Program</StartAction>
-    <StartProgram>C:\Program Files\Dynamo\Dynamo Core\2\DynamoSandbox.exe</StartProgram>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -105,6 +101,7 @@
     </Reference>
     <Reference Include="RestSharp, Version=106.6.9.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
       <HintPath>..\packages\RestSharp.106.6.9\lib\net452\RestSharp.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -139,36 +136,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="pkg.json" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Target Name="AfterBuild">
-    <!--Defining folders to copy-->
-    <ItemGroup>
-      <SourceDlls Include="$(TargetDir)*.dll" />
-      <SourcePdbs Include="$(TargetDir)*.pdb" />
-      <SourceXmls Include="$(TargetDir)*.xml" />
-      <SourcePkg Include="$(ProjectDir)pkg.json" />
-      <SourceSamples Include="$(SolutionDir)..\samples\*.dyn" />
-    </ItemGroup>
-    <!--Copying to Build Folder-->
-    <Copy SourceFiles="@(SourceDlls)" DestinationFolder="$(TargetDir)$(ProjectName)\bin\" />
-    <Copy SourceFiles="@(SourcePdbs)" DestinationFolder="$(TargetDir)$(ProjectName)\bin\" />
-    <Copy SourceFiles="@(SourceXmls)" DestinationFolder="$(TargetDir)$(ProjectName)\bin\" />
-    <Copy SourceFiles="@(SourcePkg)" DestinationFolder="$(TargetDir)$(ProjectName)" />
-    <Copy SourceFiles="@(SourceSamples)" DestinationFolder="$(TargetDir)$(ProjectName)\extra" />
-    <ItemGroup>
-      <SourcePackage Include="$(TargetDir)\$(ProjectName)\**\*" />
-    </ItemGroup>
-    <PropertyGroup>
-      <!--Copy to Dynamo sandbox for testing -->
-      <DeployFolder Condition="'$(Configuration)' == 'Debug'">$(AppData)\Dynamo\Dynamo Core\2.0\packages\$(ProjectName)</DeployFolder>
-      <!--Copy to Dynamo Revit for testing -->
-      <DeployFolder Condition="'$(Configuration)' == 'DebugRevit'">$(AppData)\Dynamo\Dynamo Revit\2.0\packages\$(ProjectName)</DeployFolder>
-      <!--Copy to Dynamo revit for publishing -->
-      <DeployFolder Condition="'$(Configuration)' == 'Release'">$(AppData)\Dynamo\Dynamo Revit\2.0\packages\$(ProjectName)</DeployFolder>
-    </PropertyGroup>
-    <Copy SourceFiles="@(SourcePackage)" DestinationFolder="$(DeployFolder)\%(RecursiveDir)" />
-  </Target>
 </Project>

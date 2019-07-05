@@ -14,9 +14,9 @@ def by_match():
     column = request_dict['column']
     match_str = request_dict['matchString']
 
-    df = pd.read_json(json.dumps(eval(jsonstr)), orient='index')
+    df = pd.read_json(json.dumps(eval(jsonstr)), orient='split')
     selected_rows = df[df[column].str.match(match_str)]
-    df_json = selected_rows.to_json(orient='index')
+    df_json = selected_rows.to_json(orient='split')
     response = app.response_class(
         response=df_json,
         status=200,
@@ -31,9 +31,9 @@ def by_contains():
     column = request_dict['column']
     contains_str = request_dict['containsString']
 
-    df = pd.read_json(json.dumps(eval(jsonstr)), orient='index')
+    df = pd.read_json(json.dumps(eval(jsonstr)), orient='split')
     selected_rows = df[df[column].str.contains(contains_str)]
-    df_json = selected_rows.to_json(orient='index')
+    df_json = selected_rows.to_json(orient='split')
     response = app.response_class(
         response=df_json,
         status=200,

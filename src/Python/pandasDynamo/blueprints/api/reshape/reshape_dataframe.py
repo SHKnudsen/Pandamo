@@ -16,7 +16,7 @@ def sort_values(jsonstr, columns, ascending):
         asc = ascending == "True"
         df = pd.DataFrame(eval(jsonstring))
         df = df.sort_values(ascending=asc, by=column)
-        df_json = df.to_json(orient='index')
+        df_json = df.to_json(orient='split')
         response = app.response_class(
             response=df_json,
             status=200,
@@ -38,7 +38,7 @@ def rename_columns(df, oldValue, newValue):
         values = dict(zip(oldValue,newValue))
         df = pd.DataFrame(eval(jsonstring))
         df = df.rename(index=str, columns=values)
-        df_json = df.to_json(orient='index')
+        df_json = df.to_json(orient='split')
         response = app.response_class(
             response=df_json,
             status=200,

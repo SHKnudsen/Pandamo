@@ -23,11 +23,11 @@ def by_items():
 
     items = string_to_list(items)
     axis = int(axis)
-    df = pd.read_json(json.dumps(eval(jsonstr)), orient='index')
+    df = pd.read_json(json.dumps(eval(jsonstr)), orient='split')
     df = df.filter(items=items, axis=axis)
     if df.empty:
         raise EmptyDataframe({"content": "Returned empty dataframe, check your filter index and items"}, status_code=400)
-    df_json = df.to_json(orient='index')
+    df_json = df.to_json(orient='split')
     response = app.response_class(
         response=df_json,
         status=200,
@@ -35,7 +35,6 @@ def by_items():
     )
     return response
 
-# ___________Needs testing___________
 @mod.route('by_regex/', methods=["POST"])
 def by_regex():
     request_dict = request.get_json()
@@ -44,11 +43,11 @@ def by_regex():
     axis = request_dict['axis']
 
     axis = int(axis)
-    df = pd.read_json(json.dumps(eval(jsonstr)), orient='index')
+    df = pd.read_json(json.dumps(eval(jsonstr)), orient='split')
     df = df.filter(regex=items, axis=axis)
     if df.empty:
         raise EmptyDataframe({"content": "Returned empty dataframe, check your filter index and items"}, status_code=400)
-    df_json = df.to_json(orient='index')
+    df_json = df.to_json(orient='split')
     response = app.response_class(
         response=df_json,
         status=200,
@@ -56,7 +55,6 @@ def by_regex():
     )
     return response
 
-# ___________Needs testing___________
 @mod.route('by_contains/', methods=["POST"])
 def by_contains():
     request_dict = request.get_json()
@@ -65,11 +63,11 @@ def by_contains():
     axis = request_dict['axis']
 
     axis = int(axis)
-    df = pd.read_json(json.dumps(eval(jsonstr)), orient='index')
+    df = pd.read_json(json.dumps(eval(jsonstr)), orient='split')
     df = df.filter(like=items, axis=axis)
     if df.empty:
         raise EmptyDataframe({"content": "Returned empty dataframe, check your filter index and items"}, status_code=400)
-    df_json = df.to_json(orient='index')
+    df_json = df.to_json(orient='split')
     response = app.response_class(
         response=df_json,
         status=200,

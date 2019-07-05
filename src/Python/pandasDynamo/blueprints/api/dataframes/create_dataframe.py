@@ -14,7 +14,7 @@ def by_dict():
         request_dict = request.get_json()
         jsonstr = request_dict['jsonStr']
         df = pd.DataFrame(eval(jsonstr))
-        df_json = df.to_json(orient='index')
+        df_json = df.to_json(orient='split')
         response = app.response_class(
             response=df_json,
             status=200,
@@ -32,9 +32,8 @@ def by_excel():
     request_dict = request.get_json()
     file_path = request_dict['filePath']
     sheet_name = request_dict['sheetName']
-    df = pd.read_excel(file_path, sheet_name=sheet_name)
-    print(df.head())
-    df_json = df.to_json(orient='index')
+    df = pd.read_excel(file_path, sheet_name=sheet_name, header=0)
+    df_json = df.to_json(orient='split')
     response = app.response_class(
             response=df_json,
             status=200,
