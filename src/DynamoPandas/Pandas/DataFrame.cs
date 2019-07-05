@@ -13,6 +13,8 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 using Autodesk.DesignScript.Runtime;
 using System.Text.RegularExpressions;
+using System.Collections.Specialized;
+
 
 namespace DynamoPandas.Pandas
 {
@@ -59,6 +61,24 @@ namespace DynamoPandas.Pandas
 
             string dataframeJson = DynamoPandas.PythonRestCall
                 .webUriCaller(PythonConstants.webUri + "api/create_dataframe/by_excel/", arguments);
+            DataFrame df = new DataFrame(dataframeJson);
+            return df;
+        }
+
+        public static DataFrame ByColumnsValues(List<string> columns, List<List<object>> values)
+        {
+            OrderedDictionary orderedDictionary = new OrderedDictionary();
+            for (int i = 0; i < columns.Count; i++)
+            {
+                orderedDictionary.Add(columns[i], values[i]);
+            }
+            string jsonStr = JsonConvert.SerializeObject(orderedDictionary, Formatting.None);
+            // Build argument JSON objec
+            dynamic arguments = new JObject();
+            arguments.jsonStr = jsonStr;
+
+            string dataframeJson = DynamoPandas.PythonRestCall
+                .webUriCaller(PythonConstants.webUri + "api/create_dataframe/by_dict/", arguments);
             DataFrame df = new DataFrame(dataframeJson);
             return df;
         }

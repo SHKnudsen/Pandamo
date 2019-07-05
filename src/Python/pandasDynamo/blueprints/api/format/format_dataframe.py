@@ -14,8 +14,7 @@ def tabulate():
         request_dict = request.get_json()
         jsonstr = request_dict['jsonStr']
         jsonstr = json.dumps(jsonstr)
-
-        df = pd.read_json(eval(jsonstr), orient='index')
+        df = pd.read_json(eval(jsonstr), orient='split')
         headers = 'keys'
         tableformat = 'orgtbl'
         tabulated_df = tb(df, headers=headers, tablefmt=tableformat)
