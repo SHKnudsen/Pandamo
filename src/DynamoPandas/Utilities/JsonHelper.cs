@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 
-namespace DynamoPandas.Utilities
+namespace DynamoPandas.Pandamo.Utilities
 {
     public static class JsonHelper
     {

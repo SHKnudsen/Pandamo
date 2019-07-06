@@ -5,9 +5,9 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DynamoPandas.Constants;
+using DynamoPandas.Pandamo.Constants;
 
-namespace DynamoPandas.PythonProcess
+namespace DynamoPandas.Pandamo.PythonProcess
 {
     internal class NewProcess
     {
@@ -53,7 +53,7 @@ namespace DynamoPandas.PythonProcess
 
                 while ((line = sr.ReadLine()) != null)
                 {
-                    if (counter > 4 && line != "(pandamo) C:\\Users\\SylvesterKnudsen\\Desktop\\pandasDynamo>" && line != "")
+                    if (counter > 4 && line != "(DynamoPandas.Pandamo) C:\\Users\\SylvesterKnudsen\\Desktop\\pandasDynamo>" && line != "")
                     {
                         outputResults.AppendLine(line);
                     }

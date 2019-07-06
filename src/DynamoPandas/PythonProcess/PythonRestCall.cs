@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using RestSharp;
 
-namespace DynamoPandas
+namespace DynamoPandas.Pandamo
 {
     public static class PythonRestCall
     {

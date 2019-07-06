@@ -9,16 +9,16 @@ using Dynamo.Graph.Nodes;
 using Dynamo.Wpf;
 using ProtoCore.AST.AssociativeAST;
 using Newtonsoft.Json;
-using DynamoPandas.Pandas;
-using DynamoPandas.Format;
-using PandamoNodeModels.Controls;
+using DynamoPandas.Pandamo.Pandas;
+using DynamoPandas.Pandamo.Format;
+using DynamoPandas.PandamoNodeModels.Controls;
 using System.Collections;
-using DynamoPandas.Utilities;
+using DynamoPandas.Pandamo.Utilities;
 
-namespace PandamoNodeModels.Nodes
+namespace DynamoPandas.PandamoNodeModels.Nodes
 {
     [NodeName("Tabulate")]
-    [NodeCategory("DataFrameFormatters.Tabulate")]
+    [NodeCategory("Pandamo.Format")]
     [NodeDescription("")]
     // The InPortNames attribute determines the
     // amount of input ports of your node and their names.

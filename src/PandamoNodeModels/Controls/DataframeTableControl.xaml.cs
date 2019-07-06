@@ -13,11 +13,11 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Controls.Primitives;
-using PandamoNodeModels.Nodes;
+using DynamoPandas.PandamoNodeModels.Nodes;
 using System.ComponentModel;
 using System.Collections;
 
-namespace PandamoNodeModels.Controls
+namespace DynamoPandas.PandamoNodeModels.Controls
 {
     /// <summary>
     /// Interaction logic for DataframeFormatControl.xaml

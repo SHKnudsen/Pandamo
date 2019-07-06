@@ -1,7 +1,7 @@
 ﻿using DesignScript.Builtin;
-using DynamoPandas.Constants;
-using DynamoPandas.PythonProcess;
-using DynamoPandas.Utilities;
+using DynamoPandas.Pandamo.Constants;
+using DynamoPandas.Pandamo.PythonProcess;
+using DynamoPandas.Pandamo.Utilities;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -16,7 +16,7 @@ using System.Text.RegularExpressions;
 using System.Collections.Specialized;
 
 
-namespace DynamoPandas.Pandas
+namespace DynamoPandas.Pandamo.Pandas
 {
     public class DataFrame
     {
@@ -46,7 +46,7 @@ namespace DynamoPandas.Pandas
             dynamic arguments = new JObject();
             arguments.jsonStr = jsonStr;
 
-            string dataframeJson = DynamoPandas.PythonRestCall
+            string dataframeJson = DynamoPandas.Pandamo.PythonRestCall
                 .webUriCaller(PythonConstants.webUri + "api/create_dataframe/by_dict/", arguments);
             DataFrame df = new DataFrame(dataframeJson);
             return df;
@@ -59,7 +59,7 @@ namespace DynamoPandas.Pandas
             arguments.filePath = filePath;
             arguments.sheetName = sheetName;
 
-            string dataframeJson = DynamoPandas.PythonRestCall
+            string dataframeJson = DynamoPandas.Pandamo.PythonRestCall
                 .webUriCaller(PythonConstants.webUri + "api/create_dataframe/by_excel/", arguments);
             DataFrame df = new DataFrame(dataframeJson);
             return df;
@@ -77,7 +77,7 @@ namespace DynamoPandas.Pandas
             dynamic arguments = new JObject();
             arguments.jsonStr = jsonStr;
 
-            string dataframeJson = DynamoPandas.PythonRestCall
+            string dataframeJson = DynamoPandas.Pandamo.PythonRestCall
                 .webUriCaller(PythonConstants.webUri + "api/create_dataframe/by_dict/", arguments);
             DataFrame df = new DataFrame(dataframeJson);
             return df;

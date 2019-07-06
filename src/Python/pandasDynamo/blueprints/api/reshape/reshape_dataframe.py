@@ -17,7 +17,6 @@ def sort_values():
         jsonstr = request_dict['jsonStr']
         columns = request_dict['columns']
         ascending = request_dict['ascending']
-        columns = string_to_list(columns)
         df = pd.read_json(json.dumps(eval(jsonstr)), orient='split')
         df = df.sort_values(ascending=ascending, by=columns)
         df_json = df.to_json(orient='split')
@@ -39,8 +38,6 @@ def rename_columns():
         jsonstr = request_dict['jsonStr']
         old_value = request_dict['old_value']
         new_value = request_dict['new_value']
-        old_value = string_to_list(old_value)
-        new_value = string_to_list(new_value)
         if(len(old_value) != len(new_value)):
             raise Exception('OldValue and NewValue needs to be two equal sized lists or two single items')
         values = dict(zip(old_value,new_value))
@@ -66,7 +63,6 @@ def pivot_dataframe():
         index = request_dict['index']
         columns = request_dict['columns']
         values = request_dict['values']
-        values = string_to_list(values)
         df = pd.read_json(json.dumps(eval(jsonstr)), orient='split')
         df = df.pivot(index=index,columns=columns, values=values)
         df_json = df.to_json(orient='split')
@@ -88,8 +84,6 @@ def melt_dataframe():
         jsonstr = request_dict['jsonStr']
         id_var = request_dict['id_var']
         value_var = request_dict['value_var']
-        id_var = string_to_list(id_var)
-        value_var = string_to_list(value_var)
         df = pd.read_json(json.dumps(eval(jsonstr)), orient='split')
         df = pd.melt(df, id_vars=id_var, value_vars=value_var)
         df_json = df.to_json(orient='split')
@@ -104,19 +98,42 @@ def melt_dataframe():
         response.status_code = 400
     return response
 
-'''
-def drop_rows(df,index_to_drop):
+@mod.route('drop_rows/', methods=["POST"])
+def drop_rows():
     try:
+        request_dict = request.get_json()
+        jsonstr = request_dict['jsonStr']
+        index_to_drop = request_dict['indexToDrop']
+        df = pd.read_json(json.dumps(eval(jsonstr)), orient='split')
         df = df.drop(index_to_drop, axis=0)
-        return df
-    except Exception as e:
-        return e
+        df_json = df.to_json(orient='split')
+        response = app.response_class(
+            response=df_json,
+            status=200,
+            mimetype='application/json'
+        )
+    except:
+        exception_message = sys.exc_info()[1]
+        response = json.dumps({"content":exception_message})
+        response.status_code = 400
+    return response
 
-def drop_columns(df, columns_to_drop):
+@mod.route('drop_columns/', methods=["POST"])
+def drop_columns():
     try:
+        request_dict = request.get_json()
+        jsonstr = request_dict['jsonStr']
+        columns_to_drop = request_dict['columnsToDrop']
+        df = pd.read_json(json.dumps(eval(jsonstr)), orient='split')       
         df = df.drop(columns=columns_to_drop)
-        return df
-    except Exception as e:
-        return e
-
-'''
+        df_json = df.to_json(orient='split')
+        response = app.response_class(
+            response=df_json,
+            status=200,
+            mimetype='application/json'
+        )
+    except:
+        exception_message = sys.exc_info()[1]
+        response = json.dumps({"content":exception_message})
+        response.status_code = 400
+    return response

@@ -6,7 +6,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace DynamoPandas.Utilities
+namespace DynamoPandas.Pandamo.Utilities
 {
     public static class StringExtensions
     {

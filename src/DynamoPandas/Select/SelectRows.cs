@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DynamoPandas.Pandas;
-using DynamoPandas.Constants;
+using DynamoPandas.Pandamo.Pandas;
+using DynamoPandas.Pandamo.Constants;
 using Newtonsoft.Json.Linq;
 
-namespace DynamoPandas.Select
+namespace DynamoPandas.Pandamo.Select
 {
     public static class SelectRows
     {
@@ -15,7 +15,7 @@ namespace DynamoPandas.Select
         /// Selects rows of a dataframe where a value's substring in the specified column
         /// matches the matchString provided
         /// </summary>
-        /// <param name="dataframe">Pandamo dataframe object</param>
+        /// <param name="dataframe">DynamoPandas.Pandamo dataframe object</param>
         /// <param name="column">The column to search for the matchString</param>
         /// <param name="matchString">Get's the rows where the columns value matches this substring</param>
         /// <returns></returns>
@@ -29,7 +29,7 @@ namespace DynamoPandas.Select
             arguments.column = column;
             arguments.matchString = matchString;
 
-            string dataframeJson = DynamoPandas.PythonRestCall
+            string dataframeJson = DynamoPandas.Pandamo.PythonRestCall
                 .webUriCaller(PythonConstants.webUri + "api/select_rows/by_match/", arguments);
             DataFrame df = new DataFrame(dataframeJson);
             return df;
@@ -52,7 +52,7 @@ namespace DynamoPandas.Select
             arguments.column = column;
             arguments.containsString = containsString;
 
-            string dataframeJson = DynamoPandas.PythonRestCall
+            string dataframeJson = DynamoPandas.Pandamo.PythonRestCall
                 .webUriCaller(PythonConstants.webUri + "api/select_rows/by_contains/", arguments);
             DataFrame df = new DataFrame(dataframeJson);
             return df;

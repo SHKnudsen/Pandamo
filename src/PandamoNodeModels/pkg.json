@@ -1,7 +1,7 @@
 {
   "license": "",
   "file_hash": null,
-  "name": "DynamoPandas",
+  "name": "Pandamo",
   "version": "1.0.0",
   "description": "",
   "group": "",
@@ -15,7 +15,7 @@
   "repository_url": "",
   "contains_binaries": true,
   "node_libraries": [
-    "DynamoPandas, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-    "PandamoNodeModels, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+    "DynamoPandas.Pandamo, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "DynamoPandas.PandamoNodeModels, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
   ]
 }

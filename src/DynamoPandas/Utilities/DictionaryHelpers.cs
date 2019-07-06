@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DynamoPandas.Utilities
+namespace DynamoPandas.Pandamo.Utilities
 {
     public static class DictionaryHelpers
     {
