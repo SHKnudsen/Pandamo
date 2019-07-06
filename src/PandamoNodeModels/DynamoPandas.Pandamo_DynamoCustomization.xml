@@ -1,0 +1,23 @@
+﻿<?xml version="1.0"?>
+<doc>
+  <assembly>
+    <name>DynamoPandas.Pandamo</name>
+  </assembly>
+  <namespaces>
+    <namespace name="DynamoPandas.Pandamo.FilterDataframe">
+      <category>Pandamo.Filter</category>
+    </namespace>
+    <namespace name="DynamoPandas.Pandamo.Format">
+      <category>Pandamo.Format</category>
+    </namespace>
+    <namespace name="DynamoPandas.Pandamo.Pandas">
+      <category>Pandamo.Pandas</category>
+    </namespace>
+    <namespace name="DynamoPandas.Pandamo.Reshape">
+      <category>Pandamo.Reshape</category>
+    </namespace>
+    <namespace name="DynamoPandas.Pandamo.Select">
+      <category>Pandamo.Select</category>
+    </namespace>
+  </namespaces>
+</doc>
