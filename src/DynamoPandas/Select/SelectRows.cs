@@ -57,5 +57,72 @@ namespace DynamoPandas.Pandamo.Select
             DataFrame df = new DataFrame(dataframeJson);
             return df;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dataframe"></param>
+        /// <param name="rowIndex"></param>
+        /// <param name="columnIndex"></param>
+        /// <returns></returns>
+        public static DataFrame ByIndex(DataFrame dataframe, List<int> rowIndex, List<int> columnIndex)
+        {
+            string jsonStr = dataframe.InternalDfJson;
+
+            // Build argument JSON objec
+            dynamic arguments = new JObject();
+            arguments.jsonStr = jsonStr;
+            arguments.rowIndex = JToken.FromObject(rowIndex);
+            arguments.columnIndex = JToken.FromObject(columnIndex);
+
+            string dataframeJson = DynamoPandas.Pandamo.PythonRestCall
+                .webUriCaller(PythonConstants.webUri + "api/select_rows/by_index/", arguments);
+            DataFrame df = new DataFrame(dataframeJson);
+            return df;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dataframe"></param>
+        /// <param name="rowLabel"></param>
+        /// <param name="columnLabel"></param>
+        /// <returns></returns>
+        public static DataFrame ByLabel(DataFrame dataframe, List<object> rowLabel, List<object> columnLabel)
+        {
+            string jsonStr = dataframe.InternalDfJson;
+
+            // Build argument JSON objec
+            dynamic arguments = new JObject();
+            arguments.jsonStr = jsonStr;
+            arguments.rowLabel = JToken.FromObject(rowLabel);
+            arguments.columnLabel = JToken.FromObject(columnLabel);
+
+            string dataframeJson = DynamoPandas.Pandamo.PythonRestCall
+                .webUriCaller(PythonConstants.webUri + "api/select_rows/by_label/", arguments);
+            DataFrame df = new DataFrame(dataframeJson);
+            return df;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dataframe"></param>
+        /// <param name="expression"></param>
+        /// <returns></returns>
+        public static DataFrame ByExpression(DataFrame dataframe, string expression)
+        {
+            string jsonStr = dataframe.InternalDfJson;
+
+            // Build argument JSON objec
+            dynamic arguments = new JObject();
+            arguments.jsonStr = jsonStr;
+            arguments.boolExpression = expression;
+
+            string dataframeJson = DynamoPandas.Pandamo.PythonRestCall
+                .webUriCaller(PythonConstants.webUri + "api/select_rows/by_bool_expression/", arguments);
+            DataFrame df = new DataFrame(dataframeJson);
+            return df;
+        }
     }
 }

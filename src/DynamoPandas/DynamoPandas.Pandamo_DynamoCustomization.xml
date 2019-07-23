@@ -19,5 +19,11 @@
     <namespace name="DynamoPandas.Pandamo.Select">
       <category>Pandamo.Select</category>
     </namespace>
+    <namespace name="DynamoPandas.Pandamo.Information">
+      <category>Pandamo.Information</category>
+    </namespace>
+    <namespace name="DynamoPandas.Pandamo.Combine">
+      <category>Pandamo.Combine</category>
+    </namespace>
   </namespaces>
 </doc>

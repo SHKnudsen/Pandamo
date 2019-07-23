@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28803.202
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamoPandas", "DynamoPandas\DynamoPandas.csproj", "{A7E440D6-3B31-42FE-98C7-3E0E600F3895}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pandamo", "DynamoPandas\Pandamo.csproj", "{A7E440D6-3B31-42FE-98C7-3E0E600F3895}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PandamoNodeModels", "PandamoNodeModels\PandamoNodeModels.csproj", "{36FF33F8-7E2C-4B5B-8072-7626AC6EC73C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PandamoViewExtension", "PandamoViewExtension\PandamoViewExtension.csproj", "{251374F4-263E-4872-AE0B-698CB18877A0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{36FF33F8-7E2C-4B5B-8072-7626AC6EC73C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{36FF33F8-7E2C-4B5B-8072-7626AC6EC73C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{36FF33F8-7E2C-4B5B-8072-7626AC6EC73C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{251374F4-263E-4872-AE0B-698CB18877A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{251374F4-263E-4872-AE0B-698CB18877A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{251374F4-263E-4872-AE0B-698CB18877A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{251374F4-263E-4872-AE0B-698CB18877A0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

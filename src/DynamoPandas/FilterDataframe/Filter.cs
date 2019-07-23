@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DynamoPandas.Pandamo.PythonProcess;
 using DynamoPandas.Pandamo.Constants;
 using DynamoPandas.Pandamo.Pandas;
 using DesignScript.Builtin;

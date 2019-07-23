@@ -25,7 +25,7 @@ namespace DynamoPandas.Pandamo
             {
                 string webResponse = string.Empty;
                 Uri uri = new Uri(uirWebAPI);
-                WebRequest httpWebRequest = WebRequest.Create(uri);
+                HttpWebRequest httpWebRequest = (HttpWebRequest)HttpWebRequest.Create(uri);
                 httpWebRequest.ContentType = "application/json";
                 httpWebRequest.Method = "POST";
                 using (StreamWriter streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
@@ -33,7 +33,7 @@ namespace DynamoPandas.Pandamo
                     streamWriter.Write(argumentDict.ToString());
                 }
 
-                WebResponse httpWebResponse = httpWebRequest.GetResponse();
+                HttpWebResponse httpWebResponse = (HttpWebResponse)httpWebRequest.GetResponse();
                 using (StreamReader streamReader = new StreamReader(httpWebResponse.GetResponseStream()))
                 {
                     webResponse = streamReader.ReadToEnd();

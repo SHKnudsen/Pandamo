@@ -21,7 +21,7 @@ def by_items():
     jsonstr = request_dict['jsonStr']
     items = request_dict['items']
     axis = request_dict['axis']
-    items = string_to_list(items)
+    items = items
     axis = int(axis)
     df = pd.read_json(json.dumps(eval(jsonstr)), orient='split')
     df = df.filter(items=items, axis=axis)
