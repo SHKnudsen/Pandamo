@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DynamoPandas.Pandas;
-using DynamoPandas.Constants;
+using DynamoPandas.Pandamo.Pandas;
+using DynamoPandas.Pandamo.Constants;
 using Newtonsoft.Json.Linq;
 
-namespace DynamoPandas.Select
+namespace DynamoPandas.Pandamo.Select
 {
     public static class SelectRows
     {
@@ -15,7 +15,7 @@ namespace DynamoPandas.Select
         /// Selects rows of a dataframe where a value's substring in the specified column
         /// matches the matchString provided
         /// </summary>
-        /// <param name="dataframe">Pandamo dataframe object</param>
+        /// <param name="dataframe">DynamoPandas.Pandamo dataframe object</param>
         /// <param name="column">The column to search for the matchString</param>
         /// <param name="matchString">Get's the rows where the columns value matches this substring</param>
         /// <returns></returns>
@@ -29,7 +29,7 @@ namespace DynamoPandas.Select
             arguments.column = column;
             arguments.matchString = matchString;
 
-            string dataframeJson = DynamoPandas.PythonRestCall
+            string dataframeJson = DynamoPandas.Pandamo.PythonRestCall
                 .webUriCaller(PythonConstants.webUri + "api/select_rows/by_match/", arguments);
             DataFrame df = new DataFrame(dataframeJson);
             return df;
@@ -52,8 +52,75 @@ namespace DynamoPandas.Select
             arguments.column = column;
             arguments.containsString = containsString;
 
-            string dataframeJson = DynamoPandas.PythonRestCall
+            string dataframeJson = DynamoPandas.Pandamo.PythonRestCall
                 .webUriCaller(PythonConstants.webUri + "api/select_rows/by_contains/", arguments);
+            DataFrame df = new DataFrame(dataframeJson);
+            return df;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dataframe"></param>
+        /// <param name="rowIndex"></param>
+        /// <param name="columnIndex"></param>
+        /// <returns></returns>
+        public static DataFrame ByIndex(DataFrame dataframe, List<int> rowIndex, List<int> columnIndex)
+        {
+            string jsonStr = dataframe.InternalDfJson;
+
+            // Build argument JSON objec
+            dynamic arguments = new JObject();
+            arguments.jsonStr = jsonStr;
+            arguments.rowIndex = JToken.FromObject(rowIndex);
+            arguments.columnIndex = JToken.FromObject(columnIndex);
+
+            string dataframeJson = DynamoPandas.Pandamo.PythonRestCall
+                .webUriCaller(PythonConstants.webUri + "api/select_rows/by_index/", arguments);
+            DataFrame df = new DataFrame(dataframeJson);
+            return df;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dataframe"></param>
+        /// <param name="rowLabel"></param>
+        /// <param name="columnLabel"></param>
+        /// <returns></returns>
+        public static DataFrame ByLabel(DataFrame dataframe, List<object> rowLabel, List<object> columnLabel)
+        {
+            string jsonStr = dataframe.InternalDfJson;
+
+            // Build argument JSON objec
+            dynamic arguments = new JObject();
+            arguments.jsonStr = jsonStr;
+            arguments.rowLabel = JToken.FromObject(rowLabel);
+            arguments.columnLabel = JToken.FromObject(columnLabel);
+
+            string dataframeJson = DynamoPandas.Pandamo.PythonRestCall
+                .webUriCaller(PythonConstants.webUri + "api/select_rows/by_label/", arguments);
+            DataFrame df = new DataFrame(dataframeJson);
+            return df;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dataframe"></param>
+        /// <param name="expression"></param>
+        /// <returns></returns>
+        public static DataFrame ByExpression(DataFrame dataframe, string expression)
+        {
+            string jsonStr = dataframe.InternalDfJson;
+
+            // Build argument JSON objec
+            dynamic arguments = new JObject();
+            arguments.jsonStr = jsonStr;
+            arguments.boolExpression = expression;
+
+            string dataframeJson = DynamoPandas.Pandamo.PythonRestCall
+                .webUriCaller(PythonConstants.webUri + "api/select_rows/by_bool_expression/", arguments);
             DataFrame df = new DataFrame(dataframeJson);
             return df;
         }

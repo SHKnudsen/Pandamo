@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using RestSharp;
 
-namespace DynamoPandas
+namespace DynamoPandas.Pandamo
 {
     public static class PythonRestCall
     {
@@ -25,7 +25,7 @@ namespace DynamoPandas
             {
                 string webResponse = string.Empty;
                 Uri uri = new Uri(uirWebAPI);
-                WebRequest httpWebRequest = WebRequest.Create(uri);
+                HttpWebRequest httpWebRequest = (HttpWebRequest)HttpWebRequest.Create(uri);
                 httpWebRequest.ContentType = "application/json";
                 httpWebRequest.Method = "POST";
                 using (StreamWriter streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
@@ -33,7 +33,7 @@ namespace DynamoPandas
                     streamWriter.Write(argumentDict.ToString());
                 }
 
-                WebResponse httpWebResponse = httpWebRequest.GetResponse();
+                HttpWebResponse httpWebResponse = (HttpWebResponse)httpWebRequest.GetResponse();
                 using (StreamReader streamReader = new StreamReader(httpWebResponse.GetResponseStream()))
                 {
                     webResponse = streamReader.ReadToEnd();

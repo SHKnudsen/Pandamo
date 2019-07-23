@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DynamoPandas.Constants
+namespace DynamoPandas.Pandamo.Constants
 {
-    class PythonConstants
+    public class PythonConstants
     {
         public const string webUri = "http://127.0.0.1:5000/";
-        public const string EnviormentActivateBat = @"C:\Users\SylvesterKnudsen\Miniconda3\Scripts\activatePandamo.bat";
+        public const string StartServerBat = @"C:\Users\SylvesterKnudsen\Miniconda3\Scripts\startPandamoServer.bat";
     }
 }

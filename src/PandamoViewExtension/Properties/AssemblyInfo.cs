@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Pandamo")]
+[assembly: AssemblyTitle("PandamoViewExtension")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Pandamo")]
+[assembly: AssemblyProduct("PandamoViewExtension")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("36ff33f8-7e2c-4b5b-8072-7626ac6ec73c")]
+[assembly: Guid("251374f4-263e-4872-ae0b-698cb18877a0")]
 
 // Version information for an assembly consists of the following four values:
 //

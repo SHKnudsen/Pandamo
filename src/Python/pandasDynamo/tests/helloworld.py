@@ -118,8 +118,8 @@ def filter_dataframe_by_contains(df,items, axis):
 #dataframe = drop_columns(dataframe, "newValue")
 #dataframe = drop_rows(dataframe, 1)
 
-datastr = """{Keys:[one's,three's,two's],Values:[[1,11,111],[3,33,333],[2,22,222]],Count:3}"""
-df = create_dataframe(datastr)
+#datastr = """{Keys:[one's,three's,two's],Values:[[1,11,111],[3,33,333],[2,22,222]],Count:3}"""
+#df = create_dataframe(datastr)
 #jsonstr = dataframe_to_json(df)
 #df = dataframe_from_json(jsonstr)
 #dataframe = dataframe.reset_index()
@@ -129,7 +129,17 @@ df = create_dataframe(datastr)
 #df = filter_dataframes.by_items(df, ["1","2"], 0)
 #df = filter_dataframe_by_regex(df,"e's$",1)
 #df = filter_dataframe_by_contains(df,"ee",1)
-df = df.filter(items=["1","2"], axis=0)
-if(df.empty):
-    print("retruned empty dataframe, check your input vlaues:\n" + str(df))
+
+data = {'Country': ['Belgium', 'India', 'Brazil'],
+ 'Capital': ['Brussels', 'New Delhi', 'Brasília'],
+ 'Population': [11190846, 1303171035, 207847528]}
+df = pd.DataFrame(data)
+print(df)
+
+a = 10
+b = 15
+print("--------------")
+st = "(df.Country == 'Belgium') | (df.Country == 'India')"
+df = df[eval(st)]
+
 print(df)
