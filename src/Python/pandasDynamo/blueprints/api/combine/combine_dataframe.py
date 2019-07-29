@@ -39,6 +39,7 @@ def concatenate():
     request_dict = request.get_json()
     df_json_list = request_dict['df_json_list']
     axis = request_dict['axis']
+    join = request_dict['join']
     ignore_index = request_dict['ignore_index']
     df_list = []
     for i in df_json_list:

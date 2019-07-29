@@ -123,7 +123,7 @@ namespace DynamoPandas.PandamoNodeModels.Nodes
             // Note that we specify input and output value types in new Func<double, double, double>
             // which means we have two double inputs and one double output
             AssociativeNode inputNode = AstFactory.BuildFunctionCall(
-                new Func<DataFrame, object>(DataFrame.ToDictionary),
+                new Func<DataFrame, object>(DataFrame.ToInternalDictionary),
                 new List<AssociativeNode> { inputAstNodes[0]}
             );
 

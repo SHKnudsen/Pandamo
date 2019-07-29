@@ -11,6 +11,8 @@ namespace DynamoPandas.Pandamo.Select
 {
     public static class SelectRows
     {
+        private const string UrlPrefix = @"api/select_rows";
+
         /// <summary>
         /// Selects rows of a dataframe where a value's substring in the specified column
         /// matches the matchString provided
@@ -30,7 +32,7 @@ namespace DynamoPandas.Pandamo.Select
             arguments.matchString = matchString;
 
             string dataframeJson = DynamoPandas.Pandamo.PythonRestCall
-                .webUriCaller(PythonConstants.webUri + "api/select_rows/by_match/", arguments);
+                .webUriCaller(PythonConstants.webUri + UrlPrefix + "/by_match/", arguments);
             DataFrame df = new DataFrame(dataframeJson);
             return df;
         }
@@ -53,7 +55,7 @@ namespace DynamoPandas.Pandamo.Select
             arguments.containsString = containsString;
 
             string dataframeJson = DynamoPandas.Pandamo.PythonRestCall
-                .webUriCaller(PythonConstants.webUri + "api/select_rows/by_contains/", arguments);
+                .webUriCaller(PythonConstants.webUri + UrlPrefix + "/by_contains/", arguments);
             DataFrame df = new DataFrame(dataframeJson);
             return df;
         }
@@ -65,7 +67,7 @@ namespace DynamoPandas.Pandamo.Select
         /// <param name="rowIndex"></param>
         /// <param name="columnIndex"></param>
         /// <returns></returns>
-        public static DataFrame ByIndex(DataFrame dataframe, List<int> rowIndex, List<int> columnIndex)
+        public static DataFrame ByIndex(DataFrame dataframe, List<int> rowIndex)
         {
             string jsonStr = dataframe.InternalDfJson;
 
@@ -73,10 +75,9 @@ namespace DynamoPandas.Pandamo.Select
             dynamic arguments = new JObject();
             arguments.jsonStr = jsonStr;
             arguments.rowIndex = JToken.FromObject(rowIndex);
-            arguments.columnIndex = JToken.FromObject(columnIndex);
 
             string dataframeJson = DynamoPandas.Pandamo.PythonRestCall
-                .webUriCaller(PythonConstants.webUri + "api/select_rows/by_index/", arguments);
+                .webUriCaller(PythonConstants.webUri + UrlPrefix + "/by_index/", arguments);
             DataFrame df = new DataFrame(dataframeJson);
             return df;
         }
@@ -99,7 +100,7 @@ namespace DynamoPandas.Pandamo.Select
             arguments.columnLabel = JToken.FromObject(columnLabel);
 
             string dataframeJson = DynamoPandas.Pandamo.PythonRestCall
-                .webUriCaller(PythonConstants.webUri + "api/select_rows/by_label/", arguments);
+                .webUriCaller(PythonConstants.webUri + UrlPrefix + "/by_label/", arguments);
             DataFrame df = new DataFrame(dataframeJson);
             return df;
         }
@@ -120,7 +121,7 @@ namespace DynamoPandas.Pandamo.Select
             arguments.boolExpression = expression;
 
             string dataframeJson = DynamoPandas.Pandamo.PythonRestCall
-                .webUriCaller(PythonConstants.webUri + "api/select_rows/by_bool_expression/", arguments);
+                .webUriCaller(PythonConstants.webUri + UrlPrefix + "/by_bool_expression/", arguments);
             DataFrame df = new DataFrame(dataframeJson);
             return df;
         }

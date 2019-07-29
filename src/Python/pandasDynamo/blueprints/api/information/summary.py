@@ -159,7 +159,7 @@ def describe():
         jsonstr = request_dict['jsonStr']
         df = pd.read_json(json.dumps(eval(jsonstr)), orient='split')
         dataframe_describe = df.describe(include='all')
-        df_json = dataframe_describe.to_json(orient='split')
+        df_json = dataframe_describe.to_json(orient='split', date_format='iso')
         response = app.response_class(
             response=df_json,
             status=200,

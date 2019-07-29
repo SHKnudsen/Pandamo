@@ -25,9 +25,10 @@ def by_items():
     axis = int(axis)
     df = pd.read_json(json.dumps(eval(jsonstr)), orient='split')
     df = df.filter(items=items, axis=axis)
+    print(df)
     if df.empty:
         raise EmptyDataframe({"content": "Returned empty dataframe, check your filter index and items"}, status_code=400)
-    df_json = df.to_json(orient='split')
+    df_json = df.to_json(orient='split', date_format='iso')
     response = app.response_class(
         response=df_json,
         status=200,

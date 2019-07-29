@@ -69,7 +69,6 @@ namespace DynamoPandas.PandamoViewExtension
             };
             process.OutputDataReceived += Process_OutputDataReceived;
             process.Start();
-            ProcessOutput += "Server Ready";
             return process;
         }
 

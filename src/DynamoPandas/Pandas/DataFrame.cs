@@ -82,9 +82,16 @@ namespace DynamoPandas.Pandamo.Pandas
             return df;
         }
 
-        public static object ToDictionary(DataFrame dataFrame)
+        public static object ToInternalDictionary(DataFrame dataFrame)
         {
             object obj = JsonHelper.Deserialize(dataFrame.dataframeJson);
+            return obj;
+        }
+
+
+        public static object ToDictionary(DataFrame dataFrame)
+        {
+            object obj = JsonHelper.DeserializeWithNodeStructure(dataFrame.dataframeJson);
             return obj;
         }
 

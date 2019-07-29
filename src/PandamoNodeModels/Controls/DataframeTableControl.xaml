@@ -7,7 +7,7 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         
-        <DataGrid Name="Dataframe" ItemsSource="{Binding}" IsReadOnly="True" MaxHeight="240" VerticalScrollBarVisibility="Visible"/>
+        <DataGrid Name="Dataframe" ItemsSource="{Binding}" IsReadOnly="True" MaxHeight="240" VerticalScrollBarVisibility="Visible" ColumnWidth="SizeToHeader"/>
         <Thumb Name ="resizeThumb" 
                Width="15" Height="15" 
                HorizontalAlignment="Right" 

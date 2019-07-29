@@ -16,7 +16,7 @@ def by_match():
 
     df = pd.read_json(json.dumps(eval(jsonstr)), orient='split')
     selected_rows = df[df[column].str.match(match_str,na=False)]
-    df_json = selected_rows.to_json(orient='split')
+    df_json = selected_rows.to_json(orient='split', date_format='iso')
     response = app.response_class(
         response=df_json,
         status=200,
@@ -32,7 +32,7 @@ def by_contains():
     contains_str = request_dict['containsString']
     df = pd.read_json(json.dumps(eval(jsonstr)), orient='split')
     selected_rows = df[df[column].str.contains(contains_str,na=False)]
-    df_json = selected_rows.to_json(orient='split')
+    df_json = selected_rows.to_json(orient='split', date_format='iso')
     response = app.response_class(
         response=df_json,
         status=200,
@@ -45,10 +45,9 @@ def by_index():
     request_dict = request.get_json()
     jsonstr = request_dict['jsonStr']
     row_index= request_dict['rowIndex']
-    column_index = request_dict['columnIndex']
     df = pd.read_json(json.dumps(eval(jsonstr)), orient='split')
-    selected_rows = df.iloc[row_index,column_index]
-    df_json = selected_rows.to_json(orient='split')
+    selected_rows = df.loc[row_index]
+    df_json = selected_rows.to_json(orient='split', date_format='iso')
     response = app.response_class(
         response=df_json,
         status=200,
@@ -64,7 +63,7 @@ def by_label():
     column_label = request_dict['columnLabel']
     df = pd.read_json(json.dumps(eval(jsonstr)), orient='split')
     selected_rows = df.loc[row_label,column_label]
-    df_json = selected_rows.to_json(orient='split')
+    df_json = selected_rows.to_json(orient='split', date_format='iso')
     response = app.response_class(
         response=df_json,
         status=200,
@@ -79,7 +78,7 @@ def by_bool_expression():
     expression = request_dict['boolExpression']
     df = pd.read_json(json.dumps(eval(jsonstr)), orient='split')
     selected_rows = eval(expression)
-    df_json = selected_rows.to_json(orient='split')
+    df_json = selected_rows.to_json(orient='split', date_format='iso')
     response = app.response_class(
         response=df_json,
         status=200,
