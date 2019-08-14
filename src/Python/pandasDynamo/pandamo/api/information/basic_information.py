@@ -8,7 +8,7 @@ import re
 from flask import Blueprint
 from flask import current_app as app
 from flask import request
-from utillities.string_helpers import string_to_list
+
 
 mod = Blueprint('basic_information', __name__)
 null = None
@@ -101,6 +101,7 @@ def count():
         request_dict = request.get_json()
         jsonstr = request_dict['jsonStr']
         df = pd.read_json(json.dumps(eval(jsonstr)), orient='split')
+        from scipy import stats
         dataframe_count = df.count()
         count_dict = dict(zip(dataframe_count.index.values.tolist(), dataframe_count.values.tolist()))
         response = app.response_class(

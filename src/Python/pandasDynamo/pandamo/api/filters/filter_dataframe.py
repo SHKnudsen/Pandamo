@@ -9,7 +9,6 @@ from flask import jsonify
 from flask import request
 from flask import current_app as app
 import numpy as np
-from utillities.string_helpers import string_to_list
 from utillities.exception_class import EmptyDataframe
 
 mod = Blueprint('filter_dataframe', __name__)
@@ -25,7 +24,6 @@ def by_items():
     axis = int(axis)
     df = pd.read_json(json.dumps(eval(jsonstr)), orient='split')
     df = df.filter(items=items, axis=axis)
-    print(df)
     if df.empty:
         raise EmptyDataframe({"content": "Returned empty dataframe, check your filter index and items"}, status_code=400)
     df_json = df.to_json(orient='split', date_format='iso')

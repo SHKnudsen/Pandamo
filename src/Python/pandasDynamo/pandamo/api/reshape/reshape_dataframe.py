@@ -6,7 +6,7 @@ import re
 from flask import Blueprint
 from flask import current_app as app
 from flask import request
-from utillities.string_helpers import string_to_list
+
 
 mod = Blueprint('reshape_dataframe', __name__)
 null = None
