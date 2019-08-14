@@ -138,6 +138,8 @@
     <Compile Include="Reshape\ReshapeDataframe.cs" />
     <Compile Include="Select\SelectColumns.cs" />
     <Compile Include="Select\SelectRows.cs" />
+    <Compile Include="Server\PandasServer.cs" />
+    <Compile Include="Statistics\Stats.cs" />
     <Compile Include="Utilities\DefaultArg.cs" />
     <Compile Include="Utilities\DictionaryHelpers.cs" />
     <Compile Include="Utilities\JsonHelper.cs" />
@@ -147,6 +149,7 @@
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="pkg.json" />
+    <None Include="Scripts\startPandamoServer.bat" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="DynamoPandas.Pandamo_DynamoCustomization.xml">

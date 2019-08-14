@@ -14,7 +14,9 @@ using System.Collections.Generic;
 using System.Windows.Threading;
 using Dynamo.ViewModels;
 using DynamoPandas.Pandamo.Constants;
+using DynamoPandas.Pandamo.Server;
 using System.Diagnostics;
+using Newtonsoft.Json.Linq;
 
 namespace DynamoPandas.PandamoViewExtension
 {
@@ -45,6 +47,8 @@ namespace DynamoPandas.PandamoViewExtension
             this.dynamoViewModel = this.viewParameters.DynamoWindow.DataContext as DynamoViewModel;
             this.dynamoModel = this.dynamoViewModel.Model;
             StartServer();
+            string hasServerStarted = PandasServer.HasServerStarted();
+            ProcessOutput += hasServerStarted + "\n";
         }
 
         public void StartServer()

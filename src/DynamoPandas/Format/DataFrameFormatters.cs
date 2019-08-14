@@ -11,7 +11,7 @@ namespace DynamoPandas.Pandamo.Format
 {
     public static class DataFrameFormatters
     {
-        public static string Tabulate(DataFrame dataframe)
+        public static string TabulateAsString(DataFrame dataframe)
         {
             string jsonStr = dataframe.InternalDfJson;
 

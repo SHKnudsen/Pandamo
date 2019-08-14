@@ -25,5 +25,8 @@
     <namespace name="DynamoPandas.Pandamo.Combine">
       <category>Pandamo.Combine</category>
     </namespace>
+    <namespace name="DynamoPandas.Pandamo.Statistics">
+      <category>Pandamo.Statistics</category>
+    </namespace>
   </namespaces>
 </doc>

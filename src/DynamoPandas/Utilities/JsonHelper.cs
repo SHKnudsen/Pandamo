@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Autodesk.DesignScript.Runtime;
 using Newtonsoft.Json.Linq;
 
 namespace DynamoPandas.Pandamo.Utilities
 {
+    [IsVisibleInDynamoLibrary(false)]
     public static class JsonHelper
     {
-
         public static object Deserialize(string json)
         {
             List<string> keys = new List<string>();
@@ -68,7 +69,7 @@ namespace DynamoPandas.Pandamo.Utilities
             return dict;
         }
 
-        private static object ToObject(JToken token)
+        public static object ToObject(JToken token)
         {
             switch (token.Type)
             {

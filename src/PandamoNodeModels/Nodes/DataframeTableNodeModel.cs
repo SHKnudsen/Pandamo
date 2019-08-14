@@ -18,7 +18,7 @@ using DynamoPandas.Pandamo.Utilities;
 namespace DynamoPandas.PandamoNodeModels.Nodes
 {
     [NodeName("Tabulate")]
-    [NodeCategory("Pandamo.Format")]
+    [NodeCategory("Pandamo.Format.DataFrameFormatters")]
     [NodeDescription("")]
     // The InPortNames attribute determines the
     // amount of input ports of your node and their names.
