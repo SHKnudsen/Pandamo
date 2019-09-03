@@ -17,6 +17,7 @@ using DynamoPandas.Pandamo.Constants;
 using DynamoPandas.Pandamo.Server;
 using System.Diagnostics;
 using Newtonsoft.Json.Linq;
+using System.Reflection;
 
 namespace DynamoPandas.PandamoViewExtension
 {
@@ -27,6 +28,7 @@ namespace DynamoPandas.PandamoViewExtension
         private readonly DynamoModel dynamoModel;
         private Process pandamoProcess;
         private string processOutput;
+        private string assemblyFolder = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
         public Process PandamoProcess
         {
@@ -57,14 +59,22 @@ namespace DynamoPandas.PandamoViewExtension
             PandamoProcess.BeginOutputReadLine();
         }
 
-        private Process CreateNewProcess(bool showNoWindow = true)
+        private Process CreateNewProcess(bool showNoWindow = false)
         {
+            string currentUserPath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+            string extraPath = Path.GetFullPath(Path.Combine(assemblyFolder, @"..\extra"));
+            string activateEnv = currentUserPath + @"\Miniconda3\Scripts\activate.bat";
+            string startServer = currentUserPath + @"\Miniconda3\Scripts\startPandamoServer.bat";
+            string activatePandamo = "activate pandamo";
+            string runFlask = "flask run";
             // Set working directory and create process
             var process = new Process
             {
                 StartInfo = new ProcessStartInfo
                 {
-                    FileName = PythonConstants.StartServerBat,
+                    WorkingDirectory = extraPath + @"\pandasDynamo",
+                    FileName = "cmd.exe",
+                    Arguments = string.Format("{0} {1} {2}", activateEnv, activatePandamo, startServer),
                     RedirectStandardInput = true,
                     RedirectStandardOutput = true,
                     UseShellExecute = false,
@@ -73,6 +83,7 @@ namespace DynamoPandas.PandamoViewExtension
             };
             process.OutputDataReceived += Process_OutputDataReceived;
             process.Start();
+
             return process;
         }
 

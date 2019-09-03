@@ -149,7 +149,6 @@
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="pkg.json" />
-    <None Include="Scripts\startPandamoServer.bat" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="DynamoPandas.Pandamo_DynamoCustomization.xml">
@@ -165,6 +164,7 @@
       <SourceXmls Include="$(TargetDir)*.xml" />
       <SourcePkg Include="$(ProjectDir)pkg.json" />
       <SourceSamples Include="$(SolutionDir)..\samples\*.dyn" />
+      <SourcePython Include="$(SolutionDir)\Python\**\*.*" />
     </ItemGroup>
     <!--Copying to Build Folder-->
     <Copy SourceFiles="@(SourceDlls)" DestinationFolder="$(TargetDir)$(ProjectName)\bin\" />
@@ -172,6 +172,7 @@
     <Copy SourceFiles="@(SourceXmls)" DestinationFolder="$(TargetDir)$(ProjectName)\bin\" />
     <Copy SourceFiles="@(SourcePkg)" DestinationFolder="$(TargetDir)$(ProjectName)" />
     <Copy SourceFiles="@(SourceSamples)" DestinationFolder="$(TargetDir)$(ProjectName)\extra" />
+    <Copy SourceFiles="@(SourcePython)" DestinationFolder="$(TargetDir)$(ProjectName)\extra\%(RecursiveDir)" />
     <Message Importance="High" Text="Built $(ProjectName) to $(TargetDir)$(ProjectName)" />
     <!--Deploy to Dynamo as a package-->
     <ItemGroup>
@@ -186,7 +187,7 @@
       <DeployFolder Condition="'$(Configuration)' == 'Release'">$(AppData)\Dynamo\Dynamo Revit\2.0\packages\$(SolutionName)</DeployFolder>
     </PropertyGroup>
     <!--Delete previously deployed packages first -->
-    <RemoveDir Directories="$(DeployFolder)" />
+    <!-- <RemoveDir Directories="$(DeployFolder)" /> -->
     <!--Then deploy the new version of the package -->
     <Copy SourceFiles="@(SourcePackage)" DestinationFolder="$(DeployFolder)\%(RecursiveDir)" />
     <Message Importance="High" Text="Deployed $(ProjectName) package to $(DeployFolder)" />

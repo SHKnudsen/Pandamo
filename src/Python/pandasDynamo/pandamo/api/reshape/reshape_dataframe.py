@@ -246,3 +246,22 @@ def drop_na():
         response = json.dumps({"content":exception_message})
         response.status_code = 400
     return response
+
+@mod.route('get_dummies/', methods=["POST"])
+def get_dummies():
+    try:
+        request_dict = request.get_json()
+        jsonstr = request_dict['jsonStr']
+        df = pd.read_json(json.dumps(eval(jsonstr)), orient='split')         
+        df = pd.get_dummies(df)
+        df_json = df.to_json(orient='split', date_format='iso')
+        response = app.response_class(
+            response=df_json,
+            status=200,
+            mimetype='application/json'
+        )
+    except:
+        exception_message = sys.exc_info()[1]
+        response = json.dumps({"content":exception_message})
+        response.status_code = 400
+    return response

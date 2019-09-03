@@ -257,5 +257,24 @@ namespace DynamoPandas.Pandamo.Reshape
             DataFrame df = new DataFrame(dataframeJson);
             return df;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dataframe"></param>
+        /// <returns></returns>
+        public static DataFrame GetDummies(DataFrame dataframe)
+        {
+            string jsonStr = dataframe.InternalDfJson;
+
+            // Build argument JSON objec
+            dynamic arguments = new JObject();
+            arguments.jsonStr = jsonStr;
+
+            string dataframeJson = DynamoPandas.Pandamo.PythonRestCall
+                .webUriCaller(PythonConstants.webUri + UrlPrefix + "/get_dummies/", arguments);
+            DataFrame df = new DataFrame(dataframeJson);
+            return df;
+        }
     }
 }
