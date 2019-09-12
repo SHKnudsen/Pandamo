@@ -1,0 +1,2666 @@
+{
+  "Uuid": "3c9d0464-8643-5ffe-96e5-ab1769818209",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Pandamo_AllNodes",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynamoPandas.Pandamo.Combine.CombineDataframe.Concatenate@var[],int,bool,string",
+      "Id": "1459f8ae4a6e4fa891ed53d40d89e9d6",
+      "Inputs": [
+        {
+          "Id": "630515eec193492e99df44e98432095e",
+          "Name": "dataframes",
+          "Description": "var[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "bbbc223b684644fbac80681521b35ef1",
+          "Name": "axis",
+          "Description": "int",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "ff5104f7ff3440f48b28866dcc82faa4",
+          "Name": "ignoreIndex",
+          "Description": "bool\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "07916faabefb4d2fa082da88f1c7426c",
+          "Name": "join",
+          "Description": "string\nDefault value : \"outer\"",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "b3dc3ace2e9c4ff9968a48d9380e1ff0",
+          "Name": "var",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "CombineDataframe.Concatenate (dataframes: var[], axis: int, ignoreIndex: bool = false, join: string = \"outer\"): var"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynamoPandas.Pandamo.Combine.CombineDataframe.Merge@var,var,string,string,bool,bool,string",
+      "Id": "b1d3d5f78b3c4203acee3315277a1306",
+      "Inputs": [
+        {
+          "Id": "c19aac9a568f4835ab0ed141f44abb07",
+          "Name": "leftDf",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "6854090a40af4e3a854b852b370b49cb",
+          "Name": "rightDf",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "2bc2e4b3dbea4af09313568e95270a73",
+          "Name": "leftOn",
+          "Description": "string\nDefault value : null",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "dd900a1df8b245b193824a2727bf1d48",
+          "Name": "rightOn",
+          "Description": "string\nDefault value : null",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "0576ec59fb5646af87c0af5bc7a71543",
+          "Name": "leftIndex",
+          "Description": "bool\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "e32afd512e554378a928f5730048a136",
+          "Name": "rightIndex",
+          "Description": "bool\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "36a9eed471a64abdbfbfcf65f372ac61",
+          "Name": "how",
+          "Description": "string\nDefault value : \"inner\"",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "c2d70c47e3a6468b87f8991c0848a0be",
+          "Name": "var",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "CombineDataframe.Merge (leftDf: var, rightDf: var, leftOn: string = null, rightOn: string = null, leftIndex: bool = false, rightIndex: bool = false, how: string = \"inner\"): var"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynamoPandas.Pandamo.FilterDataframe.Filter.ByContains@var,string,int",
+      "Id": "11e3599739da4cf59e967df45306ade4",
+      "Inputs": [
+        {
+          "Id": "e1657e9da8434a57b1571671a2eba04d",
+          "Name": "dataframe",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "ef8167212ac4417e833552aa671bc48a",
+          "Name": "item",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "31692f1830a043aa9b7fcb23f45255bc",
+          "Name": "axis",
+          "Description": "int",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "42fd67a4038c476d81619e0b7cd60709",
+          "Name": "var",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Filter.ByContains (dataframe: var, item: string, axis: int): var"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynamoPandas.Pandamo.FilterDataframe.Filter.ByItems@var,string[],int",
+      "Id": "e6658dbed7cc4a178e897b3b9cd5576d",
+      "Inputs": [
+        {
+          "Id": "5d4b180eeaec42faa459b4df6738e91c",
+          "Name": "dataframe",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "dac555c033234141a777f093c4bba4cb",
+          "Name": "items",
+          "Description": "string[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "1d825d1cfa22476fa343d98317993191",
+          "Name": "axis",
+          "Description": "int",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "077f18b760c648b2962bab9116d4718b",
+          "Name": "var",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Filter.ByItems (dataframe: var, items: string[], axis: int): var"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynamoPandas.Pandamo.FilterDataframe.Filter.ByRegex@var,string,int",
+      "Id": "f91f7506b5f84eacae0874ae43aa6380",
+      "Inputs": [
+        {
+          "Id": "8f75ef313d5f46ba8fac85d03328a6a6",
+          "Name": "dataframe",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "939c8a9687f3486282aceaa375eaf55e",
+          "Name": "item",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "88c85b64da3645938818ca9b4fab8d9e",
+          "Name": "axis",
+          "Description": "int",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "3ebbf235a77e47ca8137954ff00ac671",
+          "Name": "var",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Filter.ByRegex (dataframe: var, item: string, axis: int): var"
+    },
+    {
+      "ConcreteType": "DynamoPandas.PandamoNodeModels.Nodes.DataframeTableNodeModel, DynamoPandas.PandamoNodeModels",
+      "DataframeDictionary": null,
+      "NodeType": "ExtensionNode",
+      "Id": "0e6366d292c642c2a71d0c595984482b",
+      "Inputs": [
+        {
+          "Id": "6a3eb5a153874b2caa3523d18e252a7c",
+          "Name": "Dataframe",
+          "Description": "DataFrame",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "3ba8e695a67d4f7c960e40fb5c34653c",
+          "Name": "string",
+          "Description": "",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": ""
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynamoPandas.Pandamo.Format.DataFrameFormatters.TabulateAsString@var",
+      "Id": "e1fe24af3e774ba389ebefb2b3d6a590",
+      "Inputs": [
+        {
+          "Id": "63dc12f4aa6a46f781898a3b822426bb",
+          "Name": "dataframe",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "3c93ac3600d14ec691b790bb418f196a",
+          "Name": "string",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "DataFrameFormatters.TabulateAsString (dataframe: var): string"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynamoPandas.Pandamo.Information.BasicInformation.Columns@var",
+      "Id": "bd49fa42fb264f4fa5742fa5345ce73f",
+      "Inputs": [
+        {
+          "Id": "3335acb9d694426c9d1f2a8b1f6bd018",
+          "Name": "dataframe",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "f64e276f75a34e3fa7dd5e2d3b979cf8",
+          "Name": "var[]..[]",
+          "Description": "var[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "BasicInformation.Columns (dataframe: var): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynamoPandas.Pandamo.Information.BasicInformation.Count@var",
+      "Id": "f7ceccb90b44499a99f60e723c56e510",
+      "Inputs": [
+        {
+          "Id": "72a70c74a21a452ba0111dcf8d11dc57",
+          "Name": "dataframe",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "a359f3bd5b3142a5a8d63c19e3526691",
+          "Name": "var[]..[]",
+          "Description": "var[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "BasicInformation.Count (dataframe: var): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynamoPandas.Pandamo.Information.BasicInformation.DataTypes@var",
+      "Id": "898c22dcdbcb4091a86492cead8189f5",
+      "Inputs": [
+        {
+          "Id": "bee5ff8b6f3a4ad082a9739fd01ad7ba",
+          "Name": "dataframe",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "852ee19fabf84827bf0b2e462cb33ce1",
+          "Name": "var[]..[]",
+          "Description": "var[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "BasicInformation.DataTypes (dataframe: var): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynamoPandas.Pandamo.Information.BasicInformation.Index@var",
+      "Id": "c360fd9d10484d96aae763cf43faf143",
+      "Inputs": [
+        {
+          "Id": "29f002bf07ce4e52b52811933f0d84ae",
+          "Name": "dataframe",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "aa1f8f0eb99e4868944ee73b66f49adb",
+          "Name": "var[]..[]",
+          "Description": "var[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "BasicInformation.Index (dataframe: var): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynamoPandas.Pandamo.Information.BasicInformation.Info@var",
+      "Id": "db3081a126bc41aaa17f68a46e29837d",
+      "Inputs": [
+        {
+          "Id": "c943512d81c348298b5e877a0e12b56b",
+          "Name": "dataframe",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "a548160e9e9e461ea8e96147ab4809cd",
+          "Name": "string",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "BasicInformation.Info (dataframe: var): string"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynamoPandas.Pandamo.Information.BasicInformation.Shape@var",
+      "Id": "bf8c28ed6f884511a9e9f5cbb9623c1d",
+      "Inputs": [
+        {
+          "Id": "08217dc5856e4c9691f09212f1dadfae",
+          "Name": "dataframe",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "70c5048d9dd44136a5dd8e5530d585f3",
+          "Name": "var[]..[]",
+          "Description": "var[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "BasicInformation.Shape (dataframe: var): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynamoPandas.Pandamo.Information.Summary.CumulativeSum@var",
+      "Id": "b694d0518bff4a91bd9501f403a6f942",
+      "Inputs": [
+        {
+          "Id": "66dd604ef5874fbaab8aaa393742b279",
+          "Name": "dataframe",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "91af2c7aaac34bae92b3f27e7a1a5ec0",
+          "Name": "var[]..[]",
+          "Description": "var[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Summary.CumulativeSum (dataframe: var): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynamoPandas.Pandamo.Information.Summary.Describe@var",
+      "Id": "b1d02b35b3b94eb483393121c55e01ce",
+      "Inputs": [
+        {
+          "Id": "26f1becdfdaf4afdaf2d660b53ec69a2",
+          "Name": "dataframe",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "2296530fd183432fbfabdb35435f13ec",
+          "Name": "var",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Summary.Describe (dataframe: var): var"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynamoPandas.Pandamo.Information.Summary.MaxValueIndex@var,int",
+      "Id": "3e36a4e32627448e8702fad13fbd6558",
+      "Inputs": [
+        {
+          "Id": "551dbd274ba5493d955aff92a8656d60",
+          "Name": "dataframe",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "1f442190346245cda98b3818d373fcad",
+          "Name": "axis",
+          "Description": "int",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "b4f6a174615e49b398b236be9f24a64f",
+          "Name": "var[]..[]",
+          "Description": "var[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Summary.MaxValueIndex (dataframe: var, axis: int): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynamoPandas.Pandamo.Information.Summary.MaxValues@var",
+      "Id": "0875e1d8a4e942f7ac073bb58aeab58a",
+      "Inputs": [
+        {
+          "Id": "1dc812d1d4b547ecafa1f731c008c814",
+          "Name": "dataframe",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "b404574e0bf5497ba33b14994165a9d5",
+          "Name": "var[]..[]",
+          "Description": "var[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Summary.MaxValues (dataframe: var): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynamoPandas.Pandamo.Information.Summary.Mean@var",
+      "Id": "866713af332d4eb09ef5c3bab07ab63d",
+      "Inputs": [
+        {
+          "Id": "353a625239464d0a83f3e4dbd9e87fb6",
+          "Name": "dataframe",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "e2d01864176d4c71b35967b362b4363d",
+          "Name": "var[]..[]",
+          "Description": "var[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Summary.Mean (dataframe: var): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynamoPandas.Pandamo.Information.Summary.Median@var",
+      "Id": "24855e2546314612aa4992cef69a2e0a",
+      "Inputs": [
+        {
+          "Id": "48df19153f2746a89a65b81032a69cb6",
+          "Name": "dataframe",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "0dcf9a0ca9d147c8bd32d26c9875d1d3",
+          "Name": "var[]..[]",
+          "Description": "var[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Summary.Median (dataframe: var): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynamoPandas.Pandamo.Information.Summary.MinValueIndex@var,int",
+      "Id": "3ea592ddce7d488eb4f172a6564f227b",
+      "Inputs": [
+        {
+          "Id": "be0ee75a7ba74a2297d097d91fed18a3",
+          "Name": "dataframe",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "f12304c675ad47aca339f72e74dd5726",
+          "Name": "axis",
+          "Description": "int",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "d6a35b56ec744e098f8fa2ed93a55507",
+          "Name": "var[]..[]",
+          "Description": "var[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Summary.MinValueIndex (dataframe: var, axis: int): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynamoPandas.Pandamo.Information.Summary.MinValues@var",
+      "Id": "b67a7216fd2746c093a1ff694ef509c4",
+      "Inputs": [
+        {
+          "Id": "af50bfd9cda84244b7a6b79fa20cc5a1",
+          "Name": "dataframe",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "82f5a7d2b78f4aa8a7fd955414e2feae",
+          "Name": "var[]..[]",
+          "Description": "var[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Summary.MinValues (dataframe: var): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynamoPandas.Pandamo.Information.Summary.Sum@var,int",
+      "Id": "445a89176b7b4c629d54e5c4ed2530b2",
+      "Inputs": [
+        {
+          "Id": "c14c4501e4584c13851147dc5702033c",
+          "Name": "dataframe",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "e84b4be5ccb741e6b4f9eefce3b1f27b",
+          "Name": "axis",
+          "Description": "int\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "14e976f2b2b14a12b8a44a08847ee4ec",
+          "Name": "var[]..[]",
+          "Description": "var[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Summary.Sum (dataframe: var, axis: int = 0): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynamoPandas.Pandamo.Information.Summary.Unique@var",
+      "Id": "3a7436981bba4d1caa36f43d1c3066bc",
+      "Inputs": [
+        {
+          "Id": "ff215c9e2a374b23859fe031830d6ad3",
+          "Name": "dataframe",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "d7ea0a24737040f3b089578c2205f106",
+          "Name": "var[]..[]",
+          "Description": "var[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Summary.Unique (dataframe: var): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynamoPandas.Pandamo.Pandas.DataFrame.ByColumnsValues@string[],var[][]",
+      "Id": "25df9f8ef55e4b92bb502a8b547c4fb2",
+      "Inputs": [
+        {
+          "Id": "3585131ec36d4733bb27ec85089d75ac",
+          "Name": "columns",
+          "Description": "string[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "ce5b2fa34e14412f91b2b237b6cb01e9",
+          "Name": "values",
+          "Description": "var[][]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "c3fbb1c282bf43a7ad7f1d0ae0831505",
+          "Name": "DataFrame",
+          "Description": "DataFrame",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "DataFrame.ByColumnsValues (columns: string[], values: var[][]): DataFrame"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynamoPandas.Pandamo.Pandas.DataFrame.ByDictionary@DesignScript.Builtin.Dictionary",
+      "Id": "fe5d21fae1b743caac5a3fcddde71f7e",
+      "Inputs": [
+        {
+          "Id": "fe51ab49a4834d43a73abf850ec286cf",
+          "Name": "dataDictionary",
+          "Description": "Dictionary",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "2b8a6bf8c21a4cdaac6f2ff4be600038",
+          "Name": "DataFrame",
+          "Description": "DataFrame",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "DataFrame.ByDictionary (dataDictionary: Dictionary): DataFrame"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynamoPandas.Pandamo.Pandas.DataFrame.ByExcel@string,string",
+      "Id": "f3d175187a904b85adccc3630fdb8e11",
+      "Inputs": [
+        {
+          "Id": "bd9683f1f3b14c3a9ef8d89858afffee",
+          "Name": "filePath",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "81e827b6a5644a389ed198727d815dd7",
+          "Name": "sheetName",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "c988400815a041e0bff7edbf421719d0",
+          "Name": "DataFrame",
+          "Description": "DataFrame",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "DataFrame.ByExcel (filePath: string, sheetName: string): DataFrame"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynamoPandas.Pandamo.Pandas.DataFrame.ToDictionary@var",
+      "Id": "aacc5dbfb75a4495af9051dc22bd1906",
+      "Inputs": [
+        {
+          "Id": "a24e3ee511be4931a5d092b8c90e82ea",
+          "Name": "dataFrame",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "1ce7556c8dbe4eff8a6c617cf602e25a",
+          "Name": "var[]..[]",
+          "Description": "var[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "DataFrame.ToDictionary (dataFrame: var): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynamoPandas.Pandamo.Pandas.DataFrame.ToInternalDictionary@var",
+      "Id": "62411985cc60435aa3673f2729282b23",
+      "Inputs": [
+        {
+          "Id": "0933c38125f9496aa09e82b89b4e1a68",
+          "Name": "dataFrame",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "d421c8c664e54c61a70d35a819a77935",
+          "Name": "var[]..[]",
+          "Description": "var[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "DataFrame.ToInternalDictionary (dataFrame: var): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynamoPandas.Pandamo.Pandas.DataFrame.DataFrameJson",
+      "Id": "4a1fb1a7855a4758b55487e9ac5b8cdc",
+      "Inputs": [
+        {
+          "Id": "d66d3d36375d46b09bae0f4066ed7d5c",
+          "Name": "dataFrame",
+          "Description": "DynamoPandas.Pandamo.Pandas.DataFrame",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "88d0c12a9fbd443a8e1ce51253362663",
+          "Name": "string",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "DataFrame.DataFrameJson: string"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynamoPandas.Pandamo.Reshape.ReshapeDataframe.DropColumns@var,string[]",
+      "Id": "bb46833f23b24455a7639d11e0692dde",
+      "Inputs": [
+        {
+          "Id": "8249e1435d9540bb8bdaa051b0a60855",
+          "Name": "dataframe",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "37d8570c1e72431b897c7a233868e8c7",
+          "Name": "columns",
+          "Description": "string[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "eadcc275f8e9484c97a4eae390b0745b",
+          "Name": "var",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "ReshapeDataframe.DropColumns (dataframe: var, columns: string[]): var"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynamoPandas.Pandamo.Reshape.ReshapeDataframe.DropNa@var",
+      "Id": "0bb00c324cb34c4483b924508b51448b",
+      "Inputs": [
+        {
+          "Id": "b4cd26d06d04452588150709472956c1",
+          "Name": "dataframe",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "a6f61e879360495fba65da384c337529",
+          "Name": "var",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "ReshapeDataframe.DropNa (dataframe: var): var"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynamoPandas.Pandamo.Reshape.ReshapeDataframe.DropRows@var,int[]",
+      "Id": "3ec2d8b46b9347818c1d9ab9d94894fd",
+      "Inputs": [
+        {
+          "Id": "d56700b8f1b74593bbc083571deadc09",
+          "Name": "dataframe",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "5bfe45ef8e054f41b9deef8db418478c",
+          "Name": "index",
+          "Description": "int[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "f334af8ceda3432982160927f7a3db1f",
+          "Name": "var",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "ReshapeDataframe.DropRows (dataframe: var, index: int[]): var"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynamoPandas.Pandamo.Reshape.ReshapeDataframe.FillNa@var",
+      "Id": "843df0293a3c4e0e8da362b7ea2ed614",
+      "Inputs": [
+        {
+          "Id": "d4d9ea90146c4d8fb29701f4054cd47d",
+          "Name": "dataframe",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "b38d5af35a0a4331a5aa7c019e3143d9",
+          "Name": "var",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "ReshapeDataframe.FillNa (dataframe: var): var"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynamoPandas.Pandamo.Reshape.ReshapeDataframe.GetDummies@var",
+      "Id": "51550d6bd5a74f3297ab6b041dec8d56",
+      "Inputs": [
+        {
+          "Id": "d0b43260e60847099ecee79f632a664e",
+          "Name": "dataframe",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "856706df685b4df4a650b6ae50ef2016",
+          "Name": "var",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "ReshapeDataframe.GetDummies (dataframe: var): var"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynamoPandas.Pandamo.Reshape.ReshapeDataframe.Melt@var,string[],string[]",
+      "Id": "075c13b0e31143839cd15548c4a03e32",
+      "Inputs": [
+        {
+          "Id": "7b70e5b42a2c49b88d634313bbeff352",
+          "Name": "dataframe",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "2ccb5a7cf699400f8605c3a1208408a1",
+          "Name": "idVar",
+          "Description": "string[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "88ca5224e23049eb85d3d5707bc07b98",
+          "Name": "valueVar",
+          "Description": "string[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "972937d9e3304c639ea48401c61a3eda",
+          "Name": "var",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "ReshapeDataframe.Melt (dataframe: var, idVar: string[], valueVar: string[]): var"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynamoPandas.Pandamo.Reshape.ReshapeDataframe.Pivot@var,string,string,string[]",
+      "Id": "aef4e9225203444393d5f5449d9760af",
+      "Inputs": [
+        {
+          "Id": "3a2cee50360c4c99967b00702ca0bf82",
+          "Name": "dataframe",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "488d4026bad34549901980936c8f96f2",
+          "Name": "index",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "3dea05047c72455483a42b3d216b23d8",
+          "Name": "columns",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "c20a940768e844278fdbcd75ad9d829e",
+          "Name": "values",
+          "Description": "string[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "5187400894514ccc8d3b34c32a9ff5a0",
+          "Name": "var",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "ReshapeDataframe.Pivot (dataframe: var, index: string, columns: string, values: string[]): var"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynamoPandas.Pandamo.Reshape.ReshapeDataframe.RenameColumns@var,string[],string[]",
+      "Id": "ba75d30ee51845878675297d5fa40d15",
+      "Inputs": [
+        {
+          "Id": "158055ddc7694f2ca3dcc33f74c909b1",
+          "Name": "dataframe",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "5b448dd56e4d4f39a9b14ec90ec60cf2",
+          "Name": "oldValues",
+          "Description": "string[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "1bb060d95122413897b3b0d612d6f796",
+          "Name": "newValues",
+          "Description": "string[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "8209cd3e2c134e57af993403ccd0cc3e",
+          "Name": "var",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "ReshapeDataframe.RenameColumns (dataframe: var, oldValues: string[], newValues: string[]): var"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynamoPandas.Pandamo.Reshape.ReshapeDataframe.ReverseDataframe@var,int,bool",
+      "Id": "258b6b9f944641a2a854f29ecd4b4343",
+      "Inputs": [
+        {
+          "Id": "7f3dba8d95a946779bc66bd4596f0fea",
+          "Name": "dataframe",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "8001a9c15e984f9bbde569905e6a4705",
+          "Name": "axis",
+          "Description": "int\nDefault value : 1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "c8704a76339e40f9b0cbe1a86ed51bd4",
+          "Name": "resetIndex",
+          "Description": "bool\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "3cca04b5e13147c08660e33be0e277d5",
+          "Name": "var",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "ReshapeDataframe.ReverseDataframe (dataframe: var, axis: int = 1, resetIndex: bool = false): var"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynamoPandas.Pandamo.Reshape.ReshapeDataframe.SortValues@var,string[],bool",
+      "Id": "62493bc09e994df3b65766950a21cb19",
+      "Inputs": [
+        {
+          "Id": "8898c6dde84d4f1cb7c0e6306d717ad5",
+          "Name": "dataframe",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "9c4150868b094597b45886cb00a55701",
+          "Name": "columns",
+          "Description": "string[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "cfcba6259da74f64802c3f0e316438ac",
+          "Name": "ascending",
+          "Description": "bool",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "77a94f524e28478f832d9282148dd58d",
+          "Name": "var",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "ReshapeDataframe.SortValues (dataframe: var, columns: string[], ascending: bool): var"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynamoPandas.Pandamo.Reshape.ReshapeDataframe.StringsToNumbers@var,string[],string[]",
+      "Id": "cb6752166daa42b1bf0d617ba79b49ac",
+      "Inputs": [
+        {
+          "Id": "d0c9af33b5834294a4cc1c658a6231c3",
+          "Name": "dataframe",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "76e76139107e455293ddac4b227a1be9",
+          "Name": "columns",
+          "Description": "string[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "bcc473bf9a9241c7a3e184fde5f468c7",
+          "Name": "numberTypes",
+          "Description": "string[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "2a91a003c9cb410eb49c0e1534896cbe",
+          "Name": "var",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "ReshapeDataframe.StringsToNumbers (dataframe: var, columns: string[], numberTypes: string[]): var"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynamoPandas.Pandamo.Reshape.ReshapeDataframe.ToDateTime@var,string",
+      "Id": "40d809722e994b67a2b9ebd9e4849b8f",
+      "Inputs": [
+        {
+          "Id": "c45c2534088f49df9f4d11d40f9aa6b3",
+          "Name": "dataframe",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "a27e320ceabd405eb8ab243b89340241",
+          "Name": "column",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "8108d30727b34a8286d768786deb7a4c",
+          "Name": "var",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "ReshapeDataframe.ToDateTime (dataframe: var, column: string): var"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynamoPandas.Pandamo.Select.SelectColumns.ByDatatype@var,string[]",
+      "Id": "80675660aaef4ddeb75d03e7de40fe44",
+      "Inputs": [
+        {
+          "Id": "eaefd413db774d34a6cc5cb2aba09cb4",
+          "Name": "dataframe",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "704530964cfc4ce9b1396be618b13a7f",
+          "Name": "datatypes",
+          "Description": "string[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "abc850432a844965a1bae8111395497e",
+          "Name": "var",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "SelectColumns.ByDatatype (dataframe: var, datatypes: string[]): var"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynamoPandas.Pandamo.Select.SelectRows.ByContains@var,string,string",
+      "Id": "32419844b7f349129786d282302ae58c",
+      "Inputs": [
+        {
+          "Id": "945d6acbd51344f8a8c562b9ca2e2887",
+          "Name": "dataframe",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "1b7e5cf26f1c4f21a4f825bfb46867aa",
+          "Name": "column",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "508a6bf9fec64633979ee35b97d0a7eb",
+          "Name": "containsString",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "ea61fda60db64a16a91b77bcf2829b05",
+          "Name": "var",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "SelectRows.ByContains (dataframe: var, column: string, containsString: string): var"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynamoPandas.Pandamo.Select.SelectRows.ByExpression@var,string",
+      "Id": "3bcec00fe6b94ec591f3c4f06fb8a511",
+      "Inputs": [
+        {
+          "Id": "6f22bb63f6404ad4856dfc6df994b3b4",
+          "Name": "dataframe",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "61fdec211a2842349f2080c7aa352c3c",
+          "Name": "expression",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "18598b3c09a04e9398765f5465d88e51",
+          "Name": "var",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "SelectRows.ByExpression (dataframe: var, expression: string): var"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynamoPandas.Pandamo.Select.SelectRows.ByIndex@var,int[]",
+      "Id": "d2ed27db271847ce89d4e15477924e16",
+      "Inputs": [
+        {
+          "Id": "d4cad937c64f4dbfb5050c364e891bce",
+          "Name": "dataframe",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "517c134a776b4798a4b9a40f588d7bd2",
+          "Name": "rowIndex",
+          "Description": "int[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "527700832ad44ed195f81ffa139913d9",
+          "Name": "var",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "SelectRows.ByIndex (dataframe: var, rowIndex: int[]): var"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynamoPandas.Pandamo.Select.SelectRows.ByLabel@var,var[],var[]",
+      "Id": "3f290e1b18b54315a29c26e019b0eb30",
+      "Inputs": [
+        {
+          "Id": "b006fdd9dc2b4e37baacb5fce644b661",
+          "Name": "dataframe",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "45335e3a282f47bc919430c8bb7917ec",
+          "Name": "rowLabel",
+          "Description": "var[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "b9fa738681634942aa1230c3debc4ee4",
+          "Name": "columnLabel",
+          "Description": "var[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "905b4baf1fe94cf5a40d647c21a1a7f9",
+          "Name": "var",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "SelectRows.ByLabel (dataframe: var, rowLabel: var[], columnLabel: var[]): var"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynamoPandas.Pandamo.Select.SelectRows.ByMatch@var,string,string",
+      "Id": "f315946fdfe04dd9b1e1d0eb2da468ec",
+      "Inputs": [
+        {
+          "Id": "5ebc1f3a545c44b896b13478b3e0bc5a",
+          "Name": "dataframe",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "efaac8fdedff4d54bc51b1a38628df99",
+          "Name": "column",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "8e8284dcc36f40cb98effcc5767e956c",
+          "Name": "matchString",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "0d6265c1ef284d43ba9fdff671990348",
+          "Name": "var",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "SelectRows.ByMatch (dataframe: var, column: string, matchString: string): var"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynamoPandas.Pandamo.Statistics.Stats.DropOutliers@var,DesignScript.Builtin.Dictionary,int",
+      "Id": "2c8a4d9701c243b0b3e673c2f498f385",
+      "Inputs": [
+        {
+          "Id": "aa027afe88c342c5901f49553da3a17d",
+          "Name": "dataframe",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "3e9493628a68423d85ca4aeb3ff3286f",
+          "Name": "zValues",
+          "Description": "Dictionary",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "7be554464c2a4669b18545d9151478be",
+          "Name": "standardDeviation",
+          "Description": "int",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "c151fa83b56348fab70c4e0dbb5dab95",
+          "Name": "var",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Stats.DropOutliers (dataframe: var, zValues: Dictionary, standardDeviation: int): var"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DynamoPandas.Pandamo.Statistics.Stats.ZValue@var,string[]",
+      "Id": "45aa156d65294f7a975b3b2e409d9169",
+      "Inputs": [
+        {
+          "Id": "c641e53f2e57462494f543b070b75928",
+          "Name": "dataframe",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "31d37fa9315f49c6b285b3fcb733ffb3",
+          "Name": "columns",
+          "Description": "string[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "d977f94f56624df5ab6996d701247f98",
+          "Name": "var[]..[]",
+          "Description": "var[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Stats.ZValue (dataframe: var, columns: string[]): var[]..[]"
+    }
+  ],
+  "Connectors": [],
+  "Dependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.0.3.8810",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "CombineDataframe.Concatenate",
+        "Id": "1459f8ae4a6e4fa891ed53d40d89e9d6",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 966.60986274979882,
+        "Y": 158.16934805186872
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "CombineDataframe.Merge",
+        "Id": "b1d3d5f78b3c4203acee3315277a1306",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 968.82445420076237,
+        "Y": 334.66720789512567
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Filter.ByContains",
+        "Id": "11e3599739da4cf59e967df45306ade4",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -67.198089360130069,
+        "Y": 160.18634004632543
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Filter.ByItems",
+        "Id": "e6658dbed7cc4a178e897b3b9cd5576d",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -67.198089360130069,
+        "Y": 313.82798426807841
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Filter.ByRegex",
+        "Id": "f91f7506b5f84eacae0874ae43aa6380",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -67.198089360130069,
+        "Y": 467.46962848983139
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Tabulate",
+        "Id": "0e6366d292c642c2a71d0c595984482b",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2020.0891858038981,
+        "Y": 114.47767790013206
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "DataFrameFormatters.TabulateAsString",
+        "Id": "e1fe24af3e774ba389ebefb2b3d6a590",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2020.0891858038981,
+        "Y": 217.16151030909572
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "BasicInformation.Columns",
+        "Id": "bd49fa42fb264f4fa5742fa5345ce73f",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1760.8286652256943,
+        "Y": 401.762406463396
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "BasicInformation.Count",
+        "Id": "f7ceccb90b44499a99f60e723c56e510",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1760.8286652256943,
+        "Y": 502.24584322368173
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "BasicInformation.DataTypes",
+        "Id": "898c22dcdbcb4091a86492cead8189f5",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1760.8286652256943,
+        "Y": 602.72927998396744
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "BasicInformation.Index",
+        "Id": "c360fd9d10484d96aae763cf43faf143",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1760.8286652256943,
+        "Y": 200.79553294282459
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "BasicInformation.Info",
+        "Id": "db3081a126bc41aaa17f68a46e29837d",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1760.8286652256943,
+        "Y": 301.27896970311031
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "BasicInformation.Shape",
+        "Id": "bf8c28ed6f884511a9e9f5cbb9623c1d",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1760.8286652256943,
+        "Y": 703.21271674425316
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Summary.CumulativeSum",
+        "Id": "b694d0518bff4a91bd9501f403a6f942",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1500.8876285639246,
+        "Y": 636.22005306926917
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Summary.Describe",
+        "Id": "b1d02b35b3b94eb483393121c55e01ce",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1500.8876285639246,
+        "Y": 817.14341694158907
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Summary.MaxValueIndex",
+        "Id": "3e36a4e32627448e8702fad13fbd6558",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1500.8876285639246,
+        "Y": 157.91164338846949
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Summary.MaxValues",
+        "Id": "0875e1d8a4e942f7ac073bb58aeab58a",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1500.8876285639246,
+        "Y": 364.83500726078938
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Summary.Mean",
+        "Id": "866713af332d4eb09ef5c3bab07ab63d",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1500.8876285639246,
+        "Y": 455.29668919694933
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Summary.Median",
+        "Id": "24855e2546314612aa4992cef69a2e0a",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1500.8876285639246,
+        "Y": 726.68173500542912
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Summary.MinValueIndex",
+        "Id": "3ea592ddce7d488eb4f172a6564f227b",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1500.8876285639246,
+        "Y": 907.605098877749
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Summary.MinValues",
+        "Id": "b67a7216fd2746c093a1ff694ef509c4",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1500.8876285639246,
+        "Y": 274.37332532462943
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Summary.Sum",
+        "Id": "445a89176b7b4c629d54e5c4ed2530b2",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1500.8876285639246,
+        "Y": 1024.066780813909
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Summary.Unique",
+        "Id": "3a7436981bba4d1caa36f43d1c3066bc",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1500.8876285639246,
+        "Y": 545.75837113310922
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "DataFrame.ByColumnsValues",
+        "Id": "25df9f8ef55e4b92bb502a8b547c4fb2",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -391.84810986444472,
+        "Y": 273.45103709406555
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "DataFrame.ByDictionary",
+        "Id": "fe5d21fae1b743caac5a3fcddde71f7e",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -391.84810986444472,
+        "Y": 388.33005618959726
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "DataFrame.ByExcel",
+        "Id": "f3d175187a904b85adccc3630fdb8e11",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -391.84810986444472,
+        "Y": 158.57201799853385
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "DataFrame.ToDictionary",
+        "Id": "aacc5dbfb75a4495af9051dc22bd1906",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -391.64972071044122,
+        "Y": 705.61541978886851
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "DataFrame.ToInternalDictionary",
+        "Id": "62411985cc60435aa3673f2729282b23",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -391.64972071044122,
+        "Y": 603.77160174976882
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "DataFrame.DataFrameJson",
+        "Id": "4a1fb1a7855a4758b55487e9ac5b8cdc",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -390.93916648410357,
+        "Y": 911.95697369696381
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "ReshapeDataframe.DropColumns",
+        "Id": "bb46833f23b24455a7639d11e0692dde",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 175.40418148373237,
+        "Y": 1512.0536129707011
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "ReshapeDataframe.DropNa",
+        "Id": "0bb00c324cb34c4483b924508b51448b",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 175.40418148373237,
+        "Y": 464.80610890640469
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "ReshapeDataframe.DropRows",
+        "Id": "3ec2d8b46b9347818c1d9ab9d94894fd",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 175.40418148373237,
+        "Y": 566.46204691444177
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "ReshapeDataframe.FillNa",
+        "Id": "843df0293a3c4e0e8da362b7ea2ed614",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 175.40418148373237,
+        "Y": 847.77392293051594
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "ReshapeDataframe.GetDummies",
+        "Id": "51550d6bd5a74f3297ab6b041dec8d56",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 175.40418148373237,
+        "Y": 1103.08579894659
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "ReshapeDataframe.Melt",
+        "Id": "075c13b0e31143839cd15548c4a03e32",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 175.40418148373237,
+        "Y": 1358.397674962664
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "ReshapeDataframe.Pivot",
+        "Id": "aef4e9225203444393d5f5449d9760af",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 175.40418148373237,
+        "Y": 157.49423289033047
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "ReshapeDataframe.RenameColumns",
+        "Id": "ba75d30ee51845878675297d5fa40d15",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 175.40418148373237,
+        "Y": 694.11798492247885
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "ReshapeDataframe.ReverseDataframe",
+        "Id": "258b6b9f944641a2a854f29ecd4b4343",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 175.40418148373237,
+        "Y": 949.429860938553
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "ReshapeDataframe.SortValues",
+        "Id": "62493bc09e994df3b65766950a21cb19",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 175.40418148373237,
+        "Y": 1204.741736954627
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "ReshapeDataframe.StringsToNumbers",
+        "Id": "cb6752166daa42b1bf0d617ba79b49ac",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 181.9362292006731,
+        "Y": 1639.7095509787382
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "ReshapeDataframe.ToDateTime",
+        "Id": "40d809722e994b67a2b9ebd9e4849b8f",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 175.40418148373237,
+        "Y": 337.15017089836755
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "SelectColumns.ByDatatype",
+        "Id": "80675660aaef4ddeb75d03e7de40fe44",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 731.09251509104092,
+        "Y": 200.906572844606
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "SelectRows.ByContains",
+        "Id": "32419844b7f349129786d282302ae58c",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 467.96571488817608,
+        "Y": 322.19633731632138
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "SelectRows.ByExpression",
+        "Id": "3bcec00fe6b94ec591f3c4f06fb8a511",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 467.96571488817608,
+        "Y": 486.65199467485144
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "SelectRows.ByIndex",
+        "Id": "d2ed27db271847ce89d4e15477924e16",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 467.96571488817608,
+        "Y": 625.10765203338144
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "SelectRows.ByLabel",
+        "Id": "3f290e1b18b54315a29c26e019b0eb30",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 467.96571488817608,
+        "Y": 157.74067995779131
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "SelectRows.ByMatch",
+        "Id": "f315946fdfe04dd9b1e1d0eb2da468ec",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 467.96571488817608,
+        "Y": 763.5633093919115
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Stats.DropOutliers",
+        "Id": "2c8a4d9701c243b0b3e673c2f498f385",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1217.761125145202,
+        "Y": 157.5218742338572
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Stats.ZValue",
+        "Id": "45aa156d65294f7a975b3b2e409d9169",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1218.5930806095034,
+        "Y": 308.91826076244757
+      }
+    ],
+    "Annotations": [
+      {
+        "Id": "ee8838be0a5f47b68922931c957250e4",
+        "Title": "Combine - Actions",
+        "Nodes": [
+          "1459f8ae4a6e4fa891ed53d40d89e9d6",
+          "b1d3d5f78b3c4203acee3315277a1306"
+        ],
+        "Left": 956.60986274979882,
+        "Top": 62.169348051868724,
+        "Width": 237.0,
+        "Height": 521.497859843257,
+        "FontSize": 36.0,
+        "InitialTop": 158.16934805186872,
+        "InitialHeight": 303.0,
+        "TextblockHeight": 86.0,
+        "Background": "#FF48B9FF"
+      },
+      {
+        "Id": "7b8fde3d63054629a944c424fdb90e04",
+        "Title": "Filter - Actions",
+        "Nodes": [
+          "11e3599739da4cf59e967df45306ade4",
+          "e6658dbed7cc4a178e897b3b9cd5576d",
+          "f91f7506b5f84eacae0874ae43aa6380"
+        ],
+        "Left": -77.198089360130069,
+        "Top": 64.186340046325427,
+        "Width": 221.0,
+        "Height": 548.283288443506,
+        "FontSize": 36.0,
+        "InitialTop": 160.18634004632543,
+        "InitialHeight": 223.0,
+        "TextblockHeight": 86.0,
+        "Background": "#FF48B9FF"
+      },
+      {
+        "Id": "1343bed032ea4b1dbce726101062db13",
+        "Title": "Format - Actions",
+        "Nodes": [
+          "0e6366d292c642c2a71d0c595984482b",
+          "e1fe24af3e774ba389ebefb2b3d6a590"
+        ],
+        "Left": 2010.0891858038981,
+        "Top": 61.477677900132065,
+        "Width": 280.0,
+        "Height": 248.68383240896367,
+        "FontSize": 36.0,
+        "InitialTop": 114.47767790013206,
+        "InitialHeight": 247.0,
+        "TextblockHeight": 43.0,
+        "Background": "#FF48B9FF"
+      },
+      {
+        "Id": "25d3865ae3324740afad920191513706",
+        "Title": "Basic Information - Actions",
+        "Nodes": [
+          "bd49fa42fb264f4fa5742fa5345ce73f",
+          "f7ceccb90b44499a99f60e723c56e510",
+          "898c22dcdbcb4091a86492cead8189f5",
+          "c360fd9d10484d96aae763cf43faf143",
+          "db3081a126bc41aaa17f68a46e29837d",
+          "bf8c28ed6f884511a9e9f5cbb9623c1d"
+        ],
+        "Left": 1750.8286652256943,
+        "Top": 60.795532942824593,
+        "Width": 245.0,
+        "Height": 735.41718380142856,
+        "FontSize": 36.0,
+        "InitialTop": 200.79553294282459,
+        "InitialHeight": 219.0,
+        "TextblockHeight": 130.0,
+        "Background": "#FF48B9FF"
+      },
+      {
+        "Id": "c86e819221fa4f87b64d9d951ab958a9",
+        "Title": "Summary - Actions",
+        "Nodes": [
+          "b694d0518bff4a91bd9501f403a6f942",
+          "b1d02b35b3b94eb483393121c55e01ce",
+          "3e36a4e32627448e8702fad13fbd6558",
+          "0875e1d8a4e942f7ac073bb58aeab58a",
+          "866713af332d4eb09ef5c3bab07ab63d",
+          "24855e2546314612aa4992cef69a2e0a",
+          "3ea592ddce7d488eb4f172a6564f227b",
+          "b67a7216fd2746c093a1ff694ef509c4",
+          "445a89176b7b4c629d54e5c4ed2530b2",
+          "3a7436981bba4d1caa36f43d1c3066bc"
+        ],
+        "Left": 1490.8876285639246,
+        "Top": 61.911643388469486,
+        "Width": 245.0,
+        "Height": 1081.1551374254395,
+        "FontSize": 36.0,
+        "InitialTop": 157.91164338846949,
+        "InitialHeight": 245.0,
+        "TextblockHeight": 86.0,
+        "Background": "#FF48B9FF"
+      },
+      {
+        "Id": "a0b3268e27a548d98fd54c63e251c288",
+        "Title": "Dataframes - Create",
+        "Nodes": [
+          "25df9f8ef55e4b92bb502a8b547c4fb2",
+          "fe5d21fae1b743caac5a3fcddde71f7e",
+          "f3d175187a904b85adccc3630fdb8e11"
+        ],
+        "Left": -401.84810986444472,
+        "Top": 62.572017998533852,
+        "Width": 295.0,
+        "Height": 418.75803819106341,
+        "FontSize": 36.0,
+        "InitialTop": 158.57201799853385,
+        "InitialHeight": 219.0,
+        "TextblockHeight": 86.0,
+        "Background": "#FF48B9FF"
+      },
+      {
+        "Id": "99699df4e3d049138b1b20ee185ded68",
+        "Title": "Reshape - Actions",
+        "Nodes": [
+          "bb46833f23b24455a7639d11e0692dde",
+          "0bb00c324cb34c4483b924508b51448b",
+          "3ec2d8b46b9347818c1d9ab9d94894fd",
+          "843df0293a3c4e0e8da362b7ea2ed614",
+          "51550d6bd5a74f3297ab6b041dec8d56",
+          "075c13b0e31143839cd15548c4a03e32",
+          "aef4e9225203444393d5f5449d9760af",
+          "ba75d30ee51845878675297d5fa40d15",
+          "258b6b9f944641a2a854f29ecd4b4343",
+          "62493bc09e994df3b65766950a21cb19",
+          "cb6752166daa42b1bf0d617ba79b49ac",
+          "40d809722e994b67a2b9ebd9e4849b8f"
+        ],
+        "Left": 165.40418148373237,
+        "Top": 61.494232890330466,
+        "Width": 278.53204771694072,
+        "Height": 1723.2153180884077,
+        "FontSize": 36.0,
+        "InitialTop": 157.49423289033047,
+        "InitialHeight": 288.946587537092,
+        "TextblockHeight": 86.0,
+        "Background": "#FF48B9FF"
+      },
+      {
+        "Id": "d91302672a094d83ae31b8e939b98f8a",
+        "Title": "Select Columns - Actions",
+        "Nodes": [
+          "80675660aaef4ddeb75d03e7de40fe44"
+        ],
+        "Left": 721.09251509104092,
+        "Top": 60.906572844605989,
+        "Width": 221.0,
+        "Height": 259.0,
+        "FontSize": 36.0,
+        "InitialTop": 200.906572844606,
+        "InitialHeight": 149.0,
+        "TextblockHeight": 130.0,
+        "Background": "#FF48B9FF"
+      },
+      {
+        "Id": "6d9a47f916b54e61a2a9ea48e91fdd94",
+        "Title": "Select Rows - Actions",
+        "Nodes": [
+          "32419844b7f349129786d282302ae58c",
+          "3bcec00fe6b94ec591f3c4f06fb8a511",
+          "d2ed27db271847ce89d4e15477924e16",
+          "3f290e1b18b54315a29c26e019b0eb30",
+          "f315946fdfe04dd9b1e1d0eb2da468ec"
+        ],
+        "Left": 457.96571488817608,
+        "Top": 61.740679957791315,
+        "Width": 245.0,
+        "Height": 846.82262943412024,
+        "FontSize": 36.0,
+        "InitialTop": 157.74067995779131,
+        "InitialHeight": 262.946587537092,
+        "TextblockHeight": 86.0,
+        "Background": "#FF48B9FF"
+      },
+      {
+        "Id": "12ebfc9e9a324b8a9d4c20765456dccd",
+        "Title": "Statistics - Actions",
+        "Nodes": [
+          "2c8a4d9701c243b0b3e673c2f498f385",
+          "45aa156d65294f7a975b3b2e409d9169"
+        ],
+        "Left": 1207.761125145202,
+        "Top": 61.521874233857204,
+        "Width": 270.0,
+        "Height": 366.39638652859037,
+        "FontSize": 36.0,
+        "InitialTop": 157.5218742338572,
+        "InitialHeight": 177.486646884273,
+        "TextblockHeight": 86.0,
+        "Background": "#FF48B9FF"
+      },
+      {
+        "Id": "e6d557e914764257ad3a29efb2d620cf",
+        "Title": "Dataframes - Query",
+        "Nodes": [
+          "4a1fb1a7855a4758b55487e9ac5b8cdc"
+        ],
+        "Left": -400.93916648410357,
+        "Top": 815.95697369696381,
+        "Width": 239.0,
+        "Height": 189.0,
+        "FontSize": 36.0,
+        "InitialTop": 911.95697369696381,
+        "InitialHeight": 123.0,
+        "TextblockHeight": 86.0,
+        "Background": "#FFB5B5B5"
+      },
+      {
+        "Id": "1a7a06371e744b9586a73b172ba53f22",
+        "Title": "Dataframes - Actions",
+        "Nodes": [
+          "aacc5dbfb75a4495af9051dc22bd1906",
+          "62411985cc60435aa3673f2729282b23"
+        ],
+        "Left": -401.64972071044122,
+        "Top": 507.77160174976882,
+        "Width": 248.0,
+        "Height": 290.84381803909969,
+        "FontSize": 36.0,
+        "InitialTop": 603.77160174976882,
+        "InitialHeight": 224.84381803909969,
+        "TextblockHeight": 86.0,
+        "Background": "#FFBB87C6"
+      }
+    ],
+    "X": 476.6472512515893,
+    "Y": -25.958436845960875,
+    "Zoom": 0.50984247179235209
+  }
+}
