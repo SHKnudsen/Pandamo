@@ -7,26 +7,25 @@ using DynamoPandas.Pandamo.Pandas;
 using DynamoPandas.Pandamo.Constants;
 using Newtonsoft.Json.Linq;
 
-namespace DynamoPandas.Pandamo.Format
+namespace DynamoPandas.Pandamo.Select
 {
-    public static class DataFrameFormatters
+    public static class SelectColumns
     {
-        public static string TabulateAsString(DataFrame dataframe)
+        private const string UrlPrefix = @"api/select_columns";
+
+        public static DataFrame ByDatatype(DataFrame dataframe, List<string> datatypes)
         {
             string jsonStr = dataframe.InternalDfJson;
 
             // Build argument JSON objec
             dynamic arguments = new JObject();
             arguments.jsonStr = jsonStr;
+            arguments.include = JToken.FromObject(datatypes);
 
             string dataframeJson = DynamoPandas.Pandamo.PythonRestCall
-                .webUriCaller(PythonConstants.webUri + "api/format_dataframe/tabulate/", arguments);
-            if (dataframeJson.StartsWith("An error occurred."))
-            {
-                throw new Exception(dataframeJson);            
-            }
-            return dataframeJson;
-
+                .webUriCaller(PythonConstants.webUri + UrlPrefix + "/by_datatype/", arguments);
+            DataFrame df = new DataFrame(dataframeJson);
+            return df;
         }
     }
 }

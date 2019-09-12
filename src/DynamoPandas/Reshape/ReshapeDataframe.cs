@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Autodesk.DesignScript.Runtime;
 using DynamoPandas.Pandamo.Constants;
 using DynamoPandas.Pandamo.Pandas;
 using Newtonsoft.Json.Linq;
@@ -140,7 +141,6 @@ namespace DynamoPandas.Pandamo.Reshape
         public static DataFrame DropColumns(DataFrame dataframe, List<string> columns)
         {
             string jsonStr = dataframe.InternalDfJson;
-            //string columnsStr = string.Join(",", columns.ToList());
 
             // Build argument JSON objec
             dynamic arguments = new JObject();
@@ -149,6 +149,130 @@ namespace DynamoPandas.Pandamo.Reshape
 
             string dataframeJson = DynamoPandas.Pandamo.PythonRestCall
                 .webUriCaller(PythonConstants.webUri + UrlPrefix + "/drop_columns/", arguments);
+            DataFrame df = new DataFrame(dataframeJson);
+            return df;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dataframe"></param>
+        /// <param name="axis"></param>
+        /// <param name="resetIndex"></param>
+        /// <returns></returns>
+        public static DataFrame ReverseDataframe(DataFrame dataframe, int axis = 1, bool resetIndex = false)
+        {
+            string jsonStr = dataframe.InternalDfJson;
+
+            // Build argument JSON objec
+            dynamic arguments = new JObject();
+            arguments.jsonStr = jsonStr;
+            arguments.axis = axis;
+            arguments.reset_index = resetIndex;
+
+            string dataframeJson = DynamoPandas.Pandamo.PythonRestCall
+                .webUriCaller(PythonConstants.webUri + UrlPrefix + "/reverse_dataframe/", arguments);
+            DataFrame df = new DataFrame(dataframeJson);
+            return df;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dataframe"></param>
+        /// <param name="columns"></param>
+        /// <param name="numberTypes"></param>
+        /// <returns></returns>
+        public static DataFrame StringsToNumbers(DataFrame dataframe, List<string> columns, List<string> numberTypes)
+        {
+            //CONSIDER IF THIS NODE IS NEEDED!
+            string jsonStr = dataframe.InternalDfJson;
+
+            // Build argument JSON objec
+            dynamic arguments = new JObject();
+            arguments.jsonStr = jsonStr;
+            arguments.strings = JToken.FromObject(columns);
+            arguments.numberTypes = JToken.FromObject(numberTypes);
+
+            string dataframeJson = DynamoPandas.Pandamo.PythonRestCall
+                .webUriCaller(PythonConstants.webUri + UrlPrefix + "/strings_to_numbers/", arguments);
+            DataFrame df = new DataFrame(dataframeJson);
+            return df;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dataframe"></param>
+        /// <returns></returns>
+        public static DataFrame FillNa(DataFrame dataframe)
+        {
+            string jsonStr = dataframe.InternalDfJson;
+
+            // Build argument JSON objec
+            dynamic arguments = new JObject();
+            arguments.jsonStr = jsonStr;
+            
+            string dataframeJson = DynamoPandas.Pandamo.PythonRestCall
+                .webUriCaller(PythonConstants.webUri + UrlPrefix + "/fill_na/", arguments);
+            DataFrame df = new DataFrame(dataframeJson);
+            return df;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dataframe"></param>
+        /// <param name="column"></param>
+        /// <returns></returns>
+        public static DataFrame ToDateTime(DataFrame dataframe, string column)
+        {
+            string jsonStr = dataframe.InternalDfJson;
+
+            // Build argument JSON objec
+            dynamic arguments = new JObject();
+            arguments.jsonStr = jsonStr;
+            arguments.column = column;
+
+            string dataframeJson = DynamoPandas.Pandamo.PythonRestCall
+                .webUriCaller(PythonConstants.webUri + UrlPrefix + "/to_datetime/", arguments);
+            DataFrame df = new DataFrame(dataframeJson);
+            return df;
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dataframe"></param>
+        /// <returns></returns>
+        public static DataFrame DropNa(DataFrame dataframe)
+        {
+            string jsonStr = dataframe.InternalDfJson;
+
+            // Build argument JSON objec
+            dynamic arguments = new JObject();
+            arguments.jsonStr = jsonStr;
+
+            string dataframeJson = DynamoPandas.Pandamo.PythonRestCall
+                .webUriCaller(PythonConstants.webUri + UrlPrefix + "/drop_na/", arguments);
+            DataFrame df = new DataFrame(dataframeJson);
+            return df;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dataframe"></param>
+        /// <returns></returns>
+        public static DataFrame GetDummies(DataFrame dataframe)
+        {
+            string jsonStr = dataframe.InternalDfJson;
+
+            // Build argument JSON objec
+            dynamic arguments = new JObject();
+            arguments.jsonStr = jsonStr;
+
+            string dataframeJson = DynamoPandas.Pandamo.PythonRestCall
+                .webUriCaller(PythonConstants.webUri + UrlPrefix + "/get_dummies/", arguments);
             DataFrame df = new DataFrame(dataframeJson);
             return df;
         }

@@ -54,6 +54,11 @@ namespace DynamoPandas.PandamoNodeModels.Controls
                     List<object> vals = dict["data"] as List<object>;
                     List<object> idx = dict["index"] as List<object>;
 
+                    if (cols.Contains("index"))
+                    {
+                        cols[cols.FindIndex(ind => ind.Equals("index"))] = "OriginalIndex";
+                    }
+
                     System.Data.DataTable dataTable = new System.Data.DataTable("dataframe");
                     dataTable.Columns.Add("index");
                     foreach (var col in cols)

@@ -7,9 +7,11 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using RestSharp;
+using Autodesk.DesignScript.Runtime;
 
 namespace DynamoPandas.Pandamo
 {
+    [IsVisibleInDynamoLibrary(false)]
     public static class PythonRestCall
     {
 
