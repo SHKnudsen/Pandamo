@@ -49,8 +49,8 @@ namespace DynamoPandas.PandamoViewExtension
             this.dynamoViewModel = this.viewParameters.DynamoWindow.DataContext as DynamoViewModel;
             this.dynamoModel = this.dynamoViewModel.Model;
             StartServer();
-            string hasServerStarted = PandasServer.HasServerStarted();
-            ProcessOutput += hasServerStarted + "\n";
+            //string hasServerStarted = PandasServer.HasServerStarted();
+            //ProcessOutput += hasServerStarted + "\n";
         }
 
         public void StartServer()
@@ -63,18 +63,13 @@ namespace DynamoPandas.PandamoViewExtension
         {
             string currentUserPath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
             string extraPath = Path.GetFullPath(Path.Combine(assemblyFolder, @"..\extra"));
-            string activateEnv = currentUserPath + @"\Miniconda3\Scripts\activate.bat";
-            string startServer = currentUserPath + @"\Miniconda3\Scripts\startPandamoServer.bat";
-            string activatePandamo = "activate pandamo";
-            string runFlask = "flask run";
-            // Set working directory and create process
+            // create process
             var process = new Process
             {
                 StartInfo = new ProcessStartInfo
                 {
                     WorkingDirectory = extraPath + @"\pandasDynamo",
-                    FileName = "cmd.exe",
-                    Arguments = string.Format("{0} {1} {2}", activateEnv, activatePandamo, startServer),
+                    FileName = extraPath + @"\pandasDynamo\activatePandamo.bat",
                     RedirectStandardInput = true,
                     RedirectStandardOutput = true,
                     UseShellExecute = false,

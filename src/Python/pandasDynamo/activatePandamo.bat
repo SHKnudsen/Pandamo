@@ -16,12 +16,19 @@
 @set _args1=
 
 @if "%_args1_first%"=="+" if NOT "%_args1_last%"=="+" (
-    @CALL "%~dp0..\condabin\conda.bat" activate pandamo
+    @CALL "%UserProfile%\Miniconda3\condabin\conda.bat" activate pandamo
+	set FLASK_APP=run.py
+	set FLASK_ENV=development
+	flask run
+
     @GOTO :End
 )
 
 @REM This may work if there are spaces in anything in %*
-@CALL "%~dp0..\condabin\conda.bat" activate pandamo
+@CALL "%UserProfile%\Miniconda3\condabin\conda.bat" activate pandamo
+set FLASK_APP=run.py
+set FLASK_ENV=development
+flask run
 
 :End
 @set _args1_first=
