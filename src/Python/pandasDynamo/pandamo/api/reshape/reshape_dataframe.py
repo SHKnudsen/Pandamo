@@ -194,8 +194,9 @@ def fill_na():
     try:
         request_dict = request.get_json()
         jsonstr = request_dict['jsonStr']
+        value = request_dict['value']
         df = pd.read_json(json.dumps(eval(jsonstr)), orient='split')    
-        df = df.fillna(method='ffill')
+        df = df.fillna(value)
         df_json = df.to_json(orient='split', date_format='iso')
         response = app.response_class(
             response=df_json,
@@ -253,7 +254,27 @@ def get_dummies():
         request_dict = request.get_json()
         jsonstr = request_dict['jsonStr']
         df = pd.read_json(json.dumps(eval(jsonstr)), orient='split')         
-        df = pd.get_dummies(df)
+        df = pd.get_dummies(df, drop_first=True)
+        df_json = df.to_json(orient='split', date_format='iso')
+        response = app.response_class(
+            response=df_json,
+            status=200,
+            mimetype='application/json'
+        )
+    except:
+        exception_message = sys.exc_info()[1]
+        response = json.dumps({"content":exception_message})
+        response.status_code = 400
+    return response
+
+@mod.route('sample/', methods=["POST"])
+def sample():
+    try:
+        request_dict = request.get_json()
+        jsonstr = request_dict['jsonStr']
+        fraction = request_dict['fraction']
+        df = pd.read_json(json.dumps(eval(jsonstr)), orient='split')         
+        df = df.sample(frac=fraction, random_state=200)
         df_json = df.to_json(orient='split', date_format='iso')
         response = app.response_class(
             response=df_json,

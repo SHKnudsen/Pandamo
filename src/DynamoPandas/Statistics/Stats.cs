@@ -58,5 +58,26 @@ namespace DynamoPandas.Pandamo.Statistics
             DataFrame df = new DataFrame(dataframeJson);
             return df;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dataframe"></param>
+        /// <param name="zValues"></param>
+        /// <param name="standardDeviation"></param>
+        /// <returns></returns>
+        public static object NaiveBayes(List<List<object>> trainingFeatures, List<object> trainingTarget, List<List<object>> testFeatures)
+        {
+            // Build argument JSON objec
+            dynamic arguments = new JObject();
+            arguments.traning_features = JToken.FromObject(trainingFeatures);
+            arguments.traning_targets = JToken.FromObject(trainingTarget);
+            arguments.test_features = JToken.FromObject(testFeatures);
+
+            string prediction = DynamoPandas.Pandamo.PythonRestCall
+                .webUriCaller(PythonConstants.webUri + UrlPrefix + "/naive_bayes/", arguments);
+            object output = JArray.Parse(prediction).ToObject<List<object>>();
+            return output;
+        }
     }
 }

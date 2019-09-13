@@ -6,7 +6,7 @@ from flask import current_app as app
 from flask import request
 from flask import jsonify
 from scipy import stats
-
+from sklearn.naive_bayes import GaussianNB
 
 
 mod = Blueprint('stats', __name__)
@@ -52,6 +52,40 @@ def drop_outliers():
     df_json = filtered_df.to_json(orient='split', date_format='iso')
     response = app.response_class(
         response=df_json,
+        status=200,
+        mimetype='application/json'
+    )
+    return response
+
+@mod.route('naive_bayes/', methods=["POST"])
+def naive_bayes():
+    request_dict = request.get_json()
+    traning_features = request_dict['traning_features']
+    traning_targets = request_dict['traning_targets']
+    test_features = request_dict['test_features']
+
+    print(traning_features)
+    print(traning_targets)
+    print(test_features)
+
+    from sklearn.preprocessing import StandardScaler
+    sc = StandardScaler()
+    X_train = sc.fit_transform(pd.np.array(traning_features))
+    X_test = sc.transform(pd.np.array(test_features))
+    print(X_train)
+    print(X_test)
+
+    # Fitting Naive Bayes to the Training set
+    from sklearn.naive_bayes import GaussianNB
+    classifier = GaussianNB()
+    classifier.fit(X_train, traning_targets)
+
+    # Predicting the Test set results
+    y_pred = classifier.predict(X_test)
+    print(y_pred)
+    json_response = json.dumps(y_pred.tolist())
+    response = app.response_class(
+        response=json_response,
         status=200,
         mimetype='application/json'
     )
