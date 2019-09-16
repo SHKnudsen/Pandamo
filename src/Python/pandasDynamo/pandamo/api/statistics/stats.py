@@ -64,16 +64,10 @@ def naive_bayes():
     traning_targets = request_dict['traning_targets']
     test_features = request_dict['test_features']
 
-    print(traning_features)
-    print(traning_targets)
-    print(test_features)
-
     from sklearn.preprocessing import StandardScaler
     sc = StandardScaler()
     X_train = sc.fit_transform(pd.np.array(traning_features))
     X_test = sc.transform(pd.np.array(test_features))
-    print(X_train)
-    print(X_test)
 
     # Fitting Naive Bayes to the Training set
     from sklearn.naive_bayes import GaussianNB
