@@ -198,11 +198,11 @@
     </ItemGroup>
     <PropertyGroup>
       <!--Copy to Dynamo sandbox for testing -->
-      <DeployFolder Condition="'$(Configuration)' == 'Debug'">$(AppData)\Dynamo\Dynamo Core\2.0\packages\$(SolutionName)</DeployFolder>
+      <DeployFolder Condition="'$(Configuration)' == 'Debug'">$(AppData)\Dynamo\Dynamo Core\2.4\packages\$(SolutionName)</DeployFolder>
       <!--Copy to Dynamo Revit for testing -->
-      <DeployFolder Condition="'$(Configuration)' == 'DebugRevit'">$(AppData)\Dynamo\Dynamo Revit\2.0\packages\$(SolutionName)</DeployFolder>
+      <DeployFolder Condition="'$(Configuration)' == 'DebugRevit'">$(AppData)\Dynamo\Dynamo Revit\2.4\packages\$(SolutionName)</DeployFolder>
       <!--Copy to Dynamo revit for publishing -->
-      <DeployFolder Condition="'$(Configuration)' == 'Release'">$(AppData)\Dynamo\Dynamo Revit\2.0\packages\$(SolutionName)</DeployFolder>
+      <DeployFolder Condition="'$(Configuration)' == 'Release'">$(AppData)\Dynamo\Dynamo Revit\2.4\packages\$(SolutionName)</DeployFolder>
     </PropertyGroup>
     <Copy SourceFiles="@(SourcePackage)" DestinationFolder="$(DeployFolder)\%(RecursiveDir)" />
   </Target>

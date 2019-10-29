@@ -330,3 +330,4 @@ ASALocalRun/
 .mfractor/
 src/Python/pandasDynamo/.vscode/settings.json
 src/Python/pandasDynamo/.vscode/launch.json
+src/Python/pandasDynamo/.vscode/settings.json
