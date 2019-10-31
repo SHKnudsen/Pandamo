@@ -6,6 +6,8 @@ import re
 from flask import Blueprint
 from flask import current_app as app
 from flask import request
+from utillities.exceptions import ExceptionHelpers
+import traceback
 
 
 mod = Blueprint('reshape_dataframe', __name__)
@@ -26,9 +28,12 @@ def sort_values():
             mimetype='application/json'
         )
     except:
-        exception_message = sys.exc_info()[1]
-        response = json.dumps({"content":exception_message})
-        response.status_code = 400
+        exception = ExceptionHelpers.format_exception(sys.exc_info())
+        response = app.response_class(
+            response=exception,
+            status=400,
+            mimetype='application/json'
+        )
     return response
 
 @mod.route('rename_columns/', methods=["POST"])
@@ -38,8 +43,8 @@ def rename_columns():
         jsonstr = request_dict['jsonStr']
         old_value = request_dict['old_value']
         new_value = request_dict['new_value']
-        if(len(old_value) != len(new_value)):
-            raise Exception('OldValue and NewValue needs to be two equal sized lists or two single items')
+        #if(len(old_value) != len(new_value)):
+        #    raise Exception('OldValue and NewValue needs to be two equal sized lists or two single items')
         values = dict(zip(old_value,new_value))
         df = pd.read_json(json.dumps(eval(jsonstr)), orient='split')
         df = df.rename(index=str, columns=values)
@@ -50,9 +55,12 @@ def rename_columns():
             mimetype='application/json'
         )
     except:
-        exception_message = sys.exc_info()[1]
-        response = json.dumps({"content":exception_message})
-        response.status_code = 400
+        exception = ExceptionHelpers.format_exception(sys.exc_info())
+        response = app.response_class(
+            response=exception,
+            status=400,
+            mimetype='application/json'
+        )
     return response
 
 @mod.route('pivot_dataframe/', methods=["POST"])
@@ -72,14 +80,18 @@ def pivot_dataframe():
             mimetype='application/json'
         )
     except:
-        exception_message = sys.exc_info()[1]
-        response = json.dumps({"content":exception_message})
-        response.status_code = 400
+        exception = ExceptionHelpers.format_exception(sys.exc_info())
+        response = app.response_class(
+            response=exception,
+            status=400,
+            mimetype='application/json'
+        )
     return response
 
 @mod.route('melt_dataframe/', methods=["POST"])
 def melt_dataframe():
     try:
+        print("_________")
         request_dict = request.get_json()
         jsonstr = request_dict['jsonStr']
         id_var = request_dict['id_var']
@@ -93,9 +105,12 @@ def melt_dataframe():
             mimetype='application/json'
         )
     except:
-        exception_message = sys.exc_info()[1]
-        response = json.dumps({"content":exception_message})
-        response.status_code = 400
+        exception = ExceptionHelpers.format_exception(sys.exc_info())
+        response = app.response_class(
+            response=exception,
+            status=400,
+            mimetype='application/json'
+        )
     return response
 
 @mod.route('drop_rows/', methods=["POST"])
@@ -113,9 +128,12 @@ def drop_rows():
             mimetype='application/json'
         )
     except:
-        exception_message = sys.exc_info()[1]
-        response = json.dumps({"content":exception_message})
-        response.status_code = 400
+        exception = ExceptionHelpers.format_exception(sys.exc_info())
+        response = app.response_class(
+            response=exception,
+            status=400,
+            mimetype='application/json'
+        )
     return response
 
 @mod.route('drop_columns/', methods=["POST"])
@@ -133,9 +151,12 @@ def drop_columns():
             mimetype='application/json'
         )
     except:
-        exception_message = sys.exc_info()[1]
-        response = json.dumps({"content":exception_message})
-        response.status_code = 400
+        exception = ExceptionHelpers.format_exception(sys.exc_info())
+        response = app.response_class(
+            response=exception,
+            status=400,
+            mimetype='application/json'
+        )
     return response
 
 @mod.route('reverse_dataframe/', methods=["POST"])
@@ -161,9 +182,12 @@ def reverse_dataframe():
             mimetype='application/json'
         )
     except:
-        exception_message = sys.exc_info()[1]
-        response = json.dumps({"content":exception_message})
-        response.status_code = 400
+        exception = ExceptionHelpers.format_exception(sys.exc_info())
+        response = app.response_class(
+            response=exception,
+            status=400,
+            mimetype='application/json'
+        )
     return response
 
 # Consider if this is needed
@@ -184,9 +208,12 @@ def strings_to_numbers():
             mimetype='application/json'
         )
     except:
-        exception_message = sys.exc_info()[1]
-        response = json.dumps({"content":exception_message})
-        response.status_code = 400
+        exception = ExceptionHelpers.format_exception(sys.exc_info())
+        response = app.response_class(
+            response=exception,
+            status=400,
+            mimetype='application/json'
+        )
     return response
 
 @mod.route('fill_na/', methods=["POST"])
@@ -203,9 +230,12 @@ def fill_na():
             mimetype='application/json'
         )
     except:
-        exception_message = sys.exc_info()[1]
-        response = json.dumps({"content":exception_message})
-        response.status_code = 400
+        exception = ExceptionHelpers.format_exception(sys.exc_info())
+        response = app.response_class(
+            response=exception,
+            status=400,
+            mimetype='application/json'
+        )
     return response
 
 @mod.route('to_datetime/', methods=["POST"])
@@ -223,9 +253,12 @@ def to_datetime():
             mimetype='application/json'
         )
     except:
-        exception_message = sys.exc_info()[1]
-        response = json.dumps({"content":exception_message})
-        response.status_code = 400
+        exception = ExceptionHelpers.format_exception(sys.exc_info())
+        response = app.response_class(
+            response=exception,
+            status=400,
+            mimetype='application/json'
+        )
     return response
 
 @mod.route('drop_na/', methods=["POST"])
@@ -242,9 +275,12 @@ def drop_na():
             mimetype='application/json'
         )
     except:
-        exception_message = sys.exc_info()[1]
-        response = json.dumps({"content":exception_message})
-        response.status_code = 400
+        exception = ExceptionHelpers.format_exception(sys.exc_info())
+        response = app.response_class(
+            response=exception,
+            status=400,
+            mimetype='application/json'
+        )
     return response
 
 @mod.route('get_dummies/', methods=["POST"])
@@ -261,7 +297,10 @@ def get_dummies():
             mimetype='application/json'
         )
     except:
-        exception_message = sys.exc_info()[1]
-        response = json.dumps({"content":exception_message})
-        response.status_code = 400
+        exception = ExceptionHelpers.format_exception(sys.exc_info())
+        response = app.response_class(
+            response=exception,
+            status=400,
+            mimetype='application/json'
+        )
     return response

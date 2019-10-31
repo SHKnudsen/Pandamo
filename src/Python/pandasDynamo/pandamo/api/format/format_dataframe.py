@@ -5,6 +5,7 @@ import pandas as pd
 from flask import Blueprint
 from flask import current_app as app
 from flask import request
+from utillities.exceptions import ExceptionHelpers
 
 mod = Blueprint('format_dataframe', __name__)
 
@@ -24,7 +25,10 @@ def tabulate():
             mimetype='application/json'
         )
     except:
-        exception_message = sys.exc_info()[1]
-        response = json.dumps({"content":exception_message})
-        response.status_code = 400
+        exception = ExceptionHelpers.format_exception(sys.exc_info())
+        response = app.response_class(
+            response=exception,
+            status=400,
+            mimetype='application/json'
+        )
     return response
