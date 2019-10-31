@@ -46,7 +46,7 @@ namespace DynamoPandas.Pandamo.Pandas
             arguments.jsonStr = jsonStr;
 
             string dataframeJson = DynamoPandas.Pandamo.PythonRestCall
-                .webUriCaller(PythonConstants.webUri + "api/create_dataframe/by_dict/", arguments);
+                .webUriPostCaller(PythonConstants.webUri + "api/create_dataframe/by_dict/", arguments);
             DataFrame df = new DataFrame(dataframeJson);
             return df;
         }
@@ -59,7 +59,7 @@ namespace DynamoPandas.Pandamo.Pandas
             arguments.sheetName = sheetName;
 
             string dataframeJson = DynamoPandas.Pandamo.PythonRestCall
-                .webUriCaller(PythonConstants.webUri + "api/create_dataframe/by_excel/", arguments);
+                .webUriPostCaller(PythonConstants.webUri + "api/create_dataframe/by_excel/", arguments);
             DataFrame df = new DataFrame(dataframeJson);
             return df;
         }
@@ -77,7 +77,7 @@ namespace DynamoPandas.Pandamo.Pandas
             arguments.jsonStr = jsonStr;
 
             string dataframeJson = DynamoPandas.Pandamo.PythonRestCall
-                .webUriCaller(PythonConstants.webUri + "api/create_dataframe/by_dict/", arguments);
+                .webUriPostCaller(PythonConstants.webUri + "api/create_dataframe/by_dict/", arguments);
             DataFrame df = new DataFrame(dataframeJson);
             return df;
         }

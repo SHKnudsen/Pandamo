@@ -35,7 +35,7 @@ namespace DynamoPandas.Pandamo.Reshape
             arguments.ascending = ascending;
 
             string dataframeJson = DynamoPandas.Pandamo.PythonRestCall
-                .webUriCaller(PythonConstants.webUri + UrlPrefix + "/sort_values/", arguments);
+                .webUriPostCaller(PythonConstants.webUri + UrlPrefix + "/sort_values/", arguments);
             DataFrame df = new DataFrame(dataframeJson);
             return df;
         }
@@ -58,7 +58,7 @@ namespace DynamoPandas.Pandamo.Reshape
             arguments.new_value = JToken.FromObject(newValues);
 
             string dataframeJson = DynamoPandas.Pandamo.PythonRestCall
-                .webUriCaller(PythonConstants.webUri + UrlPrefix + "/rename_columns/", arguments);
+                .webUriPostCaller(PythonConstants.webUri + UrlPrefix + "/rename_columns/", arguments);
             DataFrame df = new DataFrame(dataframeJson);
             return df;
         }
@@ -83,7 +83,7 @@ namespace DynamoPandas.Pandamo.Reshape
             arguments.values = JToken.FromObject(values);
 
             string dataframeJson = DynamoPandas.Pandamo.PythonRestCall
-                .webUriCaller(PythonConstants.webUri + UrlPrefix + "/pivot_dataframe/", arguments);
+                .webUriPostCaller(PythonConstants.webUri + UrlPrefix + "/pivot_dataframe/", arguments);
             DataFrame df = new DataFrame(dataframeJson);
             return df;
         }
@@ -106,7 +106,7 @@ namespace DynamoPandas.Pandamo.Reshape
             arguments.value_var = JToken.FromObject(valueVar);
 
             string dataframeJson = DynamoPandas.Pandamo.PythonRestCall
-                .webUriCaller(PythonConstants.webUri + UrlPrefix + "/melt_dataframe/", arguments);
+                .webUriPostCaller(PythonConstants.webUri + UrlPrefix + "/melt_dataframe/", arguments);
             DataFrame df = new DataFrame(dataframeJson);
             return df;
         }
@@ -127,7 +127,7 @@ namespace DynamoPandas.Pandamo.Reshape
             arguments.indexToDrop = JToken.FromObject(index);
 
             string dataframeJson = DynamoPandas.Pandamo.PythonRestCall
-                .webUriCaller(PythonConstants.webUri + UrlPrefix + "/drop_rows/", arguments);
+                .webUriPostCaller(PythonConstants.webUri + UrlPrefix + "/drop_rows/", arguments);
             DataFrame df = new DataFrame(dataframeJson);
             return df;
         }
@@ -148,7 +148,7 @@ namespace DynamoPandas.Pandamo.Reshape
             arguments.columnsToDrop = JToken.FromObject(columns);
 
             string dataframeJson = DynamoPandas.Pandamo.PythonRestCall
-                .webUriCaller(PythonConstants.webUri + UrlPrefix + "/drop_columns/", arguments);
+                .webUriPostCaller(PythonConstants.webUri + UrlPrefix + "/drop_columns/", arguments);
             DataFrame df = new DataFrame(dataframeJson);
             return df;
         }
@@ -171,7 +171,7 @@ namespace DynamoPandas.Pandamo.Reshape
             arguments.reset_index = resetIndex;
 
             string dataframeJson = DynamoPandas.Pandamo.PythonRestCall
-                .webUriCaller(PythonConstants.webUri + UrlPrefix + "/reverse_dataframe/", arguments);
+                .webUriPostCaller(PythonConstants.webUri + UrlPrefix + "/reverse_dataframe/", arguments);
             DataFrame df = new DataFrame(dataframeJson);
             return df;
         }
@@ -195,7 +195,7 @@ namespace DynamoPandas.Pandamo.Reshape
             arguments.numberTypes = JToken.FromObject(numberTypes);
 
             string dataframeJson = DynamoPandas.Pandamo.PythonRestCall
-                .webUriCaller(PythonConstants.webUri + UrlPrefix + "/strings_to_numbers/", arguments);
+                .webUriPostCaller(PythonConstants.webUri + UrlPrefix + "/strings_to_numbers/", arguments);
             DataFrame df = new DataFrame(dataframeJson);
             return df;
         }
@@ -214,7 +214,7 @@ namespace DynamoPandas.Pandamo.Reshape
             arguments.jsonStr = jsonStr;
             
             string dataframeJson = DynamoPandas.Pandamo.PythonRestCall
-                .webUriCaller(PythonConstants.webUri + UrlPrefix + "/fill_na/", arguments);
+                .webUriPostCaller(PythonConstants.webUri + UrlPrefix + "/fill_na/", arguments);
             DataFrame df = new DataFrame(dataframeJson);
             return df;
         }
@@ -235,7 +235,7 @@ namespace DynamoPandas.Pandamo.Reshape
             arguments.column = column;
 
             string dataframeJson = DynamoPandas.Pandamo.PythonRestCall
-                .webUriCaller(PythonConstants.webUri + UrlPrefix + "/to_datetime/", arguments);
+                .webUriPostCaller(PythonConstants.webUri + UrlPrefix + "/to_datetime/", arguments);
             DataFrame df = new DataFrame(dataframeJson);
             return df;
         }
@@ -253,7 +253,7 @@ namespace DynamoPandas.Pandamo.Reshape
             arguments.jsonStr = jsonStr;
 
             string dataframeJson = DynamoPandas.Pandamo.PythonRestCall
-                .webUriCaller(PythonConstants.webUri + UrlPrefix + "/drop_na/", arguments);
+                .webUriPostCaller(PythonConstants.webUri + UrlPrefix + "/drop_na/", arguments);
             DataFrame df = new DataFrame(dataframeJson);
             return df;
         }
@@ -272,7 +272,7 @@ namespace DynamoPandas.Pandamo.Reshape
             arguments.jsonStr = jsonStr;
 
             string dataframeJson = DynamoPandas.Pandamo.PythonRestCall
-                .webUriCaller(PythonConstants.webUri + UrlPrefix + "/get_dummies/", arguments);
+                .webUriPostCaller(PythonConstants.webUri + UrlPrefix + "/get_dummies/", arguments);
             DataFrame df = new DataFrame(dataframeJson);
             return df;
         }

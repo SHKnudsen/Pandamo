@@ -31,7 +31,7 @@ namespace DynamoPandas.Pandamo.Statistics
             arguments.columns = JToken.FromObject(columns);
 
             string dataframeJson = DynamoPandas.Pandamo.PythonRestCall
-                .webUriCaller(PythonConstants.webUri + UrlPrefix + "/z_score/", arguments);
+                .webUriPostCaller(PythonConstants.webUri + UrlPrefix + "/z_score/", arguments);
             object output = JsonHelper.Deserialize(dataframeJson);
             return output;
         }
@@ -54,7 +54,7 @@ namespace DynamoPandas.Pandamo.Statistics
             arguments.standard_deviation = JToken.FromObject(standardDeviation);
 
             string dataframeJson = DynamoPandas.Pandamo.PythonRestCall
-                .webUriCaller(PythonConstants.webUri + UrlPrefix + "/drop_outliers/", arguments);
+                .webUriPostCaller(PythonConstants.webUri + UrlPrefix + "/drop_outliers/", arguments);
             DataFrame df = new DataFrame(dataframeJson);
             return df;
         }

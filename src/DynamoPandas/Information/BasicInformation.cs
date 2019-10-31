@@ -29,7 +29,7 @@ namespace DynamoPandas.Pandamo.Information
             arguments.jsonStr = jsonStr;
 
             string response = DynamoPandas.Pandamo.PythonRestCall
-                .webUriCaller(PythonConstants.webUri + UrlPrefix + "/shape/", arguments);
+                .webUriPostCaller(PythonConstants.webUri + UrlPrefix + "/shape/", arguments);
 
             List<int> shapeData = JArray.Parse(response).ToObject<List<int>>();
             
@@ -57,7 +57,7 @@ namespace DynamoPandas.Pandamo.Information
             arguments.jsonStr = jsonStr;
 
             string response = DynamoPandas.Pandamo.PythonRestCall
-                .webUriCaller(PythonConstants.webUri + UrlPrefix + "/index/", arguments);
+                .webUriPostCaller(PythonConstants.webUri + UrlPrefix + "/index/", arguments);
             object indexInfo = JsonHelper.Deserialize(response);
  
             return indexInfo;
@@ -77,7 +77,7 @@ namespace DynamoPandas.Pandamo.Information
             arguments.jsonStr = jsonStr;
 
             string response = DynamoPandas.Pandamo.PythonRestCall
-                .webUriCaller(PythonConstants.webUri + UrlPrefix + "/columns/", arguments);
+                .webUriPostCaller(PythonConstants.webUri + UrlPrefix + "/columns/", arguments);
             object columnsInfo = JsonHelper.Deserialize(response);
             return columnsInfo;
         }
@@ -96,7 +96,7 @@ namespace DynamoPandas.Pandamo.Information
             arguments.jsonStr = jsonStr;
 
             string response = DynamoPandas.Pandamo.PythonRestCall
-                .webUriCaller(PythonConstants.webUri + UrlPrefix + "/info/", arguments);
+                .webUriPostCaller(PythonConstants.webUri + UrlPrefix + "/info/", arguments);
             return response;
         }
 
@@ -114,7 +114,7 @@ namespace DynamoPandas.Pandamo.Information
             arguments.jsonStr = jsonStr;
 
             string response = DynamoPandas.Pandamo.PythonRestCall
-                .webUriCaller(PythonConstants.webUri + UrlPrefix + "/count/", arguments);
+                .webUriPostCaller(PythonConstants.webUri + UrlPrefix + "/count/", arguments);
             object countInfo = JsonHelper.Deserialize(response);
             return countInfo;
         }
@@ -133,7 +133,7 @@ namespace DynamoPandas.Pandamo.Information
             arguments.jsonStr = jsonStr;
 
             string response = DynamoPandas.Pandamo.PythonRestCall
-                .webUriCaller(PythonConstants.webUri + UrlPrefix + "/datatypes/", arguments);
+                .webUriPostCaller(PythonConstants.webUri + UrlPrefix + "/datatypes/", arguments);
             object datatypesInfo = JsonHelper.Deserialize(response);
             return datatypesInfo;
         }
