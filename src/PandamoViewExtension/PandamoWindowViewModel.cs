@@ -29,6 +29,7 @@ namespace DynamoPandas.PandamoViewExtension
         private Process pandamoProcess;
         private string processOutput;
         private string assemblyFolder = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+        private string userPath = System.Environment.GetEnvironmentVariable("USERPROFILE");
 
         public Process PandamoProcess
         {
@@ -48,9 +49,20 @@ namespace DynamoPandas.PandamoViewExtension
             this.viewParameters = parameters;
             this.dynamoViewModel = this.viewParameters.DynamoWindow.DataContext as DynamoViewModel;
             this.dynamoModel = this.dynamoViewModel.Model;
+            bool exsist = DoesEnvironmentExsist();
             StartServer();
             string hasServerStarted = PandasServer.HasServerStarted();
             ProcessOutput += hasServerStarted + "\n";
+        }
+
+        private bool DoesEnvironmentExsist()
+        {
+            string pandamoEnvironmentPath = String.Format(@"{0}\Miniconda3\envs\pandamo", userPath);
+            if (!Directory.Exists(pandamoEnvironmentPath))
+            {
+                return false;
+            }
+            return true;
         }
 
         public void StartServer()
