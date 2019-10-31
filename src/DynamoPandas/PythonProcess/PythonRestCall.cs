@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using RestSharp;
 using Autodesk.DesignScript.Runtime;
+using DynamoPandas.Pandamo.Utilities;
 
 namespace DynamoPandas.Pandamo
 {
@@ -44,13 +45,14 @@ namespace DynamoPandas.Pandamo
             }
             catch (WebException ex)
             {
-                string exceptionMessage = $"An error occurred:\n";
+                string genericWarningMessage = $"An error occurred:\n";
                 if (ex.Status == WebExceptionStatus.ConnectFailure)
                 {
-                    return exceptionMessage + ex.Message;
+                    return genericWarningMessage + ex.Message;
                 }  
-                var resp = new StreamReader(ex.Response.GetResponseStream()).ReadToEnd();
-                return exceptionMessage + resp;
+                var speceficWarningMessage = new StreamReader(ex.Response.GetResponseStream()).ReadToEnd();
+                
+                return genericWarningMessage + speceficWarningMessage;
             }
         }
 

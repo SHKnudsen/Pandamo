@@ -6,6 +6,7 @@ import re
 from flask import Blueprint
 from flask import current_app as app
 from flask import request
+from utillities.exceptions import ExceptionHelpers
 
 
 mod = Blueprint('summary', __name__)
@@ -29,9 +30,12 @@ def sum():
             mimetype='application/json'
         )
     except:
-        exception_message = sys.exc_info()[1]
-        response = json.dumps({"content":exception_message})
-        response.status_code = 400
+        exception = ExceptionHelpers.format_exception(sys.exc_info())
+        response = app.response_class(
+            response=exception,
+            status=400,
+            mimetype='application/json'
+        )
     return response
 
 # Cumulative sum of values
@@ -51,9 +55,12 @@ def cumulative_sum():
             mimetype='application/json'
         )
     except:
-        exception_message = sys.exc_info()[1]
-        response = json.dumps({"content":exception_message})
-        response.status_code = 400
+        exception = ExceptionHelpers.format_exception(sys.exc_info())
+        response = app.response_class(
+            response=exception,
+            status=400,
+            mimetype='application/json'
+        )
     return response
 
 # maximum values
@@ -73,9 +80,12 @@ def max_value():
             mimetype='application/json'
         )
     except:
-        exception_message = sys.exc_info()[1]
-        response = json.dumps({"content":exception_message})
-        response.status_code = 400
+        exception = ExceptionHelpers.format_exception(sys.exc_info())
+        response = app.response_class(
+            response=exception,
+            status=400,
+            mimetype='application/json'
+        )
     return response
 
 # Minimum values
@@ -95,9 +105,12 @@ def min_value():
             mimetype='application/json'
         )
     except:
-        exception_message = sys.exc_info()[1]
-        response = json.dumps({"content":exception_message})
-        response.status_code = 400
+        exception = ExceptionHelpers.format_exception(sys.exc_info())
+        response = app.response_class(
+            response=exception,
+            status=400,
+            mimetype='application/json'
+        )
     return response
 
 # Maximum index value
@@ -121,9 +134,12 @@ def max_index_value():
             mimetype='application/json'
         )
     except:
-        exception_message = sys.exc_info()[1]
-        response = json.dumps({"content":exception_message})
-        response.status_code = 400
+        exception = ExceptionHelpers.format_exception(sys.exc_info())
+        response = app.response_class(
+            response=exception,
+            status=400,
+            mimetype='application/json'
+        )
     return response
 
 # Minimum index value
@@ -145,9 +161,12 @@ def min_index_value():
             mimetype='application/json'
         )
     except:
-        exception_message = sys.exc_info()[1]
-        response = json.dumps({"content":exception_message})
-        response.status_code = 400
+        exception = ExceptionHelpers.format_exception(sys.exc_info())
+        response = app.response_class(
+            response=exception,
+            status=400,
+            mimetype='application/json'
+        )
     return response
 
 # Summary statistics
@@ -166,9 +185,12 @@ def describe():
             mimetype='application/json'
         )
     except:
-        exception_message = sys.exc_info()[1]
-        response = json.dumps({"content":exception_message})
-        response.status_code = 400
+        exception = ExceptionHelpers.format_exception(sys.exc_info())
+        response = app.response_class(
+            response=exception,
+            status=400,
+            mimetype='application/json'
+        )
     return response
 
 # Mean of values
@@ -188,9 +210,12 @@ def mean():
             mimetype='application/json'
         )
     except:
-        exception_message = sys.exc_info()[1]
-        response = json.dumps({"content":exception_message})
-        response.status_code = 400
+        exception = ExceptionHelpers.format_exception(sys.exc_info())
+        response = app.response_class(
+            response=exception,
+            status=400,
+            mimetype='application/json'
+        )
     return response
 
 # Median of values
@@ -210,9 +235,12 @@ def median():
             mimetype='application/json'
         )
     except:
-        exception_message = sys.exc_info()[1]
-        response = json.dumps({"content":exception_message})
-        response.status_code = 400
+        exception = ExceptionHelpers.format_exception(sys.exc_info())
+        response = app.response_class(
+            response=exception,
+            status=400,
+            mimetype='application/json'
+        )
     return response
 
 # unique value for each variable
@@ -232,7 +260,10 @@ def unique():
             mimetype='application/json'
         )
     except:
-        exception_message = sys.exc_info()[1]
-        response = json.dumps({"content":exception_message})
-        response.status_code = 400
+        exception = ExceptionHelpers.format_exception(sys.exc_info())
+        response = app.response_class(
+            response=exception,
+            status=400,
+            mimetype='application/json'
+        )
     return response

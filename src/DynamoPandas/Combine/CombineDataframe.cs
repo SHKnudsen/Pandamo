@@ -28,7 +28,7 @@ namespace DynamoPandas.Pandamo.Combine
             arguments.right_index = rightIndex;
 
             string dataframeJson = DynamoPandas.Pandamo.PythonRestCall
-                .webUriCaller(PythonConstants.webUri + "api/combine/merge/", arguments);
+                .webUriPostCaller(PythonConstants.webUri + "api/combine/merge/", arguments);
             DataFrame df = new DataFrame(dataframeJson);
             return df;
         }
@@ -50,7 +50,7 @@ namespace DynamoPandas.Pandamo.Combine
             arguments.join = join;
 
             string dataframeJson = DynamoPandas.Pandamo.PythonRestCall
-                .webUriCaller(PythonConstants.webUri + "api/combine/concatenate/", arguments);
+                .webUriPostCaller(PythonConstants.webUri + "api/combine/concatenate/", arguments);
             DataFrame df = new DataFrame(dataframeJson);
             return df;
         }

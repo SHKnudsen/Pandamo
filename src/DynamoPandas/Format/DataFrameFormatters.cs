@@ -20,7 +20,7 @@ namespace DynamoPandas.Pandamo.Format
             arguments.jsonStr = jsonStr;
 
             string dataframeJson = DynamoPandas.Pandamo.PythonRestCall
-                .webUriCaller(PythonConstants.webUri + "api/format_dataframe/tabulate/", arguments);
+                .webUriPostCaller(PythonConstants.webUri + "api/format_dataframe/tabulate/", arguments);
             if (dataframeJson.StartsWith("An error occurred."))
             {
                 throw new Exception(dataframeJson);            

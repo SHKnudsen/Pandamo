@@ -30,7 +30,7 @@ namespace DynamoPandas.Pandamo.Information
             arguments.axis = axis;
 
             string response = DynamoPandas.Pandamo.PythonRestCall
-                .webUriCaller(PythonConstants.webUri + UrlPrefix + "/sum/", arguments);
+                .webUriPostCaller(PythonConstants.webUri + UrlPrefix + "/sum/", arguments);
             object summaryDict = JsonHelper.Deserialize(response);
             return summaryDict;
         }
@@ -49,7 +49,7 @@ namespace DynamoPandas.Pandamo.Information
             arguments.jsonStr = jsonStr;
 
             string response = DynamoPandas.Pandamo.PythonRestCall
-                .webUriCaller(PythonConstants.webUri + UrlPrefix + "/cumulative_sum/", arguments);
+                .webUriPostCaller(PythonConstants.webUri + UrlPrefix + "/cumulative_sum/", arguments);
             object summaryDict = JsonHelper.Deserialize(response);
             return summaryDict;
         }
@@ -68,7 +68,7 @@ namespace DynamoPandas.Pandamo.Information
             arguments.jsonStr = jsonStr;
 
             string response = DynamoPandas.Pandamo.PythonRestCall
-                .webUriCaller(PythonConstants.webUri + UrlPrefix + "/max_value/", arguments);
+                .webUriPostCaller(PythonConstants.webUri + UrlPrefix + "/max_value/", arguments);
             object summaryDict = JsonHelper.Deserialize(response);
             return summaryDict;
         }
@@ -87,7 +87,7 @@ namespace DynamoPandas.Pandamo.Information
             arguments.jsonStr = jsonStr;
 
             string response = DynamoPandas.Pandamo.PythonRestCall
-                .webUriCaller(PythonConstants.webUri + UrlPrefix + "/min_value/", arguments);
+                .webUriPostCaller(PythonConstants.webUri + UrlPrefix + "/min_value/", arguments);
             object summaryDict = JsonHelper.Deserialize(response);
             return summaryDict;
         }
@@ -108,7 +108,7 @@ namespace DynamoPandas.Pandamo.Information
             arguments.axis = axis;
 
             string response = DynamoPandas.Pandamo.PythonRestCall
-                .webUriCaller(PythonConstants.webUri + UrlPrefix + "/max_index_value/", arguments);
+                .webUriPostCaller(PythonConstants.webUri + UrlPrefix + "/max_index_value/", arguments);
             object summaryDict = JsonHelper.Deserialize(response);
             return summaryDict;
         }
@@ -129,7 +129,7 @@ namespace DynamoPandas.Pandamo.Information
             arguments.axis = axis;
 
             string response = DynamoPandas.Pandamo.PythonRestCall
-                .webUriCaller(PythonConstants.webUri + UrlPrefix + "/min_index_value/", arguments);
+                .webUriPostCaller(PythonConstants.webUri + UrlPrefix + "/min_index_value/", arguments);
             object summaryDict = JsonHelper.Deserialize(response);
             return summaryDict;
         }
@@ -148,7 +148,7 @@ namespace DynamoPandas.Pandamo.Information
             arguments.jsonStr = jsonStr;
 
             string response = DynamoPandas.Pandamo.PythonRestCall
-                .webUriCaller(PythonConstants.webUri + UrlPrefix + "/describe/", arguments);
+                .webUriPostCaller(PythonConstants.webUri + UrlPrefix + "/describe/", arguments);
             DataFrame df = new DataFrame(response);
             return df;
         }
@@ -167,7 +167,7 @@ namespace DynamoPandas.Pandamo.Information
             arguments.jsonStr = jsonStr;
 
             string response = DynamoPandas.Pandamo.PythonRestCall
-                .webUriCaller(PythonConstants.webUri + UrlPrefix + "/median/", arguments);
+                .webUriPostCaller(PythonConstants.webUri + UrlPrefix + "/median/", arguments);
             object summaryDict = JsonHelper.Deserialize(response);
             return summaryDict;
         }
@@ -186,7 +186,7 @@ namespace DynamoPandas.Pandamo.Information
             arguments.jsonStr = jsonStr;
 
             string response = DynamoPandas.Pandamo.PythonRestCall
-                .webUriCaller(PythonConstants.webUri + UrlPrefix + "/mean/", arguments);
+                .webUriPostCaller(PythonConstants.webUri + UrlPrefix + "/mean/", arguments);
             object summaryDict = JsonHelper.Deserialize(response);
             return summaryDict;
         }
@@ -200,7 +200,7 @@ namespace DynamoPandas.Pandamo.Information
             arguments.jsonStr = jsonStr;
 
             string response = DynamoPandas.Pandamo.PythonRestCall
-                .webUriCaller(PythonConstants.webUri + UrlPrefix + "/unique/", arguments);
+                .webUriPostCaller(PythonConstants.webUri + UrlPrefix + "/unique/", arguments);
             object summaryDict = JsonHelper.Deserialize(response);
             return summaryDict;
         }

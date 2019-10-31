@@ -23,7 +23,7 @@ namespace DynamoPandas.Pandamo.Select
             arguments.include = JToken.FromObject(datatypes);
 
             string dataframeJson = DynamoPandas.Pandamo.PythonRestCall
-                .webUriCaller(PythonConstants.webUri + UrlPrefix + "/by_datatype/", arguments);
+                .webUriPostCaller(PythonConstants.webUri + UrlPrefix + "/by_datatype/", arguments);
             DataFrame df = new DataFrame(dataframeJson);
             return df;
         }

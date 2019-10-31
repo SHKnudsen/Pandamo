@@ -32,7 +32,7 @@ namespace DynamoPandas.Pandamo.Select
             arguments.matchString = matchString;
 
             string dataframeJson = DynamoPandas.Pandamo.PythonRestCall
-                .webUriCaller(PythonConstants.webUri + UrlPrefix + "/by_match/", arguments);
+                .webUriPostCaller(PythonConstants.webUri + UrlPrefix + "/by_match/", arguments);
             DataFrame df = new DataFrame(dataframeJson);
             return df;
         }
@@ -55,7 +55,7 @@ namespace DynamoPandas.Pandamo.Select
             arguments.containsString = containsString;
 
             string dataframeJson = DynamoPandas.Pandamo.PythonRestCall
-                .webUriCaller(PythonConstants.webUri + UrlPrefix + "/by_contains/", arguments);
+                .webUriPostCaller(PythonConstants.webUri + UrlPrefix + "/by_contains/", arguments);
             DataFrame df = new DataFrame(dataframeJson);
             return df;
         }
@@ -77,7 +77,7 @@ namespace DynamoPandas.Pandamo.Select
             arguments.rowIndex = JToken.FromObject(rowIndex);
 
             string dataframeJson = DynamoPandas.Pandamo.PythonRestCall
-                .webUriCaller(PythonConstants.webUri + UrlPrefix + "/by_index/", arguments);
+                .webUriPostCaller(PythonConstants.webUri + UrlPrefix + "/by_index/", arguments);
             DataFrame df = new DataFrame(dataframeJson);
             return df;
         }
@@ -100,7 +100,7 @@ namespace DynamoPandas.Pandamo.Select
             arguments.columnLabel = JToken.FromObject(columnLabel);
 
             string dataframeJson = DynamoPandas.Pandamo.PythonRestCall
-                .webUriCaller(PythonConstants.webUri + UrlPrefix + "/by_label/", arguments);
+                .webUriPostCaller(PythonConstants.webUri + UrlPrefix + "/by_label/", arguments);
             DataFrame df = new DataFrame(dataframeJson);
             return df;
         }
@@ -121,7 +121,7 @@ namespace DynamoPandas.Pandamo.Select
             arguments.boolExpression = expression;
 
             string dataframeJson = DynamoPandas.Pandamo.PythonRestCall
-                .webUriCaller(PythonConstants.webUri + UrlPrefix + "/by_bool_expression/", arguments);
+                .webUriPostCaller(PythonConstants.webUri + UrlPrefix + "/by_bool_expression/", arguments);
             DataFrame df = new DataFrame(dataframeJson);
             return df;
         }

@@ -32,7 +32,7 @@ namespace DynamoPandas.Pandamo.FilterDataframe
             arguments.axis = axis;
 
             string dataframeJson = DynamoPandas.Pandamo.PythonRestCall
-                .webUriCaller(PythonConstants.webUri + "api/filter_dataframe/by_items/", arguments);
+                .webUriPostCaller(PythonConstants.webUri + "api/filter_dataframe/by_items/", arguments);
             DataFrame df = new DataFrame(dataframeJson);
             return df;
         }
@@ -57,7 +57,7 @@ namespace DynamoPandas.Pandamo.FilterDataframe
             arguments.axis = axis;
 
             string dataframeJson = DynamoPandas.Pandamo.PythonRestCall
-                .webUriCaller(PythonConstants.webUri + "api/filter_dataframe/by_regex/", arguments);
+                .webUriPostCaller(PythonConstants.webUri + "api/filter_dataframe/by_regex/", arguments);
             DataFrame df = new DataFrame(dataframeJson);
             return df;
         }
@@ -81,7 +81,7 @@ namespace DynamoPandas.Pandamo.FilterDataframe
             arguments.axis = axis;
 
             string dataframeJson = DynamoPandas.Pandamo.PythonRestCall
-                .webUriCaller(PythonConstants.webUri + "api/filter_dataframe/by_contains/", arguments);
+                .webUriPostCaller(PythonConstants.webUri + "api/filter_dataframe/by_contains/", arguments);
             DataFrame df = new DataFrame(dataframeJson);
             return df;
         }
