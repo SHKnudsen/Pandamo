@@ -49,8 +49,8 @@ namespace DynamoPandas.PandamoViewExtension
             this.dynamoViewModel = this.viewParameters.DynamoWindow.DataContext as DynamoViewModel;
             this.dynamoModel = this.dynamoViewModel.Model;
             StartServer();
-            //string hasServerStarted = PandasServer.HasServerStarted();
-            //ProcessOutput += hasServerStarted + "\n";
+            string hasServerStarted = PandasServer.HasServerStarted();
+            ProcessOutput += hasServerStarted + "\n";
         }
 
         public void StartServer()
@@ -78,7 +78,6 @@ namespace DynamoPandas.PandamoViewExtension
                     CreateNoWindow = showNoWindow
                 }
             };
-            process.OutputDataReceived += Process_OutputDataReceived;
             process.Start();
 
             return process;

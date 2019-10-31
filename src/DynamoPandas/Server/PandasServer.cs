@@ -14,7 +14,7 @@ namespace DynamoPandas.Pandamo.Server
 
         public static string HasServerStarted()
         {
-            string response = DynamoPandas.Pandamo.PythonRestCall.webUriCaller(PythonConstants.webUri + UrlPrefix + "/has_server_started/", new JObject(), "GET");
+            string response = DynamoPandas.Pandamo.PythonRestCall.webUriGetCaller(PythonConstants.webUri + UrlPrefix + "/has_server_started/");
             return response;
         }
     }

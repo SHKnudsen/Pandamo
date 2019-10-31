@@ -18,15 +18,15 @@ namespace DynamoPandas.Pandamo
         /// <summary>
         /// C# to call Python HttpWeb RESTful API
         /// </summary>
-        /// <param name="uirWebAPI">UIR web api link</param>
+        /// <param name="apiUri">Uri web api link</param>
         /// <param name="exceptionMessage">Returned exception message</param>
         /// <returns>Web response string</returns>
-        public static string webUriCaller(string uirWebAPI, JObject argumentDict, string method = "POST")
+        public static string webUriPostCaller(string apiUri, JObject argumentDict, string method = "POST")
         {
             try
             {
                 string webResponse = string.Empty;
-                Uri uri = new Uri(uirWebAPI);
+                Uri uri = new Uri(apiUri);
                 HttpWebRequest httpWebRequest = (HttpWebRequest)HttpWebRequest.Create(uri);
                 httpWebRequest.ContentType = "application/json";
                 httpWebRequest.Method = method;
@@ -52,6 +52,25 @@ namespace DynamoPandas.Pandamo
                 var resp = new StreamReader(ex.Response.GetResponseStream()).ReadToEnd();
                 return exceptionMessage + resp;
             }
+        }
+
+        public static string webUriGetCaller(string apiUri, string method="GET")
+        {
+            string html = string.Empty;
+            Uri uri = new Uri(apiUri);
+
+            HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(apiUri);
+            httpWebRequest.AutomaticDecompression = DecompressionMethods.GZip;
+            httpWebRequest.Method = method;
+
+            using (HttpWebResponse response = (HttpWebResponse)httpWebRequest.GetResponse())
+            using (Stream stream = response.GetResponseStream())
+            using (StreamReader reader = new StreamReader(stream))
+            {
+                html = reader.ReadToEnd();
+            }
+
+            return html;
         }
     }
 }
