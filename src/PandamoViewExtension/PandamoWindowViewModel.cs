@@ -28,8 +28,10 @@ namespace DynamoPandas.PandamoViewExtension
         private readonly DynamoModel dynamoModel;
         private Process pandamoProcess;
         private string processOutput;
-        private string assemblyFolder = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-        private string userPath = System.Environment.GetEnvironmentVariable("USERPROFILE");
+        private static readonly string assemblyFolder = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+        private static readonly string userPath = System.Environment.GetEnvironmentVariable("USERPROFILE");
+        private static readonly string currentUserPath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+        private static readonly string extraPath = Path.GetFullPath(Path.Combine(assemblyFolder, @"..\extra"));
 
         public Process PandamoProcess
         {
@@ -49,15 +51,11 @@ namespace DynamoPandas.PandamoViewExtension
             this.viewParameters = parameters;
             this.dynamoViewModel = this.viewParameters.DynamoWindow.DataContext as DynamoViewModel;
             this.dynamoModel = this.dynamoViewModel.Model;
-            bool exsist = DoesEnvironmentExsist();
-            StartServer();
-            string hasServerStarted = PandasServer.HasServerStarted();
-            ProcessOutput += hasServerStarted + "\n";
         }
 
         private bool DoesEnvironmentExsist()
         {
-            string pandamoEnvironmentPath = String.Format(@"{0}\Miniconda3\envs\pandamo", userPath);
+            string pandamoEnvironmentPath = String.Format(@"{0}\Miniconda3\envs\pandamo\conda-meta", userPath);
             if (!Directory.Exists(pandamoEnvironmentPath))
             {
                 return false;
@@ -65,17 +63,55 @@ namespace DynamoPandas.PandamoViewExtension
             return true;
         }
 
+        private void CreatePandamoEnvironmentFromYml()
+        {
+            string minicondaPath = String.Format(@"{0}\Miniconda3\Scripts\activate.bat", userPath);
+            string createPandamoEnvironment = "conda env create -f environment.yml";
+            var process = new Process
+            {
+                StartInfo = new ProcessStartInfo
+                {
+                    WorkingDirectory = extraPath + @"\pandasDynamo",
+                    FileName = "cmd.exe",
+                    RedirectStandardInput = true,
+                    RedirectStandardOutput = true,
+                    UseShellExecute = false,
+                    CreateNoWindow = false
+                }
+            };
+
+            process.Start();
+            using (StreamWriter sw = process.StandardInput)
+            {
+                if (sw.BaseStream.CanWrite)
+                {
+                    sw.WriteLine(minicondaPath);
+                    sw.WriteLine(createPandamoEnvironment);
+                }
+            }
+            string output = process.StandardOutput.ReadToEnd();
+            process.BeginOutputReadLine();
+            process.WaitForExit();
+        }
+
         public void StartServer()
         {
+            if (!DoesEnvironmentExsist())
+            {
+                ProcessOutput += "Pandamo Python environment does not exist, starting to create....\n";
+                CreatePandamoEnvironmentFromYml();
+            }
+            
             PandamoProcess = CreateNewProcess();
-            PandamoProcess.BeginOutputReadLine();
+            //PandamoProcess.BeginOutputReadLine();
+            string hasServerStarted = PandasServer.HasServerStarted();
+            ProcessOutput += hasServerStarted + "\n";
+            RaisePropertyChanged("ProcessOutput");
         }
 
         private Process CreateNewProcess(bool showNoWindow = true)
-        {
-            string currentUserPath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
-            string extraPath = Path.GetFullPath(Path.Combine(assemblyFolder, @"..\extra"));
-            string startServer = "startPandamoServer.bat";
+        {         
+            string startServerBat = "startPandamoServer.bat";
             // Set working directory and create process
             var process = new Process
             {
@@ -83,7 +119,7 @@ namespace DynamoPandas.PandamoViewExtension
                 {
                     WorkingDirectory = extraPath + @"\pandasDynamo",
                     FileName = "cmd.exe",
-                    Arguments = string.Format("start cmd /k {0}", startServer),
+                    Arguments = string.Format("start cmd /k {0}", startServerBat),
                     RedirectStandardInput = true,
                     RedirectStandardOutput = true,
                     UseShellExecute = false,
