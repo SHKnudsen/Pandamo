@@ -28,5 +28,15 @@ namespace DynamoPandas.PandamoViewExtension
             pandamoVm = vm;
             InitializeComponent();
         }
+
+        private void StartServerButton_Click(object sender, RoutedEventArgs e)
+        {
+            pandamoVm.StartServer();
+        }
+
+        private void KillServerButton_Click(object sender, RoutedEventArgs e)
+        {
+            pandamoVm.KillServer();
+        }
     }
 }

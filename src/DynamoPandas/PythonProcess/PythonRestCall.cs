@@ -58,21 +58,36 @@ namespace DynamoPandas.Pandamo
 
         public static string webUriGetCaller(string apiUri, string method="GET")
         {
-            string html = string.Empty;
-            Uri uri = new Uri(apiUri);
-
-            HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(apiUri);
-            httpWebRequest.AutomaticDecompression = DecompressionMethods.GZip;
-            httpWebRequest.Method = method;
-
-            using (HttpWebResponse response = (HttpWebResponse)httpWebRequest.GetResponse())
-            using (Stream stream = response.GetResponseStream())
-            using (StreamReader reader = new StreamReader(stream))
+            try
             {
-                html = reader.ReadToEnd();
-            }
+                string html = string.Empty;
+                Uri uri = new Uri(apiUri);
 
-            return html;
+                HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(apiUri);
+                httpWebRequest.AutomaticDecompression = DecompressionMethods.GZip;
+                httpWebRequest.Method = method;
+
+                using (HttpWebResponse response = (HttpWebResponse)httpWebRequest.GetResponse())
+                using (Stream stream = response.GetResponseStream())
+                using (StreamReader reader = new StreamReader(stream))
+                {
+                    html = reader.ReadToEnd();
+                }
+                return html;
+            }
+            catch (WebException ex)
+            {
+                string genericWarningMessage = $"An error occurred:\n";
+                if (ex.Status == WebExceptionStatus.ConnectFailure)
+                {
+                    return genericWarningMessage + ex.Message;
+                }
+                var speceficWarningMessage = new StreamReader(ex.Response.GetResponseStream()).ReadToEnd();
+
+                return genericWarningMessage + speceficWarningMessage;
+            }
+           
+            
         }
     }
 }

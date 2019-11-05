@@ -6,11 +6,18 @@
              xmlns:local="clr-namespace:DynamoPandas.PandamoViewExtension"
             xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300" ResizeMode="NoResize" Width="300" Height="300">
+             d:DesignHeight="300" d:DesignWidth="300" 
+            ResizeMode="CanMinimize" Width="600" Height="300"
+                      Title="Pandamo - Pandas for Dynamo" 
+                      NonActiveWindowTitleBrush="AntiqueWhite" >
     <Grid Name="MainGrid"
           HorizontalAlignment="Stretch"
           VerticalAlignment="Stretch">
-        <ScrollViewer VerticalScrollBarVisibility="Auto" Width="Auto">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="225"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Auto" Width="Auto">
             <TextBlock TextWrapping="Wrap" Text="{Binding ProcessOutput}"             
             FontFamily="Consolas" 
             Padding="10" 
@@ -19,5 +26,16 @@
             Background="#2d2d2d"
             Foreground="White"/>
         </ScrollViewer>
+        <Grid Grid.Row="1" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300"/>
+                <ColumnDefinition Width="300"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="StartServerButton" Grid.Column="0"  Content="Start Server" Click="StartServerButton_Click"
+                    ToolTip="Starts the Pandamo Flask server."/>
+            <Button x:Name="KillServerButton" Grid.Column="1"  Content="Kill Server" Click="KillServerButton_Click"
+                    ToolTip="Kills the Pandamo Flask server."/>
+        </Grid>
+       
     </Grid>
 </controls:MetroWindow>

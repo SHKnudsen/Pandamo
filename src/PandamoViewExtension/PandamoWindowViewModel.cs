@@ -18,6 +18,8 @@ using DynamoPandas.Pandamo.Server;
 using System.Diagnostics;
 using Newtonsoft.Json.Linq;
 using System.Reflection;
+using System.Runtime.InteropServices;
+using System.Management;
 
 namespace DynamoPandas.PandamoViewExtension
 {
@@ -42,7 +44,7 @@ namespace DynamoPandas.PandamoViewExtension
         public string ProcessOutput
         {
             get { return processOutput; }
-            set { processOutput = value; }
+            set { processOutput = value; RaisePropertyChanged("ProcessOutput"); }
         }
 
 
@@ -51,6 +53,21 @@ namespace DynamoPandas.PandamoViewExtension
             this.viewParameters = parameters;
             this.dynamoViewModel = this.viewParameters.DynamoWindow.DataContext as DynamoViewModel;
             this.dynamoModel = this.dynamoViewModel.Model;
+        }
+
+        public void StartServer()
+        {
+            if (!DoesEnvironmentExsist())
+            {
+                ProcessOutput += "Pandamo Python environment does not exist, starting to create....\n";
+                CreatePandamoEnvironmentFromYml();
+                ProcessOutput += "Environment created, starting server...\n";
+            }
+
+            PandamoProcess = CreateNewProcess();
+            
+            string hasServerStarted = PandasServer.HasServerStarted();
+            ProcessOutput += hasServerStarted + "\n";
         }
 
         private bool DoesEnvironmentExsist()
@@ -76,7 +93,7 @@ namespace DynamoPandas.PandamoViewExtension
                     RedirectStandardInput = true,
                     RedirectStandardOutput = true,
                     UseShellExecute = false,
-                    CreateNoWindow = false
+                    CreateNoWindow = true
                 }
             };
 
@@ -90,23 +107,8 @@ namespace DynamoPandas.PandamoViewExtension
                 }
             }
             string output = process.StandardOutput.ReadToEnd();
-            process.BeginOutputReadLine();
-            process.WaitForExit();
-        }
-
-        public void StartServer()
-        {
-            if (!DoesEnvironmentExsist())
-            {
-                ProcessOutput += "Pandamo Python environment does not exist, starting to create....\n";
-                CreatePandamoEnvironmentFromYml();
-            }
-            
-            PandamoProcess = CreateNewProcess();
-            //PandamoProcess.BeginOutputReadLine();
-            string hasServerStarted = PandasServer.HasServerStarted();
-            ProcessOutput += hasServerStarted + "\n";
-            RaisePropertyChanged("ProcessOutput");
+            ProcessOutput += output + "\n";
+            process.Kill();
         }
 
         private Process CreateNewProcess(bool showNoWindow = true)
@@ -119,23 +121,78 @@ namespace DynamoPandas.PandamoViewExtension
                 {
                     WorkingDirectory = extraPath + @"\pandasDynamo",
                     FileName = "cmd.exe",
-                    Arguments = string.Format("start cmd /k {0}", startServerBat),
+                    Arguments = string.Format("/k {0}", startServerBat), //start cmd /k
                     RedirectStandardInput = true,
                     RedirectStandardOutput = true,
+                    RedirectStandardError = true,
                     UseShellExecute = false,
                     CreateNoWindow = showNoWindow
                 }
             };
+            process.OutputDataReceived += Process_OutputDataReceived;
+            process.ErrorDataReceived += Process_ErrorDataReceived;
+            
             process.Start();
-
+            process.BeginOutputReadLine();
+            process.BeginErrorReadLine();
             return process;
+        }
+
+        private void Process_ErrorDataReceived(object sender, DataReceivedEventArgs e)
+        {
+            ProcessOutput += e.Data + "\n";
         }
 
         private void Process_OutputDataReceived(object sender, DataReceivedEventArgs e)
         {
             ProcessOutput += e.Data + "\n";
-            RaisePropertyChanged("ProcessOutput");
+            //RaisePropertyChanged("ProcessOutput");
 
+        }
+
+        public void KillServer()
+        {
+            Process p = PandamoProcess;
+            Process currentProcess = Process.GetCurrentProcess();
+            KillAllProcessesSpawnedBy((uint)currentProcess.Id);
+            p.Dispose();
+            ProcessOutput += "Pandamo server has been shutdown";
+        }
+
+        private static void KillAllProcessesSpawnedBy(UInt32 parentProcessId)
+        {
+        
+            // gets all child process from the current Dynamo process
+            ManagementObjectSearcher searcher = new ManagementObjectSearcher(
+                "SELECT * " +
+                "FROM Win32_Process " +
+                "WHERE ParentProcessId=" + parentProcessId);
+            ManagementObjectCollection collection = searcher.Get();
+
+            if (collection.Count > 0)
+            {
+                foreach (var item in collection)
+                {
+                    UInt32 childProcessId = (UInt32)item["ProcessId"];
+                    Process childProcess = Process.GetProcessById((int)childProcessId);
+                    string name = childProcess.ProcessName;
+                    if (name == "cmd" || name == "flask" || name == "python" || name == "conhost")
+                    {
+                        KillAllProcessesSpawnedBy(childProcessId);
+                        // We need to check that the process is not "flask" as the "flask
+                        // process gets killed by its child process "python"
+                        if (name != "flask")
+                        {
+                            childProcess = Process.GetProcessById((int)childProcessId);
+                            Process[] pname = Process.GetProcessesByName(childProcess.ProcessName);
+                            if (pname.Length > 0)
+                            {
+                                childProcess.Kill();
+                            }
+                        }   
+                    }
+                }
+            }
         }
 
         public void Dispose()
