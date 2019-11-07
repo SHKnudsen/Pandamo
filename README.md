@@ -6,7 +6,7 @@
   <br>
 </h1>
 
-<h4 align:"center">Datascience for Dynamo</h4>
+<h4 align="center">Datascience for Dynamo</h4>
 
 
 # Pandamo - pandas for Dynamo
