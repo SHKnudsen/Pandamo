@@ -205,14 +205,16 @@ namespace DynamoPandas.Pandamo.Reshape
         /// </summary>
         /// <param name="dataframe"></param>
         /// <returns></returns>
-        public static DataFrame FillNa(DataFrame dataframe)
+        public static DataFrame FillNa(DataFrame dataframe, object value)
         {
             string jsonStr = dataframe.InternalDfJson;
 
             // Build argument JSON objec
             dynamic arguments = new JObject();
             arguments.jsonStr = jsonStr;
-            
+            arguments.value = value;
+
+
             string dataframeJson = DynamoPandas.Pandamo.PythonRestCall
                 .webUriPostCaller(PythonConstants.webUri + UrlPrefix + "/fill_na/", arguments);
             DataFrame df = new DataFrame(dataframeJson);
@@ -273,6 +275,23 @@ namespace DynamoPandas.Pandamo.Reshape
 
             string dataframeJson = DynamoPandas.Pandamo.PythonRestCall
                 .webUriPostCaller(PythonConstants.webUri + UrlPrefix + "/get_dummies/", arguments);
+            DataFrame df = new DataFrame(dataframeJson);
+            return df;
+        }
+        /// </summary>
+        /// <param name="dataframe"></param>
+        /// <returns></returns>
+        public static DataFrame Sample(DataFrame dataframe, double fraction)
+        {
+            string jsonStr = dataframe.InternalDfJson;
+
+            // Build argument JSON objec
+            dynamic arguments = new JObject();
+            arguments.jsonStr = jsonStr;
+            arguments.fraction = fraction;
+
+            string dataframeJson = DynamoPandas.Pandamo.PythonRestCall
+                .webUriPostCaller(PythonConstants.webUri + UrlPrefix + "/sample/", arguments);
             DataFrame df = new DataFrame(dataframeJson);
             return df;
         }
