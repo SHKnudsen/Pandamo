@@ -1,12 +1,13 @@
 
-<h1 style="text-align: center;">
+<h1 align:"center">
+ <br>
  <img src="./Images/pandamo.png" alt="Pandamo Logo" width="300">
-  <br>
-  Pandamo
-  <br>
+ <br>
+ Pandamo
+ <br>
 </h1>
 
-<h4 style="text-align: center;">Datascience for Dynamo</h4>
+<h4 align:"center">Datascience for Dynamo</h4>
 
 
 # Pandamo - pandas for Dynamo
