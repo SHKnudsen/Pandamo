@@ -57,7 +57,7 @@ Right now refer to the sample file `NaiveBayesPrediction.dyn` to see how some of
 
 ## Starting the Pandamo server
 Before running any Pandamo nodes you need to start the Pandamo server, to do this open the Pandamo view extension and press the `Start Server` button and wait until you see the `Pandamo server is running locally on....`
-<div align="center"><img src="./Images/start_pandamo_server.png" /></div> 
+<div align="center"><img src="./Images/start_pandamo_server.png" width="400"/></div> 
 
 After this the Pandamo nodes are ready to use.
 
