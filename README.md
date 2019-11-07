@@ -46,3 +46,39 @@ To install the Pandamo package simply follow the steps below:
 
 After this you should see a `Pandamo` button in your Dynamo ribbon. This is the Pandamo view extension.
 <div align="center"><img src="./Images/dynamo_ribbon.png" /></div> 
+
+# How to use Pandamo
+The documentaion of how to use the package is still limited, this will be updated as soon as i have the time.
+
+At the moment there are almost 50 nodes in the dyanmo package, none of them are documented at this point (i know.....).
+<div align="center"><img src="./Images/all_nodes.png" /></div> 
+
+Right now refer to the sample file `NaiveBayesPrediction.dyn` to see how some of the nodes work.
+
+## Starting the Pandamo server
+Before running any Pandamo nodes you need to start the Pandamo server, to do this open the Pandamo view extension and press the `Start Server` button and wait until you see the `Pandamo server is running locally on....`
+<div align="center"><img src="./Images/start_pandamo_server.png" /></div> 
+
+After this the Pandamo nodes are ready to use.
+
+## Creating a DataFrame
+There are 3 different ways to create a dataframe:
+
+### By dictionary
+<div align="center"><img src="./Images/dataframe_by_dictionary.png" /></div> 
+
+### By columns and values
+<div align="center"><img src="./Images/dataframe_by_columns_values.png" /></div> 
+
+### From Excel
+<div align="center"><img src="./Images/dataframe_from_excel.png" /></div> 
+
+## More information
+Stay tuned for more information about the nodes!
+
+# Appendix
+To learn more about Pandas and the different functions available in Pandamo take a look at the [`pandas documentation`](https://pandas.pydata.org/pandas-docs/stable/)
+
+You can also find various cheat sheets for pandas which show some of the functionality. A good example is [`this`](https://github.com/pandas-dev/pandas/blob/master/doc/cheatsheet/Pandas_Cheat_Sheet.pdf)
+
+
