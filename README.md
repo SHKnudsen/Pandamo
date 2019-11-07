@@ -6,7 +6,7 @@
   <br>
 </h1>
 
-<h4 style="text-align: center;">Datascience for Dynamo</h4>
+<h4 align:"center">Datascience for Dynamo</h4>
 
 
 # Pandamo - pandas for Dynamo
@@ -44,5 +44,5 @@ To install the Pandamo package simply follow the steps below:
 - download the `Pandamo` zip file from [`Releases`](https://github.com/SHKnudsen/Pandamo/releases) section on this repository.
 - Extract the `DynamoPandas` folder to your Dynamo package folder (`C:\Users\\%USERPROFILE%\AppData\Roaming\Dynamo\Dynamo Core\2.x\packages`)
 
-After this you should see a `Pandamo` button in your Dynamo ribbon.
-<div align="center"><img src="./Images/dynamo_ribbon.png" /></div> This is the Pandamo view extension.
+After this you should see a `Pandamo` button in your Dynamo ribbon. This is the Pandamo view extension.
+<div align="center"><img src="./Images/dynamo_ribbon.png" /></div> 
