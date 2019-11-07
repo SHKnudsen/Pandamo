@@ -1,6 +1,6 @@
 
 <h1 align="center">
- <img src="./Images/Pandamo.png" alt="Pandamo Logo" width="300">
+ <img src="./Images/pandamo.png" alt="Pandamo Logo" width="300">
   <br>
   Pandamo
   <br>
