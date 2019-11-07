@@ -73,7 +73,7 @@ There are 3 different ways to create a dataframe:
 ### From Excel
 <div align="center"><img src="./Images/dataframe_from_excel.png" /></div> 
 
-## More information
+# More information
 Stay tuned for more information about the nodes!
 
 # Appendix
