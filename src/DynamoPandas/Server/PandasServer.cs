@@ -1,4 +1,5 @@
-﻿using DynamoPandas.Pandamo.Constants;
+﻿using Autodesk.DesignScript.Runtime;
+using DynamoPandas.Pandamo.Constants;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ namespace DynamoPandas.Pandamo.Server
     {
         private const string UrlPrefix = @"api/server";
 
+        [IsVisibleInDynamoLibrary(false)]
         public static string HasServerStarted()
         {
             string response = DynamoPandas.Pandamo.PythonRestCall.webUriGetCaller(PythonConstants.webUri + UrlPrefix + "/has_server_started/");
