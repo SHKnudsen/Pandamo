@@ -1,41 +1,56 @@
 ﻿<controls:MetroWindow x:Class="DynamoPandas.PandamoViewExtension.PandamoWindow"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:DynamoPandas.PandamoViewExtension"
-            xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
-             mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300" 
-            ResizeMode="CanMinimize" Width="600" Height="300"
-                      Title="Pandamo - Pandas for Dynamo" 
-                      NonActiveWindowTitleBrush="AntiqueWhite" >
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                      xmlns:local="clr-namespace:DynamoPandas.PandamoViewExtension"
+                      xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+                      mc:Ignorable="d"
+                      d:DesignHeight="300"
+                      d:DesignWidth="300"
+                      ResizeMode="CanMinimize"
+                      Width="700"
+                      Height="300"
+                      Title="Pandamo - Pandas for Dynamo"
+                      ShowIconOnTitleBar="True"
+                      WindowTitleBrush="AntiqueWhite"
+                      NonActiveWindowTitleBrush="AntiqueWhite">
     <Grid Name="MainGrid"
           HorizontalAlignment="Stretch"
           VerticalAlignment="Stretch">
         <Grid.RowDefinitions>
-            <RowDefinition Height="225"/>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="225" />
+            <RowDefinition Height="50" />
         </Grid.RowDefinitions>
-        <ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Auto" Width="Auto">
-            <TextBlock TextWrapping="Wrap" Text="{Binding ProcessOutput}"             
-            FontFamily="Consolas" 
-            Padding="10" 
-            FontWeight="Medium" 
-            FontSize="12"
-            Background="#2d2d2d"
-            Foreground="White"/>
+        <ScrollViewer x:Name="scrollViewer"
+                      Grid.Row="0"
+                      VerticalScrollBarVisibility="Auto"
+                      Width="Auto">
+            <TextBlock TextWrapping="Wrap"
+                       Text="{Binding ProcessOutput}"
+                       FontFamily="Consolas"
+                       Padding="10"
+                       FontWeight="Medium"
+                       FontSize="12"
+                       Background="#2d2d2d"
+                       Foreground="White" />
         </ScrollViewer>
-        <Grid Grid.Row="1" >
+        <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="300"/>
-                <ColumnDefinition Width="300"/>
+                <ColumnDefinition Width="350" />
+                <ColumnDefinition Width="350" />
             </Grid.ColumnDefinitions>
-            <Button x:Name="StartServerButton" Grid.Column="0"  Content="Start Server" Click="StartServerButton_Click"
-                    ToolTip="Starts the Pandamo Flask server."/>
-            <Button x:Name="KillServerButton" Grid.Column="1"  Content="Kill Server" Click="KillServerButton_Click"
-                    ToolTip="Kills the Pandamo Flask server."/>
+            <Button x:Name="StartServerButton"
+                    Grid.Column="0"
+                    Content="Start Server"
+                    Click="StartServerButton_Click"
+                    ToolTip="Starts the Pandamo Flask server." />
+            <Button x:Name="KillServerButton"
+                    Grid.Column="1"
+                    Content="Kill Server"
+                    Click="KillServerButton_Click"
+                    ToolTip="Kills the Pandamo Flask server." />
         </Grid>
-       
+
     </Grid>
 </controls:MetroWindow>
