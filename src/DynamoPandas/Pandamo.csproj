@@ -183,8 +183,8 @@
       <DeployFolder Condition="'$(Configuration)' == 'Debug'">$(AppData)\Dynamo\Dynamo Core\2.4\packages\$(SolutionName)</DeployFolder>
       <!--Copy to Dynamo Revit for testing -->
       <DeployFolder Condition="'$(Configuration)' == 'DebugRevit'">$(AppData)\Dynamo\Dynamo Revit\2.4\packages\$(SolutionName)</DeployFolder>
-      <!--Copy to Dynamo revit for publishing -->
-      <DeployFolder Condition="'$(Configuration)' == 'Release'">$(AppData)\Dynamo\Dynamo Revit\2.4\packages\$(SolutionName)</DeployFolder>
+      <!--Copy to release folder for publishing -->
+      <DeployFolder Condition="'$(Configuration)' == 'Release'">$(SolutionDir)\..\release packages\$(ProjectName)</DeployFolder>
     </PropertyGroup>
     <!--Delete previously deployed packages first -->
     <!-- <RemoveDir Directories="$(DeployFolder)" /> -->
