@@ -28,7 +28,6 @@ namespace DynamoPandas.PandamoViewExtension
         private readonly ViewLoadedParams viewParameters;
         private readonly DynamoViewModel dynamoViewModel;
         private readonly DynamoModel dynamoModel;
-        private readonly PandamoWindow pandamoWindow;
         private Process pandamoProcess;
         private string processOutput;
         private static readonly string assemblyFolder = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
@@ -117,7 +116,6 @@ namespace DynamoPandas.PandamoViewExtension
             }
             string output = process.StandardOutput.ReadToEnd();
             ProcessOutput += output + "\n";
-            process.Kill();
         }
 
         private Process CreateNewProcess(bool showNoWindow = true)
