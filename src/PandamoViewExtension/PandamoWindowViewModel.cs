@@ -67,8 +67,15 @@ namespace DynamoPandas.PandamoViewExtension
             }
 
             PandamoProcess = CreateNewProcess();
-            
+
+            int checks = 0;
             string hasServerStarted = PandasServer.HasServerStarted();
+            while (hasServerStarted.Contains("An error occurred:") && checks < 10)
+            {
+                hasServerStarted = PandasServer.HasServerStarted();
+                checks++;
+            }
+
             ProcessOutput += hasServerStarted + "\n";
         }
 
