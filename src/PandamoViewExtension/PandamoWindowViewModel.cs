@@ -28,6 +28,7 @@ namespace DynamoPandas.PandamoViewExtension
         private readonly ViewLoadedParams viewParameters;
         private readonly DynamoViewModel dynamoViewModel;
         private readonly DynamoModel dynamoModel;
+        private readonly PandamoWindow pandamoWindow;
         private Process pandamoProcess;
         private string processOutput;
         private static readonly string assemblyFolder = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
@@ -57,6 +58,7 @@ namespace DynamoPandas.PandamoViewExtension
 
         public void StartServer()
         {
+            ProcessOutput += "Starting Pandamo Server..." + "\n";
             if (!DoesEnvironmentExsist())
             {
                 ProcessOutput += "Pandamo Python environment does not exist, starting to create....\n";
