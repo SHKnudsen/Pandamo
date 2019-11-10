@@ -61,6 +61,8 @@ Before running any Pandamo nodes you need to start the Pandamo server, to do thi
 
 After this the Pandamo nodes are ready to use.
 
+Note that the first time you start the server it will take some time, as the Pandamo environment has to be created.
+
 ## Stopping the server
 Pandamo automatically closes the server when you shut down Dynamo, however if you wnat to shut down the server without closing dynamo you can use the `Kill Server` button in the view extension window.
 
