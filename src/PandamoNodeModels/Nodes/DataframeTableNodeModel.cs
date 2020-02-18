@@ -17,9 +17,9 @@ using DynamoPandas.Pandamo.Utilities;
 
 namespace DynamoPandas.PandamoNodeModels.Nodes
 {
-    [NodeName("Tabulate")]
+    [NodeName("DataframeWatch")]
     [NodeCategory("Pandamo.Format.DataFrameFormatters")]
-    [NodeDescription("")]
+    [NodeDescription("Vizualize the dataframe in a datagrid")]
     // The InPortNames attribute determines the
     // amount of input ports of your node and their names.
     [InPortNames("Dataframe")]
@@ -27,16 +27,20 @@ namespace DynamoPandas.PandamoNodeModels.Nodes
     // The InPortDescriptions attribute sets the description
     // of your input ports in the tooltip shown when you hover them.
     [InPortDescriptions("DataFrame")]
-
-    // The OutPortNames attribute determines the
-    // amount of output ports of your node and their names.
-    [OutPortNames("string")]
-    [OutPortTypes("string")]
+    [OutPortNames(">")]
+    [OutPortTypes("Dataframe Output: DataFrame")]
     [IsDesignScriptCompatible]
     public class DataframeTableNodeModel : NodeModel
     {
         public Dictionary<string,object> DataframeDictionary { get; set; }
-        
+
+        private System.Data.DataTable dataTable;
+        public System.Data.DataTable DataTable
+        {
+            get { return dataTable; }
+            set { dataTable = value; RaisePropertyChanged(nameof(DataTable)); }
+        }
+
         #region Constructors
         public DataframeTableNodeModel()
         {
@@ -58,7 +62,7 @@ namespace DynamoPandas.PandamoNodeModels.Nodes
             if (DataframeDictionary != null)
             {
                 DataframeDictionary.Clear();
-                RaisePropertyChanged("DataUpdated");
+                RaisePropertyChanged("DataTable");
             }
         }
         #endregion
@@ -85,15 +89,48 @@ namespace DynamoPandas.PandamoNodeModels.Nodes
         {
             // Grab input data which always returned as an ArrayList
             var inputs = data as ArrayList;
+            if (inputs[0] == null)
+                return;
 
             // Each of the list inputs are also returned as ArrayLists
-            Dictionary<string, object> dataframeDictionary = DictionaryHelpers.ToCDictionary(inputs[0] as DesignScript.Builtin.Dictionary);
-      
+            Dictionary<string, object> dataframeDictionary = DictionaryHelpers.ToCDictionary(inputs[0] as DesignScript.Builtin.Dictionary);     
             DataframeDictionary = dataframeDictionary;
-            // Notify UI the data has been modified
-            RaisePropertyChanged("DataUpdated");
+
+            DataTable = DataTabelFromDictionary(DataframeDictionary);
+            
         }
         #endregion
+
+        private System.Data.DataTable DataTabelFromDictionary(Dictionary<string, object> dataframeDictionary)
+        {
+
+            if (dataframeDictionary.Count == 0)
+                return new System.Data.DataTable();
+
+            List<object> cols = dataframeDictionary["columns"] as List<object>;
+            List<object> vals = dataframeDictionary["data"] as List<object>;
+            List<object> idx = dataframeDictionary["index"] as List<object>;
+
+            if (cols.Contains("index"))
+                cols[cols.FindIndex(ind => ind.Equals("index"))] = "OriginalIndex";
+
+            System.Data.DataTable dataTable = new System.Data.DataTable("dataframe");
+            dataTable.Columns.Add("index");
+            foreach (var col in cols)
+            {
+                dataTable.Columns.Add(col.ToString(), col.GetType());
+            }
+            int counter = 0;
+            foreach (var val in vals)
+            {
+                List<object> lst = val as List<object>;
+                lst.Insert(0, idx[counter]);
+                dataTable.Rows.Add(lst.ToArray());
+                counter++;
+            }
+
+            return dataTable;
+        }
 
         #region Ast
         /// <summary>
@@ -124,12 +161,14 @@ namespace DynamoPandas.PandamoNodeModels.Nodes
             // which means we have two double inputs and one double output
             AssociativeNode inputNode = AstFactory.BuildFunctionCall(
                 new Func<DataFrame, object>(DataFrame.ToInternalDictionary),
-                new List<AssociativeNode> { inputAstNodes[0]}
+                new List<AssociativeNode> { inputAstNodes[0] }
             );
 
             return new[]
             {
-                AstFactory.BuildAssignment(GetAstIdentifierForOutputIndex(0), inputNode),
+                AstFactory.BuildAssignment(GetAstIdentifierForOutputIndex(0), inputAstNodes[0]),
+                
+                //AstFactory.BuildAssignment(GetAstIdentifierForOutputIndex(0), inputNode),
                 AstFactory.BuildAssignment(
                         AstFactory.BuildIdentifier(AstIdentifierBase + "_dummy"),
                         VMDataBridge.DataBridge.GenerateBridgeDataAst(GUID.ToString(), AstFactory.BuildExprList(
@@ -146,6 +185,7 @@ namespace DynamoPandas.PandamoNodeModels.Nodes
     /// </summary>
     public class DataframeFormatNodeView : INodeViewCustomization<DataframeTableNodeModel>
     {
+        public DataframeTableNodeModel Model { get; set; }
         private DataframeFormatControl dataframeFormatControl;
 
         /// <summary>
@@ -156,7 +196,8 @@ namespace DynamoPandas.PandamoNodeModels.Nodes
         /// <param name="nodeView">The NodeView representing the node in the graph.</param>
         public void CustomizeView(DataframeTableNodeModel model, NodeView nodeView)
         {
-            dataframeFormatControl = new DataframeFormatControl(model);
+            Model = model;
+            dataframeFormatControl = new DataframeFormatControl(Model);
             nodeView.inputGrid.Children.Add(dataframeFormatControl);
         }
 
