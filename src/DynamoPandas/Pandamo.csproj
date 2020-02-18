@@ -13,7 +13,7 @@
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
     <StartAction>Program</StartAction>
-    <StartProgram>C:\Users\matterlab_sylvester\Documents\DynamoCoreRuntime2.4.0\DynamoSandbox.exe</StartProgram>
+    <StartProgram>C:\Users\SylvesterKnudsen\Documents\DynamoCoreRuntime2.4.0\DynamoSandbox.exe</StartProgram>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -24,7 +24,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <StartAction>Program</StartAction>
-    <StartProgram>C:\Users\matterlab_sylvester\Documents\DynamoCoreRuntime2.4.0\DynamoSandbox.exe</StartProgram>
+    <StartProgram>C:\Users\SylvesterKnudsen\Documents\DynamoCoreRuntime2.4.0\DynamoSandbox.exe</StartProgram>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
